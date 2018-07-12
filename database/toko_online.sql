@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2018 at 11:07 AM
+-- Generation Time: Jul 11, 2018 at 10:48 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -61,7 +61,16 @@ CREATE TABLE `kategori_produk` (
 --
 
 INSERT INTO `kategori_produk` (`id_kategori`, `nama_kategori`) VALUES
-('01', 'Fashion');
+('01', 'Fashion'),
+('02', 'watches'),
+('03', 'Fine jewelry'),
+('04', 'Fashion jewelry'),
+('05', 'Engagement & wedding'),
+('06', 'Men\'s jewelry'),
+('07', 'Vintage & Antique'),
+('08', 'Loose Diamonds'),
+('09', 'Loose Beads'),
+('10', 'See all jewelry & wa');
 
 -- --------------------------------------------------------
 
@@ -148,7 +157,8 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `id_kategori`, `id_merk`, `nama_produk`, `bahan`, `warna`, `deskripsi`, `harga`, `foto`) VALUES
-('10', '11', '12', 'Kaos', 'katun', 'hitam', 'awet ', 60000, '8.jpg');
+('10', '11', '12', 'Kaos', 'katun', 'hitam', 'awet ', 60000, '8.jpg'),
+('17', '18', '19', 'samsung s9+', '', 'hitam-puti', 'tahan air', 3999, 'samsung_s9+1.jpg');
 
 -- --------------------------------------------------------
 

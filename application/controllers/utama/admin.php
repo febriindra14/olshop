@@ -7,10 +7,19 @@ class Admin extends CI_Controller
 	{
 		parent:: __construct();
 		$this->load->library('pajangan');
-	} 
+	}
+	//dashboard 
 	public function index()
 	{	
-		$this->pajangan->kirim('admin/depan');
+		$data=array
+		(
+			'user' 				=>$this->db->get('user')->num_rows(),
+			'kategori_produk'	=>$this->db->get('kategori_produk')->num_rows(),
+			'merk'				=>$this->db->get('merk')->num_rows(),
+			'produk'			=>$this->db->get('produk')->num_rows(),
+			'customer'			=>$this->db->get('customer')->num_rows()
+		);
+		$this->pajangan->kirim('admin/depan',$data);
 	}
 
 	// user
@@ -74,15 +83,44 @@ class Admin extends CI_Controller
 	
 	//halaman
 	public function halaman()
-	{
+	{	
 		$this->pajangan->kirim('admin/halaman');
 	}
 
 	// kategori produk
 	public function kategori_produk()
 	{
-		$ketiga=$this->user_model->muncul();
-		$this->pajangan->kirim('admin/kategori_produk',array('kirim'=>$ketiga));
+		$row=$this->user_model->getpro();
+		$config['base_url']=base_url().'index.php/utama/admin/kategori_produk';
+		$config['total_rows']=$row;
+		$config['per_page']=4;
+		$config['first_link']='Pertama';
+		$config['last_link']='Terakhir'; 
+		$config['next_link']='Berikutnya';
+		$config['prev_link']='Sebelumnya';
+
+		$config['full_tag_open']='<div>';
+		$config['full_tag_close']='</div>';
+		$config['num_tag_open']='<div class="page">';
+		$config['num_tag_close']='</div>';
+		$config['cur_tag_open']='<div class="page active">';
+		$config['cur_tag_close']='</div>';
+		$config['next_tag_open']='<div class="page">';
+		$config['next_tag_close']='</div>';
+		$config['prev_tag_open']='<div class="page">';
+		$config['prev_tag_close']='</div>';
+		$config['first_tag_open']='<div class="page">';
+		$config['first_tag_close']='</div>';
+		$config['last_tag_open']='<div class="page">';
+		$config['last_tag_close']='</div>';
+
+		$start=$this->uri->segment(4);
+		$this->pagination->initialize($config);
+		$data['kirim']=$this->user_model->muncul($config['per_page'],$start);
+		$this->pajangan->kirim('admin/kategori_produk',$data);
+
+		/*$ketiga=$this->user_model->muncul();
+		$this->pajangan->kirim('admin/kategori_produk',array('kirim'=>$ketiga)); */
 	}
 	public function form_kaduk()
 	{
@@ -189,8 +227,37 @@ class Admin extends CI_Controller
 	//produk
 	public function produk()
 	{	
-		$data['produk']=$this->user_model->kardus();
+		$row=$this->user_model->larik();
+		$config['base_url']=base_url().'index.php/utama/admin/produk';
+		$config['total_rows']=$row;
+		$config['per_page']=2;
+		$config['first_link']='Pertama';
+		$config['last_link']='Terakhir'; 
+		$config['next_link']='Berikutnya';
+		$config['prev_link']='Sebelumnya';
+
+		$config['full_tag_open']='<div>';
+		$config['full_tag_close']='</div>';
+		$config['num_tag_open']='<div class="page">';
+		$config['num_tag_close']='</div>';
+		$config['cur_tag_open']='<div class="page active">';
+		$config['cur_tag_close']='</div>';
+		$config['next_tag_open']='<div class="page">';
+		$config['next_tag_close']='</div>';
+		$config['prev_tag_open']='<div class="page">';
+		$config['prev_tag_close']='</div>';
+		$config['first_tag_open']='<div class="page">';
+		$config['first_tag_close']='</div>';
+		$config['last_tag_open']='<div class="page">';
+		$config['last_tag_close']='</div>';
+
+		$start=$this->uri->segment(4);
+		$this->pagination->initialize($config);
+		$data['produk']=$this->user_model->kardus($config['per_page'],$start);
 		$this->pajangan->kirim('admin/produk',$data);
+
+		//$data['produk']=$this->user_model->kardus();
+		//$this->pajangan->kirim('admin/produk',$data);
 	}
 	public function form_produk()
 	{
@@ -245,14 +312,14 @@ class Admin extends CI_Controller
 		$c=$this->input->post('id_produk');
 		$d=array(
 			'id_produk'			=>$this->input->post('id_produk'),
-			'id_kategori'			=>$this->input->post('id_kategori'),
+			'id_kategori'		=>$this->input->post('id_kategori'),
 			'id_merk'			=>$this->input->post('id_merk'),
-			'nama_produk'			=>$this->input->post('nama_produk'),
-			'bahan'			=>$this->input->post('bahan'),
-			'warna'		=>$this->input->post('warna'),
+			'nama_produk'		=>$this->input->post('nama_produk'),
+			'bahan'				=>$this->input->post('bahan'),
+			'warna'				=>$this->input->post('warna'),
 			'deskripsi'			=>$this->input->post('deskripsi'),
-			'harga'		=>$this->input->post('harga'),
-			'foto'		=>$file['file_name']);
+			'harga'				=>$this->input->post('harga'),
+			'foto'				=>$file['file_name']);
 		$e=$this->user_model->update_produk($d,$c);
 		redirect(base_url('index.php/utama/admin/produk'));
 	}

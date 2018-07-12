@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     </div>
      <div class="form-group">
       <label for="stok">bahan :</label>
-      <input type="text" name="bahan" class="form-control" required>
+      <input type="text" name="bahan" class="form-control">
     </div>
      <div class="form-group">
       <label for="stok">warna :</label>

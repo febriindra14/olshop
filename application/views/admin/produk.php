@@ -4,6 +4,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 <html>
 <head>
 	<title></title>
+	<style>
+	.page{
+		display: inline-block;
+		padding: 5px 9px;
+		margin-right: 4px;
+		border-radius: 3px;
+		border: solid 1px #c0c0c0;
+		background: #e9e9e9;
+		font-size: 16px;
+		font-weight: bold;
+		text-decoration: none;
+		color: #717171;
+		text-transform: capitalize;
+	}
+	.page:hover{
+		background: silver;
+	}
+	.active, .active:hover{
+		background: #757272;
+		border-color: #403c3c;
+		color: #e9e9e9;
+		cursor: default;
+	}
+</style>
 </head>
 <body>
 	<h2>Produk</h2>
@@ -29,6 +53,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 			<a data-toggle="tooltip" data-placement="top" title="Detail" style='background: grey; border:black;' class="btn btn-primary btn-sm" href="<?php echo base_url('index.php/utama/admin/detailproduk')?>">Detail</a></td>	
 	</tr>
 <?php }?>
-	</table>	
+	</table>
+	<br>
+	<?php echo $this->pagination->create_links() ?>	
 </body>
 </html>

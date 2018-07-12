@@ -60,7 +60,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
  }
 
  #container {
-  background-color: silver;
   display: table;
   margin: 10px;
   border: 1px solid red;
@@ -81,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
   <?php echo form_close()?>
  </div>
 
- <p class="footer"> Not register ? <a href="<?php echo base_url('index.php/login/daftar')?>" >click here</a></p>
+ <p class="footer"> Belum punya akun? <a href="<?php echo base_url('index.php/login/daftar')?>" >Klik Disini</a></p>
 </div>
 </body>
 </html>

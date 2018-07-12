@@ -10,4 +10,9 @@ class Pajangan
 		$data['isi']=$this->ini->load->view($bagian,$data,true);
 		$this->ini->load->view('admin/admin_view',$data);
 	}
+	function kiriman($bagian,$data=null)
+	{
+		$data['title']=$this->ini->load->view($bagian,$data,true);
+		$this->ini->load->view('customer/view_customer',$data);
+	}
 }
