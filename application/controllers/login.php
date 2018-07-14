@@ -6,53 +6,46 @@ class login extends CI_Controller
 	{
 		parent:: __construct();
 		$this->load->library('pajangan');
+		$this->load->model('login_model');
 	} 
 	public function index()
 	{
 		$this->load->view('login_view');
 	}
-
+	
 	public function view_admin()
 	{
 		$this->pajangan->kirim('admin/admin_view');
-	}
-	public function view_customer()
-	{
-		$this->pajangan->kirim('customer/mencoba');
-	}
+	}	
 	public function daftar()
 	{
 		$this->load->view('daftar_login');
-	} 
+	}
 
 	 //user login
-	public function ceklogin()
+	public function aksi_login()
 	{
-		if(isset($_POST['login']))
+		$username=$this->input->post('username');
+		$password=$this->input->post('password');
+		$where=array
+		(
+			'username' =>$username,
+			'password' =>$password
+		);
+		$cek=$this->login_model->cek_login('user',$where)->num_rows();
+		if($cek>0)
 		{
-			$username=$this->input->post('username',true);
-			$password=$this->input->post('password',true);
-			$cek=$this->login_model->proseslogin($username,$password);
-			$hasil=count($cek);
-			if($hasil>0)
-			{
-				$cobalogin=$this->db->get_where('user',array(
-					'username'=>$username,
-					'password'=>$password))->row();
-				$data=array('udhmasuk'=> true,'nama'=>$cobalogin->nama,'email'=>$cobalogin->email,'username'=>$cobalogin->username);
-				$this->session->set_userdata($data);
-				if($cobalogin->hak_akses=='admin')
-				{
-					redirect('index.php/login/view_admin');
-				}else if($cobalogin->hak_akses=='customer')
-				{
-					redirect('index.php/login/view_customer');
-				}else
-				{   
-					redirect('index.php/login');
-					
-				}
-			}
+			$data_session=array('nama'=>$username,'status'=>"login");
+			$this->session->set_userdata($data_session);
+			redirect(base_url('index.php/utama/admin'));
+		}else
+		{
+			echo "username dan password salah!";
 		}
-	}	
+	}
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect(base_url('login_view'));
+	}			
 }

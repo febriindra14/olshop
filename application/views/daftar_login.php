@@ -45,13 +45,6 @@
             </div>
       </div>
       
-       <div class="form-group">
-          <label class="col-sm-2 control-label">Hak Akses</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" name="hak_akses" required>
-            </div>
-      </div>
-      
       <div class="box-footer">
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

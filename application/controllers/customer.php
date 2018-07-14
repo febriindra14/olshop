@@ -12,8 +12,40 @@ class Customer extends CI_Controller
 	{
 		$this->pajangan->kiriman('customer/utama');
 	}
-	public function produk()
+	public function fashion()
 	{
-		$this->pajangan->kiriman('customer/produk');
+		$this->pajangan->kiriman('customer/fashion');
+	}
+	public function register()
+	{
+		$this->pajangan->kiriman('customer/registrasi');
+	}
+	public function kontak()
+	{
+		$this->pajangan->kiriman('customer/kontak');
+	}
+	public function keranjang()
+	{
+		$this->pajangan->kiriman('customer/keranjang');
+	}
+	public function list()
+	{
+		$this->pajangan->kiriman('customer/list');
+	}
+	public function grid()
+	{
+		$this->pajangan->kiriman('customer/grid');
+	}
+	public function tigacol()
+	{
+		$this->pajangan->kiriman('customer/tigacolom');
+	}
+	public function empatcol()
+	{
+		$this->pajangan->kiriman('customer/empatcolom');
+	}
+	public function tentang()
+	{
+		$this->pajangan->kiriman('customer/tentang');
 	}
 }

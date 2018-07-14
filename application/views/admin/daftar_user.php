@@ -5,65 +5,49 @@
 </head>
 <body>
   <form action="<?php echo base_url('index.php/utama/admin/tambah')?>" method="POST">
-    <h2>Daftar</h2>
-    <section class="content">
-      <div class="row">
-        <div class="col-md-15">
+   
+     <div class="container">
+      <h3><b>Tambah user</b></h3>
+      <div class="col-md-1"></div>
 
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Id User</label>
-          <div class="col-sm-5">
-            <input type="text" class="form-control" name="id_user" required>
-          </div>
-        </div> 
+ <div class="jumbotron col-md-4">
 
-      <div class="form-group">
-          <label class="col-sm-2 control-label">Nama</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" name="nama" required>
-            </div>
-      </div>
+    <div class="form-group">
+      <label>Id User :</label>
+      <input type="text" name="id_user" class="form-control" required>
+    </div>
 
-      <div class="form-group">
-          <label class="col-sm-2 control-label">Username</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" name="username" required>
-            </div>
-      </div>
+    <div class="form-group">
+      <label>Nama :</label>
+      <input type="text" name="nama" class="form-control" required>
+    </div>
 
-      <div class="form-group">
-          <label class="col-sm-2 control-label">Email</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" name="email" placeholder="coba@gmail.com" required>
-            </div>
-      </div>
+    <div class="form-group">
+      <label>Username :</label>
+      <input type="text" name="username" class="form-control" required>
+    </div>
 
-      <div class="form-group">
-          <label class="col-sm-2 control-label">Password</label>
-            <div class="col-sm-5">
-              <input type="Password" class="form-control" name="password" required>
-            </div>
-      </div>
-      
-       <div class="form-group">
-          <label class="col-sm-2 control-label">Hak Akses</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" name="hak_akses" required>
-            </div>
-      </div>
-      
+     <div class="form-group">
+      <label>Email :</label>
+      <input type="text" name="email" class="form-control" required>
+    </div>
+
+     <div class="form-group">
+      <label>Password :</label>
+      <input type="password" name="password" class="form-control">
+    </div>
+        
       <div class="box-footer">
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <input style="background: #00BFFF;" type="submit" class="btn btn-primary btn-submit" value="Simpan">
+             <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
               <a href="<?php echo base_url('index.php/utama/admin/tampil')?>" class="btn btn-default btn-reset">Batal</a>
             </div>
           </div>
         </div>
-        
-      </div>
-    </div>
-  </section>
+</div>
+</div>
+
 </form>  
 </body>
 </html>

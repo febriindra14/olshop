@@ -5,71 +5,53 @@
 </head>
 <body>
   <form action="<?php echo base_url('index.php/utama/admin/tambah_cus')?>" method="POST">
-    <h2>Tambah</h2>
-    <section class="content">
-      <div class="row">
-        <div class="col-md-15">
+  
+     <div class="container">
+      <h3><b>Tambah customer</b></h3>
+      <div class="col-md-1"></div>
 
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Id Customer</label>
-          <div class="col-sm-5">
-            <input type="text" class="form-control" name="id_customer" required>
-          </div>
-        </div> 
+ <div class="jumbotron col-md-4">
 
-      <div class="form-group">
-          <label class="col-sm-2 control-label">Id User</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" name="id_user" required>
-            </div>
-      </div>
+    <div class="form-group">
+      <label>Id customer :</label>
+      <input type="text" name="id_customer" class="form-control" required>
+    </div>
 
-      <div class="form-group">
-          <label class="col-sm-2 control-label">Tanggal Lahir</label>
-            <div class="col-sm-5">
-              <input type="date" class="form-control" name="tgl_lahir" required>
-            </div>
-      </div>
+    <div class="form-group">
+      <label>Nama depan :</label>
+      <input type="text" name="nama_depan" class="form-control" required>
+    </div>
 
-      <div class="form-group">
-          <label class="col-sm-2 control-label">Kode Pos</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" name="kode_pos" required>
-            </div>
-      </div>
+    <div class="form-group">
+      <label>Name belakang :</label>
+      <input type="text" name="nama_belakang" class="form-control" required>
+    </div>
 
-      <div class="form-group">
-          <label class="col-sm-2 control-label">No Telepon</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" name="no_telp" required>
-            </div>
-      </div>
+     <div class="form-group">
+      <label>Email :</label>
+      <input type="text" name="email" class="form-control" required>
+    </div>
 
-      <div class="form-group">
-          <label class="col-sm-2 control-label">No Rekening</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" name="no_rekening" required>
-            </div>
-      </div>
+     <div class="form-group">
+      <label>Password :</label>
+      <input type="password" name="password" class="form-control">
+    </div>
 
-      <div class="form-group">
-          <label class="col-sm-2 control-label">Alamat</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" name="alamat" required>
-            </div>
-      </div>        
-      
+    <div class="form-group">
+      <label>Tanggal lahir :</label>
+      <input type="date" name="tgl_lahir" class="form-control">
+    </div>
+
       <div class="box-footer">
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <input style="background: #00BFFF;" type="submit" class="btn btn-primary btn-submit" value="Simpan">
+              <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
               <a href="<?php echo base_url('index.php/utama/admin/customer')?>" class="btn btn-default btn-reset">Batal</a>
             </div>
           </div>
       </div>
        </div>
     </div>
-  </section>
               
   </form>  
 </body>

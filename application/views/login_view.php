@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
  #container {
   display: table;
   margin: 10px;
-  border: 1px solid red;
+  border: 1px solid grey;
   box-shadow: 0 0 8px #D0D0D0;
  }
  </style>
@@ -73,11 +73,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
  <h1>Masuk</h1>
 
  <div id="body">
-  <?php echo form_open('login/ceklogin')?>
+  <form action="<?php echo base_url('index.php/login/aksi_login');?>" method="post">
+    
   <input type="text" name="username" placeholder="Masukkan username"/><br><br>
   <input type="password" name="password" placeholder="Masukkan password"/><br><br>
   <center><input type="submit" value="LOGIN"/></center>
-  <?php echo form_close()?>
+
  </div>
 
  <p class="footer"> Belum punya akun? <a href="<?php echo base_url('index.php/login/daftar')?>" >Klik Disini</a></p>

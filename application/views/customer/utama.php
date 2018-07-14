@@ -1,21 +1,16 @@
-
-<!-- 
-Body Section 
--->
-	<div class="row">
 <div id="sidebar" class="span3">
 <div class="well well-small">
 	<ul class="nav nav-list">
-		<li><a href="<?php echo base_url('index.php/customer/produk');?>"><span class="icon-chevron-right"></span>Baju</a></li>
-		<li><a href="<?php echo base_url()?>"><span class="icon-chevron-right"></span>Watches</a></li>
-		<li><a href="<?php echo base_url()?>"><span class="icon-chevron-right"></span>Fine Jewelry</a></li>
-		<li><a href="<?php echo base_url()?>"><span class="icon-chevron-right"></span>Fashion Jewelry</a></li>
-		<li><a href="<?php echo base_url()?>"><span class="icon-chevron-right"></span>Engagement & Wedding</a></li>
-		<li><a href="<?php echo base_url()?>"><span class="icon-chevron-right"></span>Men's Jewelry</a></li>
-		<li><a href="<?php echo base_url()?>"><span class="icon-chevron-right"></span>Vintage & Antique</a></li>
-		<li><a href="<?php echo base_url()?>"><span class="icon-chevron-right"></span>Loose Diamonds </a></li>
-		<li><a href="<?php echo base_url()?>"><span class="icon-chevron-right"></span>Loose Beads</a></li>
-		<li><a href="<?php echo base_url()?>"><span class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>
+		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Fashion</a></li>
+		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Watches</a></li>
+		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Fine Jewelry</a></li>
+		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Fashion Jewelry</a></li>
+		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Engagement & Wedding</a></li>
+		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Men's Jewelry</a></li>
+		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Vintage & Antique</a></li>
+		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Loose Diamonds </a></li>
+		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Loose Beads</a></li>
+		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>
 		<li style="border:0"> &nbsp;</li>
 		<li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
 	</ul>
@@ -35,36 +30,37 @@ Body Section
 			<ul class="nav nav-list promowrapper">
 			<li>
 			  <div class="thumbnail">
-				<a class="zoomTool" href="<?php echo base_url()?>product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/images/9.jpg" alt="bootstrap ecommerce templates">
+				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+				<img src="<?php echo base_url()?>assets/fronted/assets/img/bootstrap-ecommerce-templates.png" alt="bootstrap ecommerce templates">
 				<div class="caption">
-				  <h4><a class="defaultBtn" href="<?php echo base_url()?>product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
+				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
 				</div>
 			  </div>
 			</li>
 			<li style="border:0"> &nbsp;</li>
 			<li>
 			  <div class="thumbnail">
-				<a class="zoomTool" href="<?php echo base_url()?>product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/images/8.jpg" alt="shopping cart template">
+				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+				<img src="<?php echo base_url()?>assets/fronted/assets/img/shopping-cart-template.png" alt="shopping cart template">
 				<div class="caption">
-				  <h4><a class="defaultBtn" href="<?php echo base_url()?>product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
+				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
 				</div>
 			  </div>
 			</li>
 			<li style="border:0"> &nbsp;</li>
 			<li>
 			  <div class="thumbnail">
-				<a class="zoomTool" href="<?php echo base_url()?>product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/images/7.jpg" alt="bootstrap template">
+				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+				<img src="<?php echo base_url()?>assets/fronted/assets/img/bootstrap-template.png" alt="bootstrap template">
 				<div class="caption">
-				  <h4><a class="defaultBtn" href="<?php echo base_url()?>product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
+				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
 				</div>
 			  </div>
 			</li>
 		  </ul>
 
 	</div>
+
 	<div class="span9">
 	<div class="well np">
 		<div id="myCarousel" class="carousel slide homCar">
@@ -105,6 +101,7 @@ Body Section
 <!--
 New Products
 -->
+
 	<div class="well well-small">
 	<h3>New Products </h3>
 	<hr class="soften"/>
@@ -175,13 +172,14 @@ New Products
             <a class="right carousel-control" href="#newProductCar" data-slide="next">&rsaquo;</a>
 		  </div>
 		  </div>
+
 		<div class="row-fluid">
 		  <ul class="thumbnails">
 			<li class="span4">
 			  <div class="thumbnail">
 				 
 				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<a href="product_details.html"><img src="<?php echo base_url()?>assets/images/8.jpg" alt=""></a>
+				<a href="product_details.html"><img src="<?php echo base_url()?>assets/images/" alt=""></a>
 				<div class="caption cntr">
 					<p>Manicure & Pedicure</p>
 					<p><strong> $22.00</strong></p>
@@ -197,7 +195,7 @@ New Products
 			<li class="span4">
 			  <div class="thumbnail">
 				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<a href="product_details.html"><img src="<?php echo base_url()?>assets/images/3.jpg" alt=""></a>
+				<a href="product_details.html"><img src="<?php echo base_url()?>assets/images/" alt=""></a>
 				<div class="caption cntr">
 					<p>Manicure & Pedicure</p>
 					<p><strong> $22.00</strong></p>
@@ -213,7 +211,7 @@ New Products
 			<li class="span4">
 			  <div class="thumbnail">
 				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<a href="product_details.html"><img src="<?php echo base_url()?>assets/images/4.jpg" alt=""></a>
+				<a href="product_details.html"><img src="<?php echo base_url()?>assets/images/" alt=""></a>
 				<div class="caption cntr">
 					<p>Manicure & Pedicure</p>
 					<p><strong> $22.00</strong></p>
@@ -229,6 +227,7 @@ New Products
 		  </ul>
 		</div>
 	</div>
+
 	<!--
 	Featured Products
 	-->
@@ -240,7 +239,7 @@ New Products
 			<li class="span4">
 			  <div class="thumbnail">
 				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<a  href="product_details.html"><img src="<?php echo base_url()?>assets/images/7.jpg" alt=""></a>
+				<a  href="product_details.html"><img src="<?php echo base_url()?>assets/images/" alt=""></a>
 				<div class="caption">
 				  <h5>Manicure & Pedicure</h5>
 				  <h4>
@@ -254,7 +253,7 @@ New Products
 			<li class="span4">
 			  <div class="thumbnail">
 				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<a  href="product_details.html"><img src="<?php echo base_url()?>assets/images/2.jpg" alt=""></a>
+				<a  href="product_details.html"><img src="<?php echo base_url()?>assets/images/" alt=""></a>
 				<div class="caption">
 				  <h5>Manicure & Pedicure</h5>
 				  <h4>
@@ -268,7 +267,7 @@ New Products
 			<li class="span4">
 			  <div class="thumbnail">
 				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<a  href="product_details.html"><img src="<?php echo base_url()?>assets/images/9.jpg" alt=""/></a>
+				<a  href="product_details.html"><img src="<?php echo base_url()?>assets/images/" alt=""/></a>
 				<div class="caption">
 				  <h5>Manicure & Pedicure</h5>
 				  <h4>
@@ -280,7 +279,7 @@ New Products
 			  </div>
 			</li>
 		  </ul>	
-	</div>
+		</div>
 	</div>
 	
 	<div class="well well-small">
@@ -292,5 +291,5 @@ New Products
 	<a class="btn btn-mini pull-right" href="#">View more <span class="icon-plus"></span></a>
 	Best selling Products 
 	</div>
-	</div>
+	
 	</div>

@@ -20,44 +20,37 @@
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Id User</label>
+              <label class="col-sm-2 control-label">Nama depan</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" name="id_user" value="<?php echo $j->id_user?>"> 
+                  <input type="text" class="form-control" name="nama_depan" value="<?php echo $j->nama_depan?>"> 
                 </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Tanggal Lahir</label>
+              <label class="col-sm-2 control-label">Nama belakang</label>
                 <div class="col-sm-5">
-                  <input type="date" class="form-control" name="tgl_lahir" value="<?php echo $j->tgl_lahir?>"> 
+                  <input type="text" class="form-control" name="nama_belakang" value="<?php echo $j->nama_belakang?>"> 
                 </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Kode Pos</label>
+              <label class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" name="kode_pos" value="<?php echo $j->kode_pos?>"> 
+                  <input type="text" class="form-control" name="email" value="<?php echo $j->email?>"> 
                 </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">No Telepon</label>
+              <label class="col-sm-2 control-label">Password</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" name="no_telp" value="<?php echo $j->no_telp?>"> 
+                  <input type="password" class="form-control" name="password" value="<?php echo $j->password?>"> 
                 </div>
             </div>   
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">No Rekening</label>
+              <label class="col-sm-2 control-label">Tanggal lahir</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" name="no_rekening"  value="<?php echo $j->no_rekening?>"> 
-                </div>
-            </div>
-
-             <div class="form-group">
-              <label class="col-sm-2 control-label">Alamat</label>
-                <div class="col-sm-5">
-                  <input type="password" class="form-control" name="alamat" value="<?php echo $j->alamat?>"> 
+                  <input type="date" class="form-control" name="tgl_lahir"  value="<?php echo $j->tgl_lahir?>"> 
                 </div>
             </div>
             

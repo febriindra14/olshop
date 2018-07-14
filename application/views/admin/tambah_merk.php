@@ -4,32 +4,29 @@
   <title></title>
 </head>
 <body>
-  <h3>Tambah merk</h3>
   <form action="<?php echo base_url('index.php/utama/admin/tambah_merk')?>" method="POST" enctype="multipart/form-data">
-    <section class="content">
-      <div class="row">
-        <div class="col-md-15">
+     <div class="container">
+      <h3><b>Tambah merk</b></h3>
+      <div class="col-md-1"></div>
 
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Id Merk</label>
-          <div class="col-sm-5">
-            <input type="text" class="form-control" name="id_merk" required>
-          </div>
-        </div> 
+ <div class="jumbotron col-md-4">
 
-      <div class="form-group">
-          <label class="col-sm-2 control-label">Nama Merk</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" name="nama_merk" required>
-            </div>
-      </div>
+    <div class="form-group">
+      <label>Id merk :</label>
+      <input type="text" name="id_merk" class="form-control" required>
+    </div>
 
-      <div class="form-group">
-          <label class="col-sm-2 control-label">Gambar</label>
-            <input type="file" name="gambar" class="file">
-          <div class="input-group col-xs-12">
-        </div><br>
-      </div>
+    <div class="form-group">
+      <label>Nama merk:</label>
+      <input type="text" name="nama_merk" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="userfile">Gambar :</label>
+      <input type="file" name="gambar" class="file">
+      <div class="input-group col-xs-12">
+      </div><br>
+    </div>
 
       <div class="box-footer">
           <div class="form-group">
@@ -41,7 +38,6 @@
       </div>
        </div>
     </div>
-  </section>
               
   </form>  
 </body>

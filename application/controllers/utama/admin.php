@@ -7,6 +7,12 @@ class Admin extends CI_Controller
 	{
 		parent:: __construct();
 		$this->load->library('pajangan');
+		
+		//mendeteksi user sudah login atau belum
+		if($this->session->userdata('status')!="login")
+		{
+			redirect(base_url('login_view'));
+		}
 	}
 	//dashboard 
 	public function index()
@@ -49,8 +55,7 @@ class Admin extends CI_Controller
 			'nama'			=>$this->input->post('nama'),
 			'username'		=>$this->input->post('username'),
 			'email'			=>$this->input->post('email'),
-			'password'		=>$this->input->post('password'),
-			'hak_akses'		=>$this->input->post('hak_akses'));
+			'password'		=>$this->input->post('password'));
 		$this->user_model->insert($save);
 		redirect(base_url('index.php/utama/admin/tampil'));
 	}
@@ -74,8 +79,7 @@ class Admin extends CI_Controller
 			'nama'			=>$this->input->post('nama'),
 			'username'		=>$this->input->post('username'),
 			'email'			=>$this->input->post('email'),
-			'password'		=>$this->input->post('password'),
-			'hak_akses'		=>$this->input->post('hak_akses'));
+			'password'		=>$this->input->post('password'));
 		$c=$this->user_model->update($b,$a);
 		redirect(base_url('index.php/utama/admin/tampil'));
 	}
@@ -168,7 +172,7 @@ class Admin extends CI_Controller
 	}
 	public function tambah_merk()
 	{	
-		$config['upload_path'] = './assets/images/';
+		$config['upload_path'] = './assets/fronted/assets/img/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = '8000';
         $config['max_width'] = '8000';
@@ -193,7 +197,7 @@ class Admin extends CI_Controller
 	}
 	public function edit_merk()
 	{
-		$config['upload_path'] = './assets/images/';
+		$config['upload_path'] = './assets/fronted/assets/img/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = '8000';
         $config['max_width'] = '8000';
@@ -265,7 +269,7 @@ class Admin extends CI_Controller
 	}
 	public function tambahproduk()
 	{
-		$config['upload_path'] = './assets/images/';
+		$config['upload_path'] = './assets/fronted/assets/img/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = '8000';
         $config['max_width'] = '8000';
@@ -298,7 +302,7 @@ class Admin extends CI_Controller
 	}
 	public function proses_edit()
 	{
-		$config['upload_path'] = './assets/images/';
+		$config['upload_path'] = './assets/fronted/assets/img/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = '8000';
         $config['max_width'] = '8000';
@@ -350,13 +354,12 @@ class Admin extends CI_Controller
 	public function tambah_cus()
 	{
 		$simpan=array(
-			'id_customer'=>$this->input->post('id_customer'),
-			'id_user'=>$this->input->post('id_user'),
-			'tgl_lahir'=>$this->input->post('tgl_lahir'),
-			'kode_pos'=>$this->input->post('kode_pos'),
-			'no_telp'=>$this->input->post('no_telp'),
-			'no_rekening'=>$this->input->post('no_rekening'),
-			'alamat'=>$this->input->post('alamat'));
+			'id_customer'	=>$this->input->post('id_customer'),
+			'nama_depan'	=>$this->input->post('nama_depan'),
+			'nama_belakang'	=>$this->input->post('nama_belakang'),
+			'email'			=>$this->input->post('email'),
+			'password'		=>$this->input->post('password'),
+			'tgl_lahir'		=>$this->input->post('tgl_lahir'));
 		$this->user_model->insert_cus($simpan);
 		redirect(base_url('index.php/utama/admin/customer'));
 	}
@@ -370,13 +373,12 @@ class Admin extends CI_Controller
 	{
 		$c=$this->input->post('id_customer');
 		$d=array(
-			'id_customer'		=>$this->input->post('id_customer'),
-			'id_user'			=>$this->input->post('id_user'),
-			'tgl_lahir'			=>$this->input->post('tgl_lahir'),
-			'kode_pos'			=>$this->input->post('kode_pos'),
-			'no_telp'			=>$this->input->post('no_telp'),
-			'no_rekening'		=>$this->input->post('no_rekening'),
-			'alamat'			=>$this->input->post('alamat'));
+			'id_customer'	=>$this->input->post('id_customer'),
+			'nama_depan'	=>$this->input->post('nama_depan'),
+			'nama_belakang'	=>$this->input->post('nama_belakang'),
+			'email'			=>$this->input->post('email'),
+			'password'		=>$this->input->post('password'),
+			'tgl_lahir'		=>$this->input->post('tgl_lahir'));
 		$e=$this->user_model->update_cus($d,$c);
 		redirect(base_url('index.php/utama/admin/customer'));
 	}
@@ -386,6 +388,7 @@ class Admin extends CI_Controller
 		$lima=$this->user_model->delete_cus($empat);
 		redirect(base_url('index.php/utama/admin/customer'));
 	}
+
 
 	//order
 	public function order()
