@@ -6,18 +6,29 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
  <div class="col-md-1">
  </div>
  <div class="jumbotron col-md-4">
-    <div class="form-group">
-      <label>id produk :</label>
-      <input type="text" name="id_produk" class="form-control" required>
-    </div>
+
+      <input type="hidden" name="id_produk" class="form-control">
+
     <div class="form-group">
       <label>id kategori :</label>
-      <input type="text" name="id_kategori" class="form-control" required>
+      <select name="id_kategori" class="form-control">
+      <option value="0">Pilih id kat</option>
+      <?php foreach ($kat as $i) {?>
+        <option value="<?php echo $i['id_kategori'];?>"><?php echo $i['nama_kategori'];?></option>
+      <?php }?>
+    </select>
     </div>
+
     <div class="form-group">
       <label>id merk :</label>
-      <input type="text" name="id_merk" class="form-control" required>
-    </div>
+    <select name="id_merk" class="form-control">
+      <option value="0">Pilih id merk</option>
+      <?php foreach ($sama as $i) {?>
+        <option value="<?php echo $i['id_merk'];?>"><?php echo $i['nama_merk'];?></option>
+      <?php }?>
+    </select>
+  </div>
+
      <div class="form-group">
       <label>nama produk :</label>
       <input type="text" name="nama_produk" class="form-control" required>

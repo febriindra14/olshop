@@ -11,22 +11,20 @@
 
  <div class="jumbotron col-md-4">
 
-    <div class="form-group">
-      <label>Id merk :</label>
-      <input type="text" name="id_merk" class="form-control" required>
-    </div>
+      <input type="hidden" name="id_merk" class="form-control">
 
     <div class="form-group">
       <label>Nama merk:</label>
       <input type="text" name="nama_merk" class="form-control" required>
     </div>
 
-    <div class="form-group">
-      <label for="userfile">Gambar :</label>
+     <div class="form-group">
+      <label for="userfile">Merk :</label>
       <input type="file" name="gambar" class="file">
       <div class="input-group col-xs-12">
       </div><br>
     </div>
+
 
       <div class="box-footer">
           <div class="form-group">

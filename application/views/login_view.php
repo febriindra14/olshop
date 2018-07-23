@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
  <h1>Masuk</h1>
 
  <div id="body">
-  <form action="<?php echo base_url('index.php/login/aksi_login');?>" method="post">
+  <form action="<?php echo base_url('index.php/login/login');?>" method="post">
     
   <input type="text" name="username" placeholder="Masukkan username"/><br><br>
   <input type="password" name="password" placeholder="Masukkan password"/><br><br>

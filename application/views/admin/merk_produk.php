@@ -12,9 +12,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	<tr>
 		<td align="center">Id Merk</td>
 		<td align="center">Nama Merk</td>
-		<td align="center">Gambar</td>
+		<td align="center">Merk</td>
 		<td align="center">Pengaturan</td>
 	</tr>
+	<tr>
 	<?php foreach ($belajar as $n) {?>
 		<td><?php echo $n['id_merk'];?></td>
 		<td><?php echo $n['nama_merk'];?></td>
@@ -25,6 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 			<a data-toggle="tooltip" data-placement="top" title="Hapus" style='background: red; border:red;' class="btn btn-danger btn-sm" href="<?php echo base_url('index.php/utama/admin/hapus_merk/').$n['id_merk'] ?>">Hapus</a>
 
 			<a data-toggle="tooltip" data-placement="top" title="Detail" style='background: grey; border:black;' class="btn btn-primary btn-sm" href="<?php echo base_url('index.php/utama/admin/detailmerk')?>">Detail</a></td>
+	</tr>
 	<?php }?>	
 </body>
 </html>

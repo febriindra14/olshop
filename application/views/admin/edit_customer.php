@@ -53,6 +53,34 @@
                   <input type="date" class="form-control" name="tgl_lahir"  value="<?php echo $j->tgl_lahir?>"> 
                 </div>
             </div>
+
+                 <div class="form-group">
+              <label class="col-sm-2 control-label">Nomor telepon</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="no_telp" value="<?php echo $j->no_telp?>"> 
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Nama rekening</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="nama_rek" value="<?php echo $j->nama_rek?>"> 
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Nomor rekening</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="no_rek" value="<?php echo $j->no_rek?>"> 
+                </div>
+            </div>   
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Alamat</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="alamat"  value="<?php echo $j->alamat?>"> 
+                </div>
+            </div>
             
             <div class="box-footer">
               <div class="form-group">

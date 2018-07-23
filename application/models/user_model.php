@@ -40,13 +40,23 @@ class User_model extends CI_Model
 	}
 
 	//produk
-	public function kardus($perPage,$start)
-	{
-		$get=$this->db->get('produk',$perPage,$start);
-		return $get->result_array();
-
-		//return $this->db->get('produk')->result_array();
+	public function kardus()
+	{	
+		$this->db->select('*');
+		$this->db->from('produk');
+		$this->db->join('kategori_produk','kategori_produk.id_kategori=produk.id_kategori');
+		$this->db->join('merk','merk.id_merk=produk.id_merk');
+		return $this->db->get();
 	}
+	//relasi
+	public function relasi(){
+		return $this->db->get('merk');
+	}
+	public function kat()
+	{
+		return $this->db->get('kategori_produk');
+	}
+
 	public function insert_produk($coba)
 	{
 		return $this->db->insert('produk',$coba);	
@@ -66,21 +76,21 @@ class User_model extends CI_Model
 		$this->db->where('id_produk',$enam);
 		$query=$this->db->delete('produk');
 	}
-	//detail merk
-	public function getproduk()
+
+
+	//detail produk
+	public function getproduk($id)
 	{
-   		$this->db->select('*');
-   		$this->db->from('produk');
-   		$data = $this->db->get();
-   		return $data->result();
+		$this->db->where('id_produk',$id);
+
+   		$data = $this->db->get('produk');
+   		return $data;
  	}
  	//pagination produk
  	public function larik()
  	{
 		return $this->db->get('produk')->num_rows();
 	}
-
-	
 	//customer
 	public function masuk()
 	{
@@ -137,7 +147,6 @@ class User_model extends CI_Model
  	{
 		return $this->db->get('kategori_produk')->num_rows();
 	}
-
 
 	//merk
 	public function menu()

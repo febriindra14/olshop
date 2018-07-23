@@ -8,29 +8,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
   <h2>Detail Produk</h2>
    <div class="container">
      <div class="row">
-       <?php foreach($ayo as $q){ ?>
+     
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="kotak">
-              <a href=""><img class="img-thumbnail" src="<?php echo base_url(). 'assets/images/'.$q->foto?>"/></a>
+              <a href=""><img class="img-thumbnail" src="<?php echo base_url(). 'assets/fronted/assets/img/'.$ayo['foto']; ?>"/></a>
               </div>
             </div>
               
               <div class="col-lg-4 col-md-6 mb-4">
               <div class="card-body">
                 <div class="title">
-                   <?php echo $q->nama_produk?>
+                   <?php echo ''.$ayo['nama_produk']; ?>
                 </div>
-              <?php echo $q->id_produk?>
-              <?php echo $q->id_kategori?>
-              <?php echo $q->id_merk?>
-              <?php echo $q->bahan ?>
-              <?php echo $q->warna ?>
-              <?php echo $q->deskripsi ?>
+              <?php echo ''.$ayo['id_produk']; ?>
+              <?php echo ''.$ayo['id_kategori']; ?>
+              <?php echo ''.$ayo['id_merk']; ?>
+              <?php echo ''.$ayo['bahan']; ?>
+              <?php echo ''.$ayo['warna']; ?>
+              <?php echo ''.$ayo['deskripsi']; ?>
              </div>
             </div>
- <h4>Rp. <?php echo number_format($q->harga,0,",","."); ?></h4>
+ <h4>Rp. <?php echo (''.$ayo['harga']); ?></h4>
      </div>
-   <?php } ?>
+  
    <br>
     <a href="<?php echo base_url('index.php/utama/admin/produk')?>" class="btn btn-default btn-reset">Kembali</a>
   </div> <!-- /container -->

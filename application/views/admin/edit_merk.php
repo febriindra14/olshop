@@ -26,12 +26,13 @@
                 </div>
             </div>
 
-             <div class="form-group">
-              <label class="col-sm-2 control-label">Gambar</label>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Merk</label>
                 <div class="col-sm-5">
                   <input type="file" name="gambar" class="file" value="<?php echo $you->gambar?>">
                 </div>  
-            </div>
+            </div> 
+
 
             <div class="box-footer">
               <div class="form-group">

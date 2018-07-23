@@ -41,10 +41,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<a href="http://www.tumblr.com"><span class="icon-tumblr"></span></a>
 				</div>
 					<a class="active" href="<?php echo base_url('index.php/customer');?>"> <span class="icon-home"></span> Home</a> 
-				<a href="<?php echo base_url()?>"><span class="icon-user"></span> My Account</a> 
+				<a href="<?php echo base_url('index.php/customer/akunku')?>"><span class="icon-user"></span> My Account</a> 
 				<a href="<?php echo base_url('index.php/customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
 				<a href="<?php echo base_url('index.php/customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
-				<a href="<?php echo base_url('index.php/customer/keranjang')?>"><span class="icon-shopping-cart"></span> 2 Item(s) - <span class="badge badge-warning"> $448.42</span></a>
+				<a href="<?php echo base_url('index.php/customer/keranjang')?>"><span class="icon-shopping-cart"></span> Keranjang <span class="badge badge-warning"> Rp </span></a>
+
+				<a href="<?php echo base_url('index.php/login_customer/logout')?>" >Logout</a>
+
 			</div>
 		</div>
 	</div>
@@ -59,7 +62,7 @@ Lower Header Section
 <div class="row">
 	<div class="span4">
 	<h1>
-	<a class="logo" href="index.html"><span>Twitter Bootstrap ecommerce template</span> 
+	<a class="logo" href="<?php echo base_url('index.php/customer')?> "><span>Twitter Bootstrap ecommerce template</span> 
 		<img src="<?php echo base_url(); ?>assets/fronted/assets/img/logo-bootstrap-shoping-cart.png" alt="bootstrap sexy shop">
 	</a>
 	</h1>
@@ -95,21 +98,26 @@ Navigation Bar Section
 			  <li class=""><a href="<?php echo base_url('index.php/customer/grid')?>">Grid View</a></li>
 			  <li class=""><a href="<?php echo base_url('index.php/customer/tigacol')?>">Three Column</a></li>
 			  <li class=""><a href="<?php echo base_url('index.php/customer/empatcol')?>">Four Column</a></li>
-			  <li class=""><a href="<?php echo base_url('index.php/customer/tentang')?>">General Content</a></li>
+			  <li class=""><a href="<?php echo base_url('index.php/customer/konfirmasi')?>">General Content</a></li>
 			</ul>
+
 			<form action="<?php echo base_url()?>" class="navbar-search pull-left">
 			  <input type="text" placeholder="Search" class="search-query span2">
 			</form>
+
 			<ul class="nav pull-right">
 			<li class="dropdown">
-				<a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo base_url()?>"><span class="icon-lock"></span> Login <b class="caret"></b></a>
+				<a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo base_url()?>">
+				<span class="icon-lock"></span> Login <b class="caret"></b></a>
 				<div class="dropdown-menu">
-				<form class="form-horizontal loginFrm">
+
+				<form action="<?php echo base_url('index.php/login_customer/login_cus')?>" method="post">
+
 				  <div class="control-group">
-					<input type="text" class="span2" id="inputEmail" placeholder="Email">
+					<input type="text" name="email" class="span2" placeholder="Email">
 				  </div>
 				  <div class="control-group">
-					<input type="password" class="span2" id="inputPassword" placeholder="Password">
+					<input type="password" name="password" class="span2" placeholder="Password">
 				  </div>
 				  <div class="control-group">
 					<label class="checkbox">
@@ -119,9 +127,12 @@ Navigation Bar Section
 				  </div>
 				</form>
 				</div>
+
 			</li>
 			</ul>
+
 		  </div>
+		  
 		</div>
 	  </div>
 	</div>
@@ -139,24 +150,13 @@ Clients
 	<h4 class="title cntr"><span class="text">Manufactures</span></h4>
 	<hr class="soften"/>
 	<div class="row">
-		<div class="span2">
-			<a href="<?php echo base_url()?>"><img alt="" src="<?php echo base_url(); ?>assets/fronted/assets/img/1.png"></a>
-		</div>
-		<div class="span2">
-			<a href="<?php echo base_url()?>"><img alt="" src="<?php echo base_url(); ?>assets/fronted/assets/img/2.png"></a>
-		</div>
-		<div class="span2">
-			<a href="<?php echo base_url()?>"><img alt="" src="<?php echo base_url(); ?>assets/fronted/assets/img/3.png"></a>
-		</div>
-		<div class="span2">
-			<a href="<?php echo base_url()?>"><img alt="" src="<?php echo base_url(); ?>assets/fronted/assets/img/4.png"></a>
-		</div>
-		<div class="span2">
-			<a href="<?php echo base_url()?>"><img alt="" src="<?php echo base_url(); ?>assets/fronted/assets/img/5.png"></a>
-		</div>
-		<div class="span2">
-			<a href="<?php echo base_url()?>"><img alt="" src="<?php echo base_url(); ?>assets/fronted/assets/img/6.png"></a>
-		</div>
+	<?php foreach ($merk as $key => $value) { ?>
+		
+	<div class="span2">
+		<a href="<?php echo base_url('index.php/customer/merk/'.$value->id_merk);?>"><img alt="" src="<?php echo base_url(); ?>assets/fronted/assets/img/<?php echo $value->gambar;?>"></a>
+	</div>
+	<?php } ?>
+	
 	</div>
 </section>
 

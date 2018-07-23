@@ -12,11 +12,8 @@
 
  <div class="jumbotron col-md-4">
 
-    <div class="form-group">
-      <label>Id customer :</label>
-      <input type="text" name="id_customer" class="form-control" required>
-    </div>
-
+      <input type="hidden" name="id_customer" class="form-control">
+ 
     <div class="form-group">
       <label>Nama depan :</label>
       <input type="text" name="nama_depan" class="form-control" required>
@@ -40,6 +37,27 @@
     <div class="form-group">
       <label>Tanggal lahir :</label>
       <input type="date" name="tgl_lahir" class="form-control">
+    </div>
+
+
+    <div class="form-group">
+      <label>Nomor telepon :</label>
+      <input type="text" name="no_telp" class="form-control" required>
+    </div>
+
+     <div class="form-group">
+      <label>Nama rekening :</label>
+      <input type="text" name="nama_rek" class="form-control" required>
+    </div>
+
+     <div class="form-group">
+      <label>No rekening :</label>
+      <input type="text" name="no_rek" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Alamat :</label>
+      <input type="text" name="alamat" class="form-control">
     </div>
 
       <div class="box-footer">

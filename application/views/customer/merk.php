@@ -1,17 +1,18 @@
 <div id="sidebar" class="span3">
 <div class="well well-small">
-	<ul class="nav nav-list">
-		<?php foreach ($produk as $key => $value) { ?>
+		<ul class="nav nav-list">
+		<?php foreach ($merk as $key => $value) { ?>
 
-		<li><a href="<?php echo base_url('index.php/customer/kategori/'.$value->id_kategori);?>"><span class="icon-chevron-right"></span><?php echo $value->nama_kategori ;?> </a></li>		
+		<li><a href="<?php echo base_url('index.php/customer/merk/'.$value->id_merk);?>"><span class="icon-chevron-right"></span><?php echo $value->nama_merk ;?> </a></li>		
 
 		<?php } ?>
+
 		<li style="border:0"> &nbsp;</li>
 		<li> <a class="totalInCart" href="<?php echo base_url('index.php/customer/keranjang')?> "><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
 	</ul>
 </div>
 
-			 
+			
 			  <div class="well well-small alert alert-warning cntr">
 				  <h2>50% Discount</h2>
 				  <p> 
@@ -54,22 +55,53 @@
 			  </div>
 			</li>
 		  </ul>
-
 	</div>
 
-
-	<div class="span9">
-    <ul class="breadcrumb">
-		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
-		<li class="active">Page Title</li>
-    </ul>
-<div class="well well-small">
-	<h1> Title of the page</h1>	
-	<h2> Title of the page</h2>	
-	<h3> Title of the page</h3>	
-	<h4> Title of the page</h4>	
-	<h5> Title of the page</h5>	
-	<h6> Title of the page</h6>	
 	
-</div>
+	<div class="span9">
+<!-- 
+New Products
+-->
+	<div class="well well-small">
+	<h3>Our Products </h3>
+		<div class="row-fluid">
+		  <ul class="thumbnails">
+
+		  	<?php foreach ($tampil as $b){ ?>
+		  		
+			<li class="span4">
+			  <div class="thumbnail">
+				<a href="" class="overlay"></a>
+
+				<a class="zoomTool" href="<?php echo base_url('index.php/customer/merk/'.$b->id_merk)?>" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+
+				 <a href="<?php echo base_url('index.php/customer/detail/').$b->id_produk?>"><img class="img-thumbnail" src="<?php echo base_url(). 'assets/fronted/assets/img/'.$b->foto?>"/></a>
+				 
+<form action="<?php echo base_url('index.php/customer/tambah_cart')?>" method="post">
+	<input type="hidden" name="id_cart">
+	<input type="hidden" name="id_produk" value="<?php echo $b->id_produk ?>">
+	<input type="hidden" name="foto" value="<?php echo $b->foto ?>">
+	<input type="hidden" name="nama_produk" value="<?php echo $b->nama_produk ?>">
+	<input type="hidden" name="harga" value="<?php echo $b->harga ?>">
+
+				<div class="caption cntr">
+					<p> <?php echo $b->nama_produk?></p>
+					<p><strong> Rp. <?php echo number_format($b->harga,0,",","."); ?> </strong></p>
+
+					<button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Add to cart</button>
+</form>					
+					<div class="actionList">
+						<a class="pull-left" href="#">Add to Wish List </a> 
+						<a class="pull-left" href="#"> Add to Compare </a>
+					</div> 
+					<br class="clr">
+				</div>
+			  </div>
+			</li>
+			
+			<?php }?>
+		  
+			</ul>
+		</div>
+	</div>
 </div>

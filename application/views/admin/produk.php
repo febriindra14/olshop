@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 		<td align="center">Pengaturan</td>
 	</tr>
 	<tr>
-		<?php foreach ($produk as $c) {?>
+		<?php foreach ($produk->result_array() as $c) {?>
 		<td><?php echo $c['nama_produk'];?></td>
 		<td><?php echo $c['bahan'];?></td>
 		<td><?php echo $c['warna'];?></td>

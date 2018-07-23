@@ -9,13 +9,14 @@ class Admin extends CI_Controller
 		$this->load->library('pajangan');
 		
 		//mendeteksi user sudah login atau belum
-		if($this->session->userdata('status')!="login")
+		if(!$this->session->userdata('logged'))
 		{
-			redirect(base_url('login_view'));
+			redirect(base_url('index.php/login'));
 		}
 	}
 	//dashboard 
 	public function index()
+	
 	{	
 		$data=array
 		(
@@ -133,8 +134,8 @@ class Admin extends CI_Controller
 	public function tambah_kaduk()
 	{
 		$save=array(
-			'id_kategori'=>$this->input->post('id_kategori'),
-			'nama_kategori'=>$this->input->post('nama_kategori'));
+			'id_kategori'	=>$this->input->post('id_kategori'),
+			'nama_kategori'	=>$this->input->post('nama_kategori'));
 		$this->user_model->insert_kaduk($save);
 		redirect(base_url('index.php/utama/admin/kategori_produk'));
 	}
@@ -149,7 +150,7 @@ class Admin extends CI_Controller
 		$z=$this->input->post('id_kategori');
 		$x=array(
 			'id_kategori'		=>$this->input->post('id_kategori'),
-			'nama_kategori'	=>$this->input->post('nama_kategori'));
+			'nama_kategori'		=>$this->input->post('nama_kategori'));
 		$y=$this->user_model->update_kaduk($x,$z);
 		redirect(base_url('index.php/utama/admin/kategori_produk'));
 	}
@@ -179,9 +180,9 @@ class Admin extends CI_Controller
         $config['max_height'] = '4000';
       $this->upload->initialize($config);
       $this->load->library('upload', $config);
-      $this->upload->do_upload('gambar');
+      $this->upload->do_upload('gambar'); 
       
-    	$coba = $this->upload->data();
+    	$coba = $this->upload->data(); 
 		$ve=array(
 			'id_merk'=>$this->input->post('id_merk'),
 			'nama_merk'=>$this->input->post('nama_merk'),
@@ -205,7 +206,7 @@ class Admin extends CI_Controller
       $this->upload->initialize($config);
       $this->load->library('upload', $config);
       $this->upload->do_upload('gambar');
-    	$coba = $this->upload->data();
+    	$coba = $this->upload->data();  
 
 		$b=$this->input->post('id_merk');
 		$v=array(
@@ -265,7 +266,10 @@ class Admin extends CI_Controller
 	}
 	public function form_produk()
 	{
-     	$this->pajangan->kirim('admin/tambah_produk');
+		$b['sama']=$this->user_model->relasi()->result_array();
+		$b['kat']=$this->user_model->kat()->result_array();
+		
+     	$this->pajangan->kirim('admin/tambah_produk',$b);
 	}
 	public function tambahproduk()
 	{
@@ -280,15 +284,15 @@ class Admin extends CI_Controller
 
     	$file = $this->upload->data();
           $data = array(  
-           'id_produk' => $this->input->post('id_produk'),
-           'id_kategori' => $this->input->post('id_kategori'),
-           'id_merk' => $this->input->post('id_merk'),
-           'nama_produk' => $this->input->post('nama_produk'),
-           'bahan' => $this->input->post('bahan'),
-           'warna' => $this->input->post('warna'),
-           'deskripsi' => $this->input->post('deskripsi'),
-       	   'harga' => $this->input->post('harga'),
-       	   'foto' => $file['file_name']);
+           'id_produk' 		=>$this->input->post('id_produk'),
+           'id_kategori'	=>$this->input->post('id_kategori'),
+           'id_merk' 		=>$this->input->post('id_merk'),
+           'nama_produk'	=>$this->input->post('nama_produk'),
+           'bahan' 			=>$this->input->post('bahan'),
+           'warna' 			=>$this->input->post('warna'),
+           'deskripsi' 		=>$this->input->post('deskripsi'),
+       	   'harga' 			=>$this->input->post('harga'),
+       	   'foto' 			=>$file['file_name']);
           $this->user_model->insert_produk($data); 
           redirect(base_url('index.php/utama/admin/produk')); 
 	  }
@@ -302,11 +306,11 @@ class Admin extends CI_Controller
 	}
 	public function proses_edit()
 	{
-		$config['upload_path'] = './assets/fronted/assets/img/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = '8000';
-        $config['max_width'] = '8000';
-        $config['max_height'] = '4000';
+		$config['upload_path'] 		= './assets/fronted/assets/img/';
+        $config['allowed_types'] 	= 'gif|jpg|png';
+        $config['max_size'] 		= '8000';
+        $config['max_width'] 		= '8000';
+        $config['max_height'] 		= '4000';
       $this->upload->initialize($config);
       $this->load->library('upload', $config);
       $this->upload->do_upload('foto');
@@ -336,11 +340,10 @@ class Admin extends CI_Controller
 	//detail produk
 	 public function detailproduk()
 	{
-  		$data['ayo'] = $this->user_model->getproduk();
+		$id = $this->uri->segment(4);
+  		$data['ayo'] = $this->user_model->getproduk($id)->row_array();
   		$this->pajangan->kirim('admin/detail_produk', $data);
 	}
-
-
 	//customer
 	public function customer()
 	{
@@ -359,7 +362,11 @@ class Admin extends CI_Controller
 			'nama_belakang'	=>$this->input->post('nama_belakang'),
 			'email'			=>$this->input->post('email'),
 			'password'		=>$this->input->post('password'),
-			'tgl_lahir'		=>$this->input->post('tgl_lahir'));
+			'tgl_lahir'		=>$this->input->post('tgl_lahir'),
+			'no_telp'		=>$this->input->post('no_telp'),
+			'nama_rek'		=>$this->input->post('nama_rek'),
+			'no_rek'		=>$this->input->post('no_rek'),
+			'alamat'		=>$this->input->post('alamat'));
 		$this->user_model->insert_cus($simpan);
 		redirect(base_url('index.php/utama/admin/customer'));
 	}
@@ -378,7 +385,11 @@ class Admin extends CI_Controller
 			'nama_belakang'	=>$this->input->post('nama_belakang'),
 			'email'			=>$this->input->post('email'),
 			'password'		=>$this->input->post('password'),
-			'tgl_lahir'		=>$this->input->post('tgl_lahir'));
+			'tgl_lahir'		=>$this->input->post('tgl_lahir'),
+			'no_telp'		=>$this->input->post('no_telp'),
+			'nama_rek'		=>$this->input->post('nama_rek'),
+			'no_rek'		=>$this->input->post('no_rek'),
+			'alamat'		=>$this->input->post('alamat'));
 		$e=$this->user_model->update_cus($d,$c);
 		redirect(base_url('index.php/utama/admin/customer'));
 	}
@@ -388,7 +399,6 @@ class Admin extends CI_Controller
 		$lima=$this->user_model->delete_cus($empat);
 		redirect(base_url('index.php/utama/admin/customer'));
 	}
-
 
 	//order
 	public function order()

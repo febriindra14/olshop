@@ -1,4 +1,3 @@
-
 <!-- 
 	Upper Header Section 
 -->
@@ -13,10 +12,11 @@
 					<a href="#"><span class="icon-tumblr"></span></a>
 				</div>
 				<a class="active" href="<?php echo base_url('index.php/customer');?>"> <span class="icon-home"></span> Home</a> 
-				<a href="<?php echo base_url()?>"><span class="icon-user"></span> My Account</a> 
+				<a href="<?php echo base_url('index.php/customer/akunku')?>"><span class="icon-user"></span> My Account</a> 
 				<a href="<?php echo base_url('index.php/customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
 				<a href="<?php echo base_url('index.php/customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
-				<a href="<?php echo base_url()?>"><span class="icon-shopping-cart"></span> 2 Item(s) - <span class="badge badge-warning"> $448.42</span></a>
+				<a href="<?php echo base_url('index.php/customer/keranjang')?>"><span class="icon-shopping-cart"></span> Keranjang <span class="badge badge-warning">Rp</span></a>
+				<a href="<?php echo base_url('index.php/login_customer/logout')?>" >Logout</a>
 			</div>
 		</div>
 	</div>
@@ -27,18 +27,15 @@
 <div id="sidebar" class="span3">
 <div class="well well-small">
 	<ul class="nav nav-list">
-		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Fashion</a></li>
-		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Watches</a></li>
-		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Fine Jewelry</a></li>
-		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Fashion Jewelry</a></li>
-		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Engagement & Wedding</a></li>
-		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Men's Jewelry</a></li>
-		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Vintage & Antique</a></li>
-		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Loose Diamonds </a></li>
-		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>Loose Beads</a></li>
-		<li><a href="<?php echo base_url('index.php/customer/fashion');?>"><span class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>
+		
+		<?php foreach ($produk as $key => $value) { ?>
+
+		<li><a href="<?php echo base_url('index.php/customer/kategori/'.$value->id_kategori);?>"><span class="icon-chevron-right"></span><?php echo $value->nama_kategori ;?> </a></li>		
+
+		<?php } ?>
+
 		<li style="border:0"> &nbsp;</li>
-		<li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
+		<li> <a class="totalInCart" href="<?php echo base_url('index.php/customer/keranjang')?> "><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
 	</ul>
 </div>
   			<div class="well well-small alert alert-warning cntr">
@@ -88,79 +85,82 @@
 
 	<div class="span9">
     <ul class="breadcrumb">
-		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
+		<li><a href="<?php echo base_url('index.php/customer')?> ">Home</a> <span class="divider">/</span></li>
 		<li class="active">Registration</li>
     </ul>
+    <form action="<?php echo base_url('index.php/customer/tambah_customer')?>" method="post">
+
 	<h3> Registration</h3>	
-	<hr class="soft"/>
 	<div class="well">
 	<form class="form-horizontal">
 		<h3></h3>
 
-		<div class="control-group">
-		<label class="control-label">Id customer</label>
-			<div class="controls">
-			  <input type="text" id="inputFname" placeholder="id customer">
-			</div>
-		</div>
+		<input type="hidden" name="id_customer">
 
 		<div class="control-group">
-			<label class="control-label" for="inputFname">First name</label>
+			<label class="control-label">Name depan</label>
 			<div class="controls">
-			  <input type="text" id="inputFname" placeholder="First Name">
+			  <input type="text" name="nama_depan">
 			</div>
 		 </div>
+
 		 <div class="control-group">
-			<label class="control-label" for="inputLname">Last name</label>
+			<label class="control-label">Name belakang</label>
 			<div class="controls">
-			  <input type="text" id="inputLname" placeholder="Last Name">
+			  <input type="text" name="nama_belakang">
 			</div>
 		 </div>
+
 		<div class="control-group">
-		<label class="control-label" for="inputEmail">Email</label>
+		<label class="control-label">Email</label>
 		<div class="controls">
-		  <input type="text" placeholder="Email">
+		  <input type="text" name="email" placeholder="coba@gmail.com">
 		</div>
-	  </div>	  
+	  </div>
+
 		<div class="control-group">
 		<label class="control-label">Password</label>
 		<div class="controls">
-		  <input type="password" placeholder="Password">
+		  <input type="password" name="password">
 		</div>
 	  </div>
+
 		<div class="control-group">
-		<label class="control-label">Date of Birth <sup>*</sup></label>
+		<label class="control-label">Tanggal lahir</label>
 		<div class="controls">
-		  <select class="span1" name="days">
-				<option value="">-</option>
-					<option value="1">1&nbsp;&nbsp;</option>
-					<option value="2">2&nbsp;&nbsp;</option>
-					<option value="3">3&nbsp;&nbsp;</option>
-					<option value="4">4&nbsp;&nbsp;</option>
-					<option value="5">5&nbsp;&nbsp;</option>
-					<option value="6">6&nbsp;&nbsp;</option>
-					<option value="7">7&nbsp;&nbsp;</option>
-			</select>
-			<select class="span1" name="days">
-				<option value="">-</option>
-					<option value="1">1&nbsp;&nbsp;</option>
-					<option value="2">2&nbsp;&nbsp;</option>
-					<option value="3">3&nbsp;&nbsp;</option>
-					<option value="4">4&nbsp;&nbsp;</option>
-					<option value="5">5&nbsp;&nbsp;</option>
-					<option value="6">6&nbsp;&nbsp;</option>
-					<option value="7">7&nbsp;&nbsp;</option>
-			</select>
-			<select class="span1" name="days">
-				<option value="">-</option>
-					<option value="1">1&nbsp;&nbsp;</option>
-					<option value="2">2&nbsp;&nbsp;</option>
-					<option value="3">3&nbsp;&nbsp;</option>
-					<option value="4">4&nbsp;&nbsp;</option>
-					<option value="5">5&nbsp;&nbsp;</option>
-					<option value="6">6&nbsp;&nbsp;</option>
-					<option value="7">7&nbsp;&nbsp;</option>
-			</select>
+			<input type="date" name="tgl_lahir">
+		</div>
+	  	</div>
+
+
+		<div class="control-group">
+		<label class="control-label">Nomor telepon</label>
+		<div class="controls">
+			<input type="text" name="no_telp">
+		</div>
+	  	</div>
+
+
+		<div class="control-group">
+		<label class="control-label">Nama rekening</label>
+		<div class="controls">
+			<input type="text" name="nama_rek">
+		</div>
+	  	</div>
+
+
+		<div class="control-group">
+		<label class="control-label">Nomor rekening</label>
+		<div class="controls">
+			<input type="text" name="no_rek">
+		</div>
+	  	</div>
+
+
+		<div class="control-group">
+		<label class="control-label">Alamat</label>
+		<div class="controls">
+			<input type="text" name="alamat">
 		</div>
 	  	</div>
 
@@ -169,7 +169,8 @@
 		 <input type="submit" name="submitAccount" value="Register" class="exclusive shopBtn">
 		</div>
 	</div>
+
 	</form>
 </div>
-
+</form>
 </div>
