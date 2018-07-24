@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2018 at 08:12 AM
+-- Generation Time: Jul 24, 2018 at 11:04 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -44,10 +44,9 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id_cart`, `id_customer`, `id_produk`, `foto`, `nama_produk`, `harga`, `jumlah`, `total_harga`) VALUES
-(16, 3, 26, 'shop-cart1.PNG', 'kalung', 500000, 1, 500000),
-(17, 3, 28, 'bootstrap-ring1.png', 'HEYu jewelry', 450000, 1, 450000),
-(18, 4, 29, 'unnamed.png', 'style antique bronze', 200000, 1, 200000),
-(19, 4, 32, 'oke.jpg', 'watches lemino', 350000, 1, 350000);
+(33, 3, 31, 'b1.jpg', 'gelang', 100000, 2, 200000),
+(34, 3, 29, 'unnamed.png', 'style antique bronze', 200000, 2, 400000),
+(35, 4, 30, '57-59.jpg', 'pink diamond', 700000, 2, 1400000);
 
 -- --------------------------------------------------------
 
@@ -61,7 +60,7 @@ CREATE TABLE `checkout` (
   `id_customer` int(5) NOT NULL,
   `id_produk` int(5) NOT NULL,
   `jumlah` int(5) NOT NULL,
-  `harga` int(8) NOT NULL,
+  `total_harga` int(8) NOT NULL,
   `pil_bayar` varchar(10) NOT NULL,
   `negara` varchar(10) NOT NULL,
   `provinsi` varchar(15) NOT NULL,
@@ -69,6 +68,19 @@ CREATE TABLE `checkout` (
   `kode_pos` int(5) NOT NULL,
   `alamat_lengkap` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `checkout`
+--
+
+INSERT INTO `checkout` (`id_checkout`, `id_order`, `id_customer`, `id_produk`, `jumlah`, `total_harga`, `pil_bayar`, `negara`, `provinsi`, `kabupaten`, `kode_pos`, `alamat_lengkap`) VALUES
+(18, 61, 3, 31, 2, 200000, 'Mandiri', 'indonesia', 'jawa timur', 'jombang', 78345, 'jl sunan muria no 89 jember'),
+(19, 61, 3, 23, 2, 40000, 'Mandiri', 'indonesia', 'jawa timur', 'jombang', 78345, 'jl sunan muria no 89 jember'),
+(20, 62, 3, 31, 2, 200000, 'Permata', 'indonesia', 'jawa tengah', 'bantul', 99087, 'jl pajangan sedayu km 1,5 bantul'),
+(21, 62, 3, 29, 2, 400000, 'Permata', 'indonesia', 'jawa tengah', 'bantul', 99087, 'jl pajangan sedayu km 1,5 bantul'),
+(22, 63, 4, 31, 1, 100000, 'ATM', 'indonesia', 'jawa timur', 'kudus', 78345, 'jl pahlawan no 45 surabaya'),
+(23, 63, 4, 32, 1, 350000, 'ATM', 'indonesia', 'jawa timur', 'kudus', 78345, 'jl pahlawan no 45 surabaya'),
+(25, 65, 4, 30, 2, 1400000, 'BCA', 'cina', 'malaka', 'semarang', 55761, 'jl sunan muria no 89 kudus');
 
 -- --------------------------------------------------------
 
@@ -157,10 +169,21 @@ INSERT INTO `merk` (`id_merk`, `nama_merk`, `gambar`) VALUES
 CREATE TABLE `order` (
   `id_order` int(5) NOT NULL,
   `id_customer` int(5) NOT NULL,
+  `nama` varchar(25) NOT NULL,
   `total_bayar` int(5) NOT NULL,
   `tgl_order` datetime NOT NULL,
   `keterangan` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`id_order`, `id_customer`, `nama`, `total_bayar`, `tgl_order`, `keterangan`) VALUES
+(61, 3, 'yoga maruf ramadan', 240000, '2018-07-24 10:11:37', 'sudah bayar'),
+(62, 3, 'ramadan', 600000, '2018-07-24 16:24:02', 'bayar'),
+(63, 4, 'Prasetyo ', 450000, '2018-07-24 16:38:28', 'Bayar'),
+(65, 4, 'Prasetyo ', 1400000, '2018-07-24 17:12:12', 'bayar');
 
 -- --------------------------------------------------------
 
@@ -278,13 +301,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_cart` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -308,7 +331,7 @@ ALTER TABLE `merk`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `produk`

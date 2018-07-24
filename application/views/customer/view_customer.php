@@ -98,7 +98,7 @@ Navigation Bar Section
 			  <li class=""><a href="<?php echo base_url('index.php/customer/grid')?>">Grid View</a></li>
 			  <li class=""><a href="<?php echo base_url('index.php/customer/tigacol')?>">Three Column</a></li>
 			  <li class=""><a href="<?php echo base_url('index.php/customer/empatcol')?>">Four Column</a></li>
-			  <li class=""><a href="<?php echo base_url('index.php/customer/konfirmasi')?>">General Content</a></li>
+			  <li class=""><a href="<?php echo base_url('index.php/customer/tentang')?>">General Content</a></li>
 			</ul>
 
 			<form action="<?php echo base_url()?>" class="navbar-search pull-left">

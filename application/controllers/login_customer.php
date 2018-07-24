@@ -31,7 +31,7 @@ class Login_customer extends CI_Controller
 			echo "email atau password salah!";
 		}
 	}
-		public function logout()
+	public function logout()
 	{
 		$this->session->sess_destroy('logged');
 		redirect(base_url('index.php/customer'));

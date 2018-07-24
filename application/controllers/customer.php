@@ -8,7 +8,6 @@ class Customer extends CI_Controller
 		parent::__construct();
 		$this->load->library('pajangan');
 		$this->load->model('customer_model');
-		$this->load->library('cart');
 	}
 	public function index()
 	{
@@ -55,8 +54,8 @@ class Customer extends CI_Controller
 			'foto'			=>$this->input->post('foto'),
 			'nama_produk'	=>$this->input->post('nama_produk'),
 			'harga'			=>$harga,
-			'jumlah'		=>1,
-			'total_harga'	=>$harga*1);
+			'jumlah'		=>2,
+			'total_harga'	=>$harga*2);
 		$this->customer_model->getcart($data_produk);
 		redirect(base_url('index.php/customer/keranjang'));
 	}
@@ -74,7 +73,6 @@ class Customer extends CI_Controller
 		}	
 		//supaya berbeda barangnya dengan pembeli yang lainnya
 		$id=$this->session->userdata('id_customer');
-
 		$data =array(
 			'cart'  =>$this->customer_model->gerobak($id),
 			'total' =>$this->customer_model->gethitung($id),
@@ -161,7 +159,6 @@ class Customer extends CI_Controller
 	}
 	public function pembayaran()
 	{
-		//$this->session->set_flashdata('message','anda harus membeli barang dulu');
 		$id=$this->session->userdata('id_customer');
 		$data=array(
 			'bayar'				=>$this->customer_model->getbayar($id),
@@ -185,15 +182,15 @@ class Customer extends CI_Controller
 		$this->customer_model->getid($coba);
 		$id_order =$this->db->insert_id();
 
-		$query=$this->db->get('checkout',1);
+		$query=$this->db->where('id_customer',$id)->get('cart');
 			foreach ($query->result() as $key => $row) {
 		$data=array(
 			'id_checkout'		=>$this->input->post('id_checkout'),
 			'id_order'			=>$id_order,
 			'id_customer'		=>$this->input->post('id_customer'),
-			'id_produk'			=>$this->input->post('id_produk'),
-			'jumlah'			=>$this->input->post('jumlah'),
-			'harga'				=>$this->input->post('harga'),
+			'id_produk'			=>$row->id_produk,
+			'jumlah'			=>$row->jumlah,
+			'total_harga'		=>$row->total_harga,
 			'negara'			=>$this->input->post('negara'),
 			'provinsi'			=>$this->input->post('provinsi'),
 			'kabupaten'			=>$this->input->post('kabupaten'),
@@ -201,22 +198,33 @@ class Customer extends CI_Controller
 			'alamat_lengkap'	=>$this->input->post('alamat_lengkap'),
 			'pil_bayar'			=>$this->input->post('pil_bayar'));
 		$this->customer_model->getcheckout($data);
+		//$coba=$this->uri->segment(3);
+		//$this->customer_model->getdelete($coba);
 		}
 		$rava=array(
-				'merk'		=>$this->customer_model->getmerk());
+			'id_order'		=>$id_order,
+			'total' 		=>$this->input->post('total'),
+			'tgl_order'		=>date('Y-m-d H:i:s'),
+			'pil_bayar'		=>$this->input->post('pil_bayar'),
+			'keterangan'	=>$this->input->post('keterangan'),			
+			'merk'			=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/konfirmasi',$rava);
 	}
 	public function konfirmasi()
 	{
-		$id=$this->session->userdata('id_customer');
-		/*$tgl=date('Y-m-d H-i-s');
+		$id_order=$this->input->post('id_order');
 		$data=array(
-			'nama'			=>$this->input->post('nama'),
-			'id_order' 		=>$this->input->post('id_order'),
+			'id_order'			=>$this->input->post('id_order'),
+			'nama'				=>$this->input->post('nama'),
+			'total_bayar'		=>$this->input->post('total'),
+			'tgl_order' 		=>$this->input->post('tgl_order'),
+			'keterangan'		=>$this->input->post('keterangan'));
+		$this->customer_model->getkonfirmasi($data,$id_order);
+		$id=$this->session->userdata('id_customer');
+		$data=array(
+			'cart'  		=>$this->customer_model->gerobak($id),
 			'total' 		=>$this->customer_model->gethitung($id),
-			'tgl_order'		=>$tgl,
-			'pil bayar'		=>$this->input->post('pil_bayar'),
-			'merk'		=>$this->customer_model->getmerk());
-		$this->pajangan->kiriman('customer/konfirmasi',$data);*/
-	}
+			'merk'			=>$this->customer_model->getmerk());
+		$this->pajangan->kiriman('customer/keranjang',$data);
+	} 
 }

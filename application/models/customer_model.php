@@ -1,9 +1,18 @@
 <?php
 class Customer_model extends CI_Model
 {
-	public function getcheckout($id)
+	public function getcheckout($data)
 	{
-		return $this->db->insert('checkout',$id);
+		return $this->db->insert('checkout',$data);
+	}
+	/*public function getdelete($data)
+	{
+		$this->db->where('id_cart',$data);
+		$query=$this->db->delete('cart');
+	} */
+	public function getkonfirmasi($data,$id_order)
+	{
+		return $this->db->where('id_order',$id_order)->update('order',$data);
 	}
 	//customer
 	public function insert_customer($simpan)
@@ -172,4 +181,4 @@ class Customer_model extends CI_Model
 	{
 		return $this->db->insert('order',$id);
 	}
-}
+}	

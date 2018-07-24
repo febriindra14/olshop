@@ -100,6 +100,7 @@ New Products
 -->
 
 	<div class="well well-small">
+		
 	<h3>New Products </h3>
 	<hr class="soften"/>
 		<div class="row-fluid">

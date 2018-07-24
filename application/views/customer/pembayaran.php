@@ -16,7 +16,7 @@
                   <th>Nama produk</th>
                   <th>Harga</th>
                   <th>Jumlah</th>
-                  <th>Total Bayar</th>
+                  <th>Total Harga</th>
 				</tr>
               </thead>
 
@@ -30,7 +30,8 @@
 	<input type="hidden" name="id_customer" value="<?php echo $e->id_customer ?>">
 	<input type="hidden" name="id_produk" value="<?php echo $e->id_produk ?>">
 	<input type="hidden" name="jumlah" value="<?php echo $e->jumlah?>">
-	<input type="hidden" name="harga" value="<?php echo $e->harga ?>">
+	<input type="hidden" name="total_harga" value="<?php echo $e->total_harga ?>">
+	<input type="hidden" name="total" value="<?php echo $total ?>">
 
 		<td><img width="60" src="<?php echo base_url(). 'assets/fronted/assets/img/'.$e->foto?>"></td>
 	
