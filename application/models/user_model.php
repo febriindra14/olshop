@@ -5,9 +5,6 @@ class User_model extends CI_Model
 	public function tes()
 	{	
 		return $this->db->get('user')->result_array();
-		/*
-		$satu=$this->db->get("user");
-		return $satu->result_array(); */
 	}
 	//user cari
 	public function tangkap($keyword)
@@ -76,13 +73,10 @@ class User_model extends CI_Model
 		$this->db->where('id_produk',$enam);
 		$query=$this->db->delete('produk');
 	}
-
-
 	//detail produk
 	public function getproduk($id)
 	{
 		$this->db->where('id_produk',$id);
-
    		$data = $this->db->get('produk');
    		return $data;
  	}
@@ -174,11 +168,51 @@ class User_model extends CI_Model
 		$query=$this->db->delete('merk');
 	}
 	//detail merk
-	public function getmerk()
+	public function getmerk($id)
 	{
-   		$this->db->select('*');
-   		$this->db->from('merk');
-   		$data = $this->db->get();
+		$this->db->where('id_merk',$id);
+   		$data = $this->db->get('merk');
    		return $data->result();
  	}
+ 	//order
+ 	public function order($perPage,$start)
+	{
+		$data=$this->db->get('order',$perPage,$start);
+		return $data->result_array();
+	}
+ 	public function insert_order($save)
+ 	{
+ 		return $this->db->insert('order',$save);
+ 	}
+ 	public function kirim_order($id)
+	{
+		$data=$this->db->get_where('order',array('id_order'=>$id));
+		return $data;
+	}
+	public function update_order($tb,$id)
+	{
+		$this->db->where('id_order',$id);
+		$this->db->update('order',$tb);
+	}
+	public function delete_order($id)
+	{
+		$this->db->where('id_order',$id);
+		$query=$this->db->delete('order');
+	}
+ 	public function getbaris()
+ 	{
+		return $this->db->get('order')->num_rows();
+	}
+ 	public function getorder()
+	{
+		$this->db->select('*');
+		$this->db->from('order');
+		$this->db->join('customer','customer.id_customer=order.id_customer');
+		$this->db->where('customer.id_customer');
+		return $this->db->get();
+	}
+	public function id_cus()
+	{
+		return $this->db->get('customer');
+	}
 }

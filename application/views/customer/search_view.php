@@ -25,18 +25,20 @@
 
 <div id="sidebar" class="span3">
 <div class="well well-small">
-		<ul class="nav nav-list">
+	<ul class="nav nav-list">
+		<?php foreach ($produk as $key => $value) { ?>
 
-	<?php foreach ($produk as $key => $value) { ?>
-	<li><a href="<?php echo base_url('index.php/customer/kategori/'.$value->id_kategori);?>"><span class="icon-chevron-right"></span><?php echo $value->nama_kategori ;?> </a></li>		
-	<?php } ?>
-	
+		<li><a href="<?php echo base_url('index.php/customer/kategori/'.$value->id_kategori);?>"><span class="icon-chevron-right"></span><?php echo $value->nama_kategori ;?> </a></li>		
+
+		<?php } ?>
+		
 		<li style="border:0"> &nbsp;</li>
 		<li> <a class="totalInCart" href="<?php echo base_url('index.php/customer/keranjang')?>"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;"> Rp <?php echo number_format($total,0,",","."); ?> </span></strong></a></li>
 	</ul>
 </div>
 
-			 <div class="well well-small alert alert-warning cntr">
+			
+			  <div class="well well-small alert alert-warning cntr">
 				  <h2>50% Discount</h2>
 				  <p> 
 					 only valid for online order. <br><br><a class="defaultBtn" href="#">Click here </a>
@@ -81,42 +83,53 @@
 
 	</div>
 
-<div class="span9">
-<div class="well well-small">
-
-<?php foreach ($list as $d) { ?>
-
-	<div class="row-fluid">	  
-		<div class="span2">
-			<img src="<?php echo base_url(). 'assets/fronted/assets/img/'.$d->foto?>" alt="">
-		</div>
-		<div class="span6">
-			<h5><?php echo $d->nama_produk?></h5>
-			<p> <?php echo $d->deskripsi ?> </p>
-		</div>
-		<div class="span4 alignR">
 	
+	<div class="span9">
+<!--
+New Products
+-->
+	<div class="well well-small">
+	<h3>Pencarian produk</h3>
+		<div class="row-fluid">
+		  <ul class="thumbnails">
+
+<?php foreach($data as $row):?>
+
+			<li class="span4" style="margin-left: 7px;">
+			  <div class="thumbnail">
+				<a href="product_details.html" class="overlay"></a>
+				<a class="zoomTool" href="<?php echo base_url('index.php/customer/search')?>" ><span class="icon-search"></span> QUICK VIEW</a>
+				<a href="<?php echo base_url('index.php/customer/detail/').$row->id_produk?>"><img src="<?php echo base_url(). 'assets/fronted/assets/img/'.$row->foto?>" alt=""></a>
+
 	<form action="<?php echo base_url('index.php/customer/tambah_cart')?>" method="post">
 	<input type="hidden" name="id_cart">
-	<input type="hidden" name="id_produk" value="<?php echo $d->id_produk ?>">
-	<input type="hidden" name="foto" value="<?php echo $d->foto ?>">
-	<input type="hidden" name="nama_produk" value="<?php echo $d->nama_produk ?>">
-	<input type="hidden" name="harga" value="<?php echo $d->harga ?>">
+	<input type="hidden" name="id_produk" value="<?php echo $row->id_produk ?>">
+	<input type="hidden" name="foto" value="<?php echo $row->foto ?>">
+	<input type="hidden" name="nama_produk" value="<?php echo $row->nama_produk ?>">
+	<input type="hidden" name="harga" value="<?php echo $row->harga ?>">
 
-		<h3> Rp. <?php echo number_format($d->harga,0,",","."); ?> </h3>
-		<label class="checkbox">
-			<input type="checkbox">  Adds product to compair
-		</label><br>
-		<div class="btn-group">
-	<button type="submit" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</button>
-		 <a href="<?php echo base_url('index.php/customer/detail/').$d->id_produk?>" class="shopBtn">VIEW</a>
-		 </div>
-	</form>
+				<div class="caption cntr">
+					<p> <?php echo $row->nama_produk?></p>
+					<p><strong> Rp. <?php echo number_format($row->harga,0,",","."); ?> </strong></p>
+					
+		<button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Add to cart</button>		
+					<div class="actionList">
+						<a class="pull-left" href="#">Add to Wish List </a> 
+						<a class="pull-left" href="#"> Add to Compare </a>
+					</div> 
+					<br class="clr">
+				</div>
+	</form>			
+			  </div>
+			</li>
+<?php endforeach;?>
+
+		  </ul>
 		</div>
+	
 	</div>
+	
+	<script src="<?php echo base_url().'assets/js/jquery-3.3.1.js'?>" type="text/javascript"></script>
+	<script src="<?php echo base_url().'assets/js/bootstrap.js'?>" type="text/javascript"></script>
 
-<?php } ?>
-
-</div>
-
-</div>
+	</div>	

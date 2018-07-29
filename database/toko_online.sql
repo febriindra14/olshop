@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2018 at 11:04 PM
+-- Generation Time: Jul 29, 2018 at 12:23 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -39,15 +39,6 @@ CREATE TABLE `cart` (
   `total_harga` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id_cart`, `id_customer`, `id_produk`, `foto`, `nama_produk`, `harga`, `jumlah`, `total_harga`) VALUES
-(33, 3, 31, 'b1.jpg', 'gelang', 100000, 2, 200000),
-(34, 3, 29, 'unnamed.png', 'style antique bronze', 200000, 2, 400000),
-(35, 4, 30, '57-59.jpg', 'pink diamond', 700000, 2, 1400000);
-
 -- --------------------------------------------------------
 
 --
@@ -58,7 +49,7 @@ CREATE TABLE `checkout` (
   `id_checkout` int(5) NOT NULL,
   `id_order` int(5) NOT NULL,
   `id_customer` int(5) NOT NULL,
-  `id_produk` int(5) NOT NULL,
+  `nama_produk` varchar(20) NOT NULL,
   `jumlah` int(5) NOT NULL,
   `total_harga` int(8) NOT NULL,
   `pil_bayar` varchar(10) NOT NULL,
@@ -68,19 +59,6 @@ CREATE TABLE `checkout` (
   `kode_pos` int(5) NOT NULL,
   `alamat_lengkap` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `checkout`
---
-
-INSERT INTO `checkout` (`id_checkout`, `id_order`, `id_customer`, `id_produk`, `jumlah`, `total_harga`, `pil_bayar`, `negara`, `provinsi`, `kabupaten`, `kode_pos`, `alamat_lengkap`) VALUES
-(18, 61, 3, 31, 2, 200000, 'Mandiri', 'indonesia', 'jawa timur', 'jombang', 78345, 'jl sunan muria no 89 jember'),
-(19, 61, 3, 23, 2, 40000, 'Mandiri', 'indonesia', 'jawa timur', 'jombang', 78345, 'jl sunan muria no 89 jember'),
-(20, 62, 3, 31, 2, 200000, 'Permata', 'indonesia', 'jawa tengah', 'bantul', 99087, 'jl pajangan sedayu km 1,5 bantul'),
-(21, 62, 3, 29, 2, 400000, 'Permata', 'indonesia', 'jawa tengah', 'bantul', 99087, 'jl pajangan sedayu km 1,5 bantul'),
-(22, 63, 4, 31, 1, 100000, 'ATM', 'indonesia', 'jawa timur', 'kudus', 78345, 'jl pahlawan no 45 surabaya'),
-(23, 63, 4, 32, 1, 350000, 'ATM', 'indonesia', 'jawa timur', 'kudus', 78345, 'jl pahlawan no 45 surabaya'),
-(25, 65, 4, 30, 2, 1400000, 'BCA', 'cina', 'malaka', 'semarang', 55761, 'jl sunan muria no 89 kudus');
 
 -- --------------------------------------------------------
 
@@ -175,16 +153,6 @@ CREATE TABLE `order` (
   `keterangan` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `order`
---
-
-INSERT INTO `order` (`id_order`, `id_customer`, `nama`, `total_bayar`, `tgl_order`, `keterangan`) VALUES
-(61, 3, 'yoga maruf ramadan', 240000, '2018-07-24 10:11:37', 'sudah bayar'),
-(62, 3, 'ramadan', 600000, '2018-07-24 16:24:02', 'bayar'),
-(63, 4, 'Prasetyo ', 450000, '2018-07-24 16:38:28', 'Bayar'),
-(65, 4, 'Prasetyo ', 1400000, '2018-07-24 17:12:12', 'bayar');
-
 -- --------------------------------------------------------
 
 --
@@ -210,15 +178,11 @@ CREATE TABLE `produk` (
 INSERT INTO `produk` (`id_produk`, `id_kategori`, `id_merk`, `nama_produk`, `bahan`, `warna`, `deskripsi`, `harga`, `foto`) VALUES
 (21, '10', '50', 'jam tangan', 'stainless steel', 'emas', 'tahan karat dan elegan ', 990000, 'a1.jpg'),
 (23, '11', '51', 'gelang', 'karet', 'hitam', 'lentur', 20000, 'c1.jpg'),
-(24, '11', '51', 'AQ 230 GOLD CASIO VI', 'stainless steel', 'emas', 'tampilan yang mewah', 1700000, 'jam1.jpg'),
 (25, '12', '50', 'Cincin', 'emas', 'abu abu', 'mantab jiwa', 400000, 'j1.jpg'),
 (26, '13', '50', 'kalung', 'emas', 'keemasan', 'well ', 500000, 'shop-cart1.PNG'),
 (27, '14', '50', 'cincin nikah', 'emas', 'emas', 'mantab buat cincin nikah sob!', 400000, 'e1.jpg'),
-(28, '15', '50', 'HEYu jewelry', 'logam', 'emas', 'kondisi oke', 450000, 'bootstrap-ring1.png'),
-(29, '16', '50', 'style antique bronze', 'logam', 'keemasan', 'menarik', 200000, 'unnamed.png'),
-(30, '17', '50', 'pink diamond', 'batu kristal', 'merah muda', 'okeboleh', 700000, '57-59.jpg'),
-(31, '18', '50', 'gelang', 'emas', 'emas', 'nyaman dipakai', 100000, 'b1.jpg'),
-(32, '19', '54', 'watches lemino', 'stainless steel', 'hitam-puti', 'menarik', 350000, 'oke.jpg');
+(28, '15', '50', 'Cincin HEYu jewelry', 'logam', 'emas', 'kondisi oke', 450000, 'g1.jpg'),
+(31, '18', '50', 'gelang', 'emas', 'emas', 'nyaman dipakai', 100000, 'b1.jpg');
 
 -- --------------------------------------------------------
 
@@ -301,13 +265,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_cart` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -331,13 +295,13 @@ ALTER TABLE `merk`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `user`

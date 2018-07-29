@@ -19,7 +19,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 		<td align="center">Username</td>
 		<td align="center">Email</td>
 		<td align="center">Password</td>
-		<td align="center">Hak Akses</td>
 		<td align="center">Pengaturan</td>
 	</tr>
 	<tr>
@@ -29,7 +28,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 		<td><?php echo $e['username'];?></td>
 		<td><?php echo $e['email'];?></td>
 		<td><?php echo $e['password'];?></td>
-		<td><?php echo $e['hak_akses'];?></td>
 		<td><a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('index.php/utama/admin/tampil_edit/').$e['id_user']?>'>Edit</a>
 			<a data-toggle="tooltip" data-placement="top" title="Hapus" style='background: red; border:red;' class="btn btn-danger btn-sm" href="<?php echo base_url('index.php/utama/admin/hapus/').$e['id_user'] ?>">Hapus</a></td>	
 	</tr>

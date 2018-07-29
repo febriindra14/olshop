@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
               <div class="col-lg-4 col-md-6 mb-4">
               <div class="card-body">
                 <div class="title">
-                   <?php echo ''.$ayo['nama_produk']; ?>
+              <?php echo ''.$ayo['nama_produk']; ?>
                 </div>
               <?php echo ''.$ayo['id_produk']; ?>
               <?php echo ''.$ayo['id_kategori']; ?>
@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
               <?php echo ''.$ayo['deskripsi']; ?>
              </div>
             </div>
- <h4>Rp. <?php echo (''.$ayo['harga']); ?></h4>
+ <h4>Rp. <?php echo number_format(''.$ayo['harga'],0,",","."); ?></h4>
      </div>
   
    <br>

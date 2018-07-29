@@ -24,19 +24,14 @@ class Admin extends CI_Controller
 			'kategori_produk'	=>$this->db->get('kategori_produk')->num_rows(),
 			'merk'				=>$this->db->get('merk')->num_rows(),
 			'produk'			=>$this->db->get('produk')->num_rows(),
-			'customer'			=>$this->db->get('customer')->num_rows()
-		);
+			'customer'			=>$this->db->get('customer')->num_rows());
 		$this->pajangan->kirim('admin/depan',$data);
 	}
-
 	// user
 	public function tampil()
 	{	
 		$data['coba']=$this->user_model->tes();
 		$this->pajangan->kirim('admin/user_view',$data);
-		/*
-		$pertama=$this->user_model->tes();
-		$this->pajangan->kirim('admin/user_view',array('coba'=>$pertama)); */
 	}
 	//cari user
 	public function cari()
@@ -123,9 +118,6 @@ class Admin extends CI_Controller
 		$this->pagination->initialize($config);
 		$data['kirim']=$this->user_model->muncul($config['per_page'],$start);
 		$this->pajangan->kirim('admin/kategori_produk',$data);
-
-		/*$ketiga=$this->user_model->muncul();
-		$this->pajangan->kirim('admin/kategori_produk',array('kirim'=>$ketiga)); */
 	}
 	public function form_kaduk()
 	{
@@ -184,9 +176,9 @@ class Admin extends CI_Controller
       
     	$coba = $this->upload->data(); 
 		$ve=array(
-			'id_merk'=>$this->input->post('id_merk'),
-			'nama_merk'=>$this->input->post('nama_merk'),
-			'gambar' =>$coba['file_name']);
+			'id_merk'	=>$this->input->post('id_merk'),
+			'nama_merk'	=>$this->input->post('nama_merk'),
+			'gambar' 	=>$coba['file_name']);
 		$this->user_model->insert_merk($ve);
 		redirect(base_url('index.php/utama/admin/merk'));
 	}
@@ -211,8 +203,8 @@ class Admin extends CI_Controller
 		$b=$this->input->post('id_merk');
 		$v=array(
 			'id_merk'		=>$this->input->post('id_merk'),
-			'nama_merk'	=>$this->input->post('nama_merk'),
-			'gambar'	=>$coba['file_name']);
+			'nama_merk'		=>$this->input->post('nama_merk'),
+			'gambar'		=>$coba['file_name']);
 		$q=$this->user_model->update_merk($v,$b);
 		redirect(base_url('index.php/utama/admin/merk'));
 	}
@@ -223,12 +215,12 @@ class Admin extends CI_Controller
 		redirect(base_url('index.php/utama/admin/merk'));
 	}
 	//detail merk produk
-	 public function detailmerk()
+	public function detailmerk()
 	{
-  		$data['detail'] = $this->user_model->getmerk();
+		$id=$this->uri->segment(4);
+  		$data['detail'] = $this->user_model->getmerk($id);
   		$this->pajangan->kirim('admin/detail_merk', $data);
 	}
-
 	//produk
 	public function produk()
 	{	
@@ -260,9 +252,6 @@ class Admin extends CI_Controller
 		$this->pagination->initialize($config);
 		$data['produk']=$this->user_model->kardus($config['per_page'],$start);
 		$this->pajangan->kirim('admin/produk',$data);
-
-		//$data['produk']=$this->user_model->kardus();
-		//$this->pajangan->kirim('admin/produk',$data);
 	}
 	public function form_produk()
 	{
@@ -333,7 +322,7 @@ class Admin extends CI_Controller
 	}
 	public function hapusproduk()
 	{
-		$empat=$this->uri->segment(4);
+		$empat=$this->uri->segment(3);
 		$lima=$this->user_model->delete_produk($empat);
 		redirect(base_url('index.php/utama/admin/produk'));
 	}
@@ -399,16 +388,83 @@ class Admin extends CI_Controller
 		$lima=$this->user_model->delete_cus($empat);
 		redirect(base_url('index.php/utama/admin/customer'));
 	}
-
 	//order
 	public function order()
 	{
-		$this->pajangan->kirim('admin/order');
-	}
+		$row=$this->user_model->getbaris();
+		$config['base_url']=base_url().'index.php/utama/admin/order';
+		$config['total_rows']=$row;
+		$config['per_page']=2;
+		$config['first_link']='Pertama';
+		$config['last_link']='Terakhir'; 
+		$config['next_link']='Berikutnya';
+		$config['prev_link']='Sebelumnya';
 
+		$config['full_tag_open']='<div>';
+		$config['full_tag_close']='</div>';
+		$config['num_tag_open']='<div class="page">';
+		$config['num_tag_close']='</div>';
+		$config['cur_tag_open']='<div class="page active">';
+		$config['cur_tag_close']='</div>';
+		$config['next_tag_open']='<div class="page">';
+		$config['next_tag_close']='</div>';
+		$config['prev_tag_open']='<div class="page">';
+		$config['prev_tag_close']='</div>';
+		$config['first_tag_open']='<div class="page">';
+		$config['first_tag_close']='</div>';
+		$config['last_tag_open']='<div class="page">';
+		$config['last_tag_close']='</div>';
+
+		$id=$this->uri->segment(4);
+		$this->pagination->initialize($config);
+		$data['order']=$this->user_model->order($config['per_page'],$id);
+		$this->pajangan->kirim('admin/order',$data);
+	}
+	public function form_order()
+	{
+		$data['id']=$this->user_model->id_cus()->result_array();
+		$this->pajangan->kirim('admin/tambah_order',$data);
+	}
+	public function tambah_order()
+	{
+		$simpan=array(
+			'id_order'		=>$this->input->post('id_order'),
+			'id_customer'	=>$this->input->post('id_customer'),
+			'nama'			=>$this->input->post('nama'),
+			'total_bayar'	=>$this->input->post('total_bayar'),
+			'tgl_order'		=>$this->input->post('tgl_order'),
+			'keterangan'	=>$this->input->post('keterangan'));
+		$this->user_model->insert_order($simpan);
+		redirect(base_url('index.php/utama/admin/order'));
+	}
+	public function ubah_order()
+	{
+		$data=$this->uri->segment(4);
+		$send['edit']=$this->user_model->kirim_order($data);
+		$this->pajangan->kirim('admin/edit_order',$send);
+	}
+	public function edit_order()
+	{
+		$id=$this->input->post('id_order');
+		$data=array(
+			'id_order'			=>$this->input->post('id_order'),
+			'id_customer'		=>$this->input->post('id_customer'),
+			'nama'				=>$this->input->post('nama'),
+			'total_bayar'		=>$this->input->post('total_bayar'),
+			'tgl_order'			=>$this->input->post('tgl_order'),
+			'keterangan'		=>$this->input->post('keterangan'));
+		$send=$this->user_model->update_order($data,$id);
+		redirect(base_url('index.php/utama/admin/order'));
+	}
+	public function hapus_order()
+	{
+		$id=$this->uri->segment(4);
+		$data=$this->user_model->delete_order($id);
+		redirect(base_url('index.php/utama/admin/order'));
+	}
 	//konfigurasi web
 	public function konfigurasi_web()
 	{
 		$this->pajangan->kirim('admin/konfigurasi_web');
-	}
+	}	
 }

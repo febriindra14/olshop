@@ -11,6 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="author" content="">
     <!-- Bootstrap styles -->
     <link href="<?php echo base_url(); ?>assets/fronted/assets/css/bootstrap.css" rel="stylesheet"/>
+    <!-- autocomplete -->
+    <link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'?>">
     <!-- Customize styles -->
     <link href="<?php echo base_url(); ?>assets/fronted/style.css" rel="stylesheet"/>
     <!-- font awesome styles -->
@@ -45,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<a href="<?php echo base_url('index.php/customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
 				<a href="<?php echo base_url('index.php/customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
 				<a href="<?php echo base_url('index.php/customer/keranjang')?>"><span class="icon-shopping-cart"></span> Keranjang <span class="badge badge-warning"> Rp </span></a>
-
 				<a href="<?php echo base_url('index.php/login_customer/logout')?>" >Logout</a>
 
 			</div>
@@ -98,20 +99,19 @@ Navigation Bar Section
 			  <li class=""><a href="<?php echo base_url('index.php/customer/grid')?>">Grid View</a></li>
 			  <li class=""><a href="<?php echo base_url('index.php/customer/tigacol')?>">Three Column</a></li>
 			  <li class=""><a href="<?php echo base_url('index.php/customer/empatcol')?>">Four Column</a></li>
-			  <li class=""><a href="<?php echo base_url('index.php/customer/tentang')?>">General Content</a></li>
+			  <li class=""><a href="<?php echo base_url('index.php/customer/penitipan')?>">Rekonfirmasi</a></li>
 			</ul>
 
-			<form action="<?php echo base_url()?>" class="navbar-search pull-left">
-			  <input type="text" placeholder="Search" class="search-query span2">
+		<form id="form_search" action="<?php echo site_url('customer/search');?>" class="navbar-search pull-left" method="GET">	
+			 <input type="text" name="title" placeholder="Search" class="search-query span2" id="title">
 			</form>
 
 			<ul class="nav pull-right">
 			<li class="dropdown">
-				<a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo base_url()?>">
-				<span class="icon-lock"></span> Login <b class="caret"></b></a>
+		<a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span> Login <b class="caret"></b></a>
 				<div class="dropdown-menu">
 
-				<form action="<?php echo base_url('index.php/login_customer/login_cus')?>" method="post">
+				<form class="form-horizontal loginFrm" action="<?php echo base_url('index.php/login_customer/login_cus')?>" method="post">
 
 				  <div class="control-group">
 					<input type="text" name="email" class="span2" placeholder="Email">
@@ -220,5 +220,26 @@ accompanied by English versions from the 1914 translation by H. Rackham.
 	<script src="<?php echo base_url(); ?>assets/fronted/assets/js/jquery.easing-1.3.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/fronted/assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
     <script src="<?php echo base_url(); ?>assets/fronted/assets/js/shop.js"></script>
+
+<!-- cari data -->
+    <script src="<?php echo base_url().'assets/js/jquery-3.3.1.js'?>" type="text/javascript"></script>
+	<script src="<?php echo base_url().'assets/js/bootstrap.js'?>" type="text/javascript"></script>
+	<script src="<?php echo base_url().'assets/js/jquery-ui.js'?>" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+		    $('#title').autocomplete({
+                source: "<?php echo site_url('customer/get_autocomplete');?>",
+     
+                select: function (event, ui) {
+                    $(this).val(ui.item.label);
+                    $("#form_search").submit(); 
+                }
+            });
+
+		});
+	</script>
+   
+
   </body>
 </html>

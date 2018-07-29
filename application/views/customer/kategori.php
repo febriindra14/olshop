@@ -9,7 +9,7 @@
 		<?php } ?>
 	
 		<li style="border:0"> &nbsp;</li>
-		<li> <a class="totalInCart" href="<?php echo base_url('index.php/customer/keranjang')?> "><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
+		<li> <a class="totalInCart" href="<?php echo base_url('index.php/customer/keranjang')?> "><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;"> Rp <?php echo number_format($total,0,",","."); ?> </span></strong></a></li>
 
 	</ul>
 </div>
@@ -81,7 +81,6 @@ New Products
 				 <a href="<?php echo base_url('index.php/customer/detail/').$b->id_produk?>"><img class="img-thumbnail" src="<?php echo base_url(). 'assets/fronted/assets/img/'.$b->foto?>"/></a>
 				 
 	<form action="<?php echo base_url('index.php/customer/tambah_cart')?>" method="post">
-
 	<input type="hidden" name="id_cart">
 	<input type="hidden" name="id_produk" value="<?php echo $b->id_produk ?>">
 	<input type="hidden" name="foto" value="<?php echo $b->foto ?>">
@@ -93,13 +92,14 @@ New Products
 					<p><strong> Rp. <?php echo number_format($b->harga,0,",","."); ?> </strong></p>
 
 					<button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Add to cart</button>
-</form>					
+
 					<div class="actionList">
 						<a class="pull-left" href="#">Add to Wish List </a> 
 						<a class="pull-left" href="#"> Add to Compare </a>
 					</div> 
 					<br class="clr">
 				</div>
+</form>				
 			  </div>
 			</li>
 			

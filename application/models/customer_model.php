@@ -1,15 +1,29 @@
 <?php
 class Customer_model extends CI_Model
 {
+	public function get_search($title){
+		$this->db->like('nama_produk', $title , 'both');
+		$this->db->order_by('nama_produk', 'ASC');
+		$this->db->limit(10);
+		return $this->db->get('produk')->result();
+	} 
 	public function getcheckout($data)
 	{
 		return $this->db->insert('checkout',$data);
 	}
-	/*public function getdelete($data)
+	public function getcek($id)
 	{
-		$this->db->where('id_cart',$data);
-		$query=$this->db->delete('cart');
-	} */
+		$this->db->join('customer','customer.id_customer=checkout.id_customer');
+		$this->db->where('customer.id_customer',$id);
+		return $this->db->get('checkout');
+	}
+	public function getkonfirm($id=null,$f=null)
+	{
+		if(!empty($id)&&$this->db->where('keterangan',$f)){
+			$this->db->where('id_customer',$id);
+		}
+		return $this->db->order_by('id_order','DESC')->get('order');
+	}
 	public function getkonfirmasi($data,$id_order)
 	{
 		return $this->db->where('id_order',$id_order)->update('order',$data);
@@ -47,6 +61,11 @@ class Customer_model extends CI_Model
 	public function delete_cart($hapus)
 	{
 		$this->db->where('id_cart',$hapus);
+		$query=$this->db->delete('cart');
+	}
+	public function delete_item($id)
+	{
+		$this->db->where('id_customer',$id);
 		$query=$this->db->delete('cart');
 	}
 	public function getshipping($save)
@@ -134,7 +153,6 @@ class Customer_model extends CI_Model
 		$this->db->join('kategori_produk','kategori_produk.id_kategori=produk.id_kategori');
 		$this->db->where('kategori_produk.id_kategori',(int)$id);
 		$query=$this->db->get();
-
 		return $query->result();
 	}
 	public function getdetail($id)
@@ -168,7 +186,7 @@ class Customer_model extends CI_Model
 		$kirim=$this->db->get();
 		return $kirim->result();
 	}
-	public function getrelasi()
+	/*public function getrelasi()
 	{
 		$this->db->select('*');
 		$this->db->from('order');
@@ -176,7 +194,7 @@ class Customer_model extends CI_Model
 		$this->db->where('customer.id_customer');
 		$data=$this->db->get();
 		return $data->result();
-	}
+	} */
 	public function getid($id)
 	{
 		return $this->db->insert('order',$id);

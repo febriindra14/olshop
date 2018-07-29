@@ -1,3 +1,28 @@
+<!-- 
+	Upper Header Section 
+-->
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="topNav">
+		<div class="container">
+			<div class="alignR">
+				<div class="pull-left socialNw">
+					<a href="#"><span class="icon-twitter"></span></a>
+					<a href="#"><span class="icon-facebook"></span></a>
+					<a href="#"><span class="icon-youtube"></span></a>
+					<a href="#"><span class="icon-tumblr"></span></a>
+				</div>
+				<a class="active" href="<?php echo base_url('index.php/customer');?>"> <span class="icon-home"></span> Home</a> 
+				<a href="<?php echo base_url('index.php/customer/akunku')?>"><span class="icon-user"></span> My Account</a> 
+				<a href="<?php echo base_url('index.php/customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
+				<a href="<?php echo base_url('index.php/customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
+				<a href="<?php echo base_url('index.php/customer/keranjang')?>"><span class="icon-shopping-cart"></span> Keranjang <span class="badge badge-warning"> Rp <?php echo number_format($total,0,",","."); ?> </span></a>
+				<a href="<?php echo base_url('index.php/login_customer/logout')?>" >Logout</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- -->
+
 <div id="sidebar" class="span3">
 <div class="well well-small">
 	<ul class="nav nav-list">
@@ -9,7 +34,7 @@
 <?php } ?>
 	
 		<li style="border:0"> &nbsp;</li>
-		<li> <a class="totalInCart" href="<?php echo base_url('index.php/customer/keranjang')?> "><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42  </span></strong></a></li>
+		<li> <a class="totalInCart" href="<?php echo base_url('index.php/customer/keranjang')?> "><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;"> Rp <?php echo number_format($total,0,",","."); ?> </span></strong></a></li>
 	</ul>
 </div>
 
@@ -176,32 +201,38 @@ New Products
 		  </div>
 		  </div>
 
-
-		<div class="row-fluid">
+		<div class="row-fluid">		
 		  <ul class="thumbnails">
-
 <?php foreach ($semua as $c) { ?>
-
-			<li class="span4">
+			<li class="span4" style="margin-left: 7px;">
 			  <div class="thumbnail">
 				<a class="zoomTool" href="<?php echo base_url('index.php/customer')?>" ><span class="icon-search"></span> QUICK VIEW</a>
 
-				<a href="<?php echo base_url('index.php/customer/detail/').$c->id_produk?>"><img style=" width: 200px; height: 250px;"  src="<?php echo base_url(). 'assets/fronted/assets/img/'.$c->foto?>" alt=""></a>
+				<a href="<?php echo base_url('index.php/customer/detail/').$c->id_produk?>"><img src="<?php echo base_url(). 'assets/fronted/assets/img/'.$c->foto?>" alt=""></a>
+	
+	<form action="<?php echo base_url('index.php/customer/tambah_cart')?>" method="post">
+	<input type="hidden" name="id_cart">
+	<input type="hidden" name="id_produk" value="<?php echo $c->id_produk ?>">
+	<input type="hidden" name="foto" value="<?php echo $c->foto ?>">
+	<input type="hidden" name="nama_produk" value="<?php echo $c->nama_produk ?>">
+	<input type="hidden" name="harga" value="<?php echo $c->harga ?>">
+
 				<div class="caption cntr">
 					<p><?php echo $c->nama_produk?></p>
 					<p><strong> Rp. <?php echo number_format($c->harga,0,",","."); ?> </strong></p>
-					<h4><a class="shopBtn" href="<?php echo base_url('index.php/customer/keranjang/').$c->id_produk?>" title="add to cart"> Add to cart </a></h4>
+		<button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Add to cart</button>
 					<div class="actionList">
 						<a class="pull-left" href="#">Add to Wish List </a> 
 						<a class="pull-left" href="#"> Add to Compare </a>
 					</div> 
 					<br class="clr">
 				</div>
+	</form>			
 			  </div>
 			</li>
-<?php } ?>
-
+	<?php } ?>	 
 		  </ul>
+	 
 		</div>
 
 	</div>
@@ -209,7 +240,7 @@ New Products
 	<!--
 	Featured Products
 	-->
-		<div class="well well-small">
+	<div class="well well-small">
 		  <h3><a class="btn btn-mini pull-right" href="products.html" title="View more">VIew More<span class="icon-plus"></span></a> Featured Products  </h3>
 		  <hr class="soften"/>
 		  <div class="row-fluid">

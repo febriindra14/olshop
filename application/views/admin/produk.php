@@ -49,8 +49,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 		<td><?php echo $c['harga'];?></td>
 		<td><?php echo $c['foto'];?></td>
 		<td><a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('index.php/utama/admin/editproduk/').$c['id_produk']?>'>Edit</a>
+
 			<a data-toggle="tooltip" data-placement="top" title="Hapus" style='background: red; border:red;' class="btn btn-danger btn-sm" href="<?php echo base_url('index.php/utama/admin/hapusproduk/').$c['id_produk'] ?>">Hapus</a>
-			<a data-toggle="tooltip" data-placement="top" title="Detail" style='background: grey; border:black;' class="btn btn-primary btn-sm" href="<?php echo base_url('index.php/utama/admin/detailproduk')?>">Detail</a></td>	
+
+			<a data-toggle="tooltip" data-placement="top" title="Detail" style='background: grey; border:black;' class="btn btn-primary btn-sm" href="<?php echo base_url('index.php/utama/admin/detailproduk/'.$c['id_produk'])?>">Detail</a>
+		</td>	
 	</tr>
 <?php }?>
 	</table>

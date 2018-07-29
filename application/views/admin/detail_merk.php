@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <h1 class="card-title">
                   <a href="#"><?php echo $p->nama_merk ?></a>
                 </h1>
-                <a href="#"><img class="img-thumbnail" src="<?php echo base_url(). 'assets/images/'.$p->gambar?>"/></a>
+                <a href="#"><img class="img-thumbnail" src="<?php echo base_url(). 'assets/fronted/assets/img/'.$p->gambar?>"/></a>
              </div>
              
             </div>
