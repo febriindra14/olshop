@@ -12,10 +12,7 @@
 
  <div class="jumbotron col-md-4">
 
-    <div class="form-group">
-      <label>Id User :</label>
-      <input type="text" name="id_user" class="form-control" required>
-    </div>
+    <input type="hidden" name="id_user">
 
     <div class="form-group">
       <label>Nama :</label>

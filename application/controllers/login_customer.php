@@ -15,6 +15,7 @@ class Login_customer extends CI_Controller
 	{	
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'merk'		=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/login_customer',$data);

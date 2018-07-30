@@ -10,12 +10,7 @@
       <div class="row">
         <div class="col-md-15">
 
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Id User</label>
-          <div class="col-sm-5">
-            <input type="text" class="form-control" name="id_user" required>
-          </div>
-        </div> 
+      <input type="hidden" name="id_user">
 
       <div class="form-group">
           <label class="col-sm-2 control-label">Nama</label>

@@ -1,6 +1,11 @@
 <?php
 class Customer_model extends CI_Model
 {
+	public function getweb()
+	{
+   		$data =$this->db->get('konfigurasi_web');
+   		return $data;
+	}
 	public function get_search($title){
 		$this->db->like('nama_produk', $title , 'both');
 		$this->db->order_by('nama_produk', 'ASC');
@@ -21,6 +26,13 @@ class Customer_model extends CI_Model
 	{
 		if(!empty($id)&&$this->db->where('keterangan',$f)){
 			$this->db->where('id_customer',$id);
+		}
+		return $this->db->order_by('id_order','DESC')->get('order');
+	}
+	public function getbeda($idorder=null)
+	{
+		if(!empty($idorder)){
+			$this->db->where('id_order',$idorder);
 		}
 		return $this->db->order_by('id_order','DESC')->get('order');
 	}
@@ -100,6 +112,13 @@ class Customer_model extends CI_Model
 	}
 	//home
 	public function getutama()
+	{
+		$this->db->select('*');
+   		$this->db->from('produk');
+   		$data = $this->db->get();
+   		return $data->result();
+	}
+	public function getmore()
 	{
 		$this->db->select('*');
    		$this->db->from('produk');

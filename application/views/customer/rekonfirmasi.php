@@ -33,7 +33,7 @@
  <form action="<?php echo base_url('index.php/customer/selesai')?>" method="post">
     <div class="well well-small">
 
-    	<input type="hidden" name="id_order" value="<?php echo $titip['id_order'];?>">
+    	<input type="hidden" name="id_order" value="<?php echo $beda['id_order'];?>">
 
     	<h3>Konfirmasi</h3>
         <table>  
@@ -45,17 +45,17 @@
            	<tr>
     			<td>Kode order</td>
     			<td>:</td>
-    			<td><?php echo $titip['id_order'] ;?></td>
+    			<td><?php echo $beda['id_order'] ;?></td>
     		</tr>        
     		<tr>
     			<td>Nominal</td>
     			<td>:</td>
-    			<td>Rp <?php echo number_format($titip['total_bayar'],0,",","."); ?></td>
+    			<td>Rp <?php echo number_format($beda['total_bayar'],0,",","."); ?></td>
     		</tr>
     		<tr>
     			<td>Tanggal/waktu bayar</td>
     			<td>:</td>
-    			<td><?php echo $titip['tgl_order'] ;?></td>
+    			<td><?php echo $beda['tgl_order'] ;?></td>
     		</tr>                
             <tr>
                 <td>Bayar via</td>

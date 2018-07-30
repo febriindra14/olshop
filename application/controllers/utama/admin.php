@@ -214,13 +214,6 @@ class Admin extends CI_Controller
 		$m=$this->user_model->delete_merk($n);
 		redirect(base_url('index.php/utama/admin/merk'));
 	}
-	//detail merk produk
-	public function detailmerk()
-	{
-		$id=$this->uri->segment(4);
-  		$data['detail'] = $this->user_model->getmerk($id);
-  		$this->pajangan->kirim('admin/detail_merk', $data);
-	}
 	//produk
 	public function produk()
 	{	
@@ -465,6 +458,24 @@ class Admin extends CI_Controller
 	//konfigurasi web
 	public function konfigurasi_web()
 	{
-		$this->pajangan->kirim('admin/konfigurasi_web');
-	}	
+		$data['konfig']=$this->user_model->getkonfig();
+		$this->pajangan->kirim('admin/konfigurasi_web',$data);
+	}
+	public function ubah_konfig()
+	{
+		$nama=$this->uri->segment(4);
+		$data['web']=$this->user_model->edit_konfig($nama);
+		$this->pajangan->kirim('admin/edit_konfig',$data);
+	}
+	public function edit_konfig()
+	{
+		$id=$this->input->post('id_web');
+		$data=array(
+			'id_web'	=>$this->input->post('id_web'),
+			'nama_web'	=>$this->input->post('nama_web'),
+			'email_web'	=>$this->input->post('email_web'),
+			'telp_web'	=>$this->input->post('telp_web'));
+		$aka=$this->user_model->update_konfig($data,$id);
+		redirect(base_url('index.php/utama/admin/konfigurasi_web'));
+	}
 }

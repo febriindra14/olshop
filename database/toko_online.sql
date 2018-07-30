@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2018 at 12:23 PM
+-- Generation Time: Jul 30, 2018 at 11:45 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -59,6 +59,17 @@ CREATE TABLE `checkout` (
   `kode_pos` int(5) NOT NULL,
   `alamat_lengkap` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `checkout`
+--
+
+INSERT INTO `checkout` (`id_checkout`, `id_order`, `id_customer`, `nama_produk`, `jumlah`, `total_harga`, `pil_bayar`, `negara`, `provinsi`, `kabupaten`, `kode_pos`, `alamat_lengkap`) VALUES
+(1, 1, 3, 'gelang', 1, 20000, 'ATM', 'cina', 'jawa tengah', 'jombang', 78345, 'jl pahlawan no 45 semarang'),
+(2, 3, 3, 'gelang', 1, 20000, 'ATM', 'indonesia', 'jawa timur', 'jombang', 99087, 'jl sunan muria no 89 kudus'),
+(3, 3, 3, 'Cincin', 1, 400000, 'ATM', 'indonesia', 'jawa timur', 'jombang', 99087, 'jl sunan muria no 89 kudus'),
+(4, 4, 3, 'jam tangan', 1, 990000, 'BNI', 'indonesia', 'jawa tengah', 'bantul', 55761, 'jl pajangan sedayu km 1,5 bantul'),
+(5, 4, 3, 'kalung', 1, 500000, 'BNI', 'indonesia', 'jawa tengah', 'bantul', 55761, 'jl pajangan sedayu km 1,5 bantul');
 
 -- --------------------------------------------------------
 
@@ -117,6 +128,26 @@ INSERT INTO `kategori_produk` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `konfigurasi_web`
+--
+
+CREATE TABLE `konfigurasi_web` (
+  `id_web` int(5) NOT NULL,
+  `nama_web` varchar(20) NOT NULL,
+  `email_web` varchar(25) NOT NULL,
+  `telp_web` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `konfigurasi_web`
+--
+
+INSERT INTO `konfigurasi_web` (`id_web`, `nama_web`, `email_web`, `telp_web`) VALUES
+(4, 'ONLINE SHOP', 'ravahomebase@gmail.com', '085860078909');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `merk`
 --
 
@@ -152,6 +183,14 @@ CREATE TABLE `order` (
   `tgl_order` datetime NOT NULL,
   `keterangan` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`id_order`, `id_customer`, `nama`, `total_bayar`, `tgl_order`, `keterangan`) VALUES
+(3, 3, 'Yoga maruf ramadan', 420000, '2018-07-30 09:52:42', 'bayar'),
+(4, 3, 'yoga maruf ramadan', 1490000, '2018-07-30 09:55:08', 'bayar');
 
 -- --------------------------------------------------------
 
@@ -191,7 +230,7 @@ INSERT INTO `produk` (`id_produk`, `id_kategori`, `id_merk`, `nama_produk`, `bah
 --
 
 CREATE TABLE `user` (
-  `id_user` int(10) NOT NULL,
+  `id_user` int(5) NOT NULL,
   `nama` varchar(20) NOT NULL,
   `username` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
@@ -234,6 +273,12 @@ ALTER TABLE `kategori_produk`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
+-- Indexes for table `konfigurasi_web`
+--
+ALTER TABLE `konfigurasi_web`
+  ADD PRIMARY KEY (`id_web`);
+
+--
 -- Indexes for table `merk`
 --
 ALTER TABLE `merk`
@@ -271,7 +316,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -286,6 +331,12 @@ ALTER TABLE `kategori_produk`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
+-- AUTO_INCREMENT for table `konfigurasi_web`
+--
+ALTER TABLE `konfigurasi_web`
+  MODIFY `id_web` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `merk`
 --
 ALTER TABLE `merk`
@@ -295,7 +346,7 @@ ALTER TABLE `merk`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `produk`
@@ -307,7 +358,7 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

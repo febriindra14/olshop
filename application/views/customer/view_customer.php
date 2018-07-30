@@ -64,7 +64,9 @@ Lower Header Section
 	<div class="span4">
 	<h1>
 	<a class="logo" href="<?php echo base_url('index.php/customer')?> "><span>Twitter Bootstrap ecommerce template</span> 
-		<img src="<?php echo base_url(); ?>assets/fronted/assets/img/logo-bootstrap-shoping-cart.png" alt="bootstrap sexy shop">
+	<!-- <img src="<?php echo base_url(); ?>assets/fronted/assets/img/logo-bootstrap-shoping-cart.png" alt="bootstrap sexy shop"> --> 
+			
+			<p><?php echo ''.$config['nama_web'] ;?></p>
 	</a>
 	</h1>
 	</div>
@@ -72,12 +74,13 @@ Lower Header Section
 	
 	</div>
 	<div class="span4 alignR">
-	<p><br> <strong> Support (24/7) :  0800 1234 678 </strong><br><br></p>
+	<p><br> <strong> <?php echo ''.$config['email_web'] ;?> :  <?php echo ''.$config['telp_web'] ;?> </strong><br><br></p>
 	<span class="btn btn-mini">[ 2 ] <span class="icon-shopping-cart"></span></span>
 	<span class="btn btn-warning btn-mini">$</span>
 	<span class="btn btn-mini">&pound;</span>
 	<span class="btn btn-mini">&euro;</span>
 	</div>
+			
 </div>
 </header>
 
@@ -167,7 +170,7 @@ Footer
 <div class="row-fluid">
 <div class="span2">
 <h5>Your Account</h5>
-<a href="#">YOUR ACCOUNT</a><br>
+<a href="<?php echo base_url('index.php/customer/akunku')?>">YOUR ACCOUNT</a><br>
 <a href="#">PERSONAL INFORMATION</a><br>
 <a href="#">ADDRESSES</a><br>
 <a href="#">DISCOUNT</a><br>

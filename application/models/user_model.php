@@ -15,7 +15,6 @@ class User_model extends CI_Model
 		$this->db->or_like('nama',$keyword);
 		return $this->db->get()->result_array();
 	}
-
 	public function insert($simpan)
 	{
 		return $this->db->insert('user',$simpan);
@@ -35,7 +34,6 @@ class User_model extends CI_Model
 		$this->db->where('id_user',$a);
 		$this->db->update('user',$b);
 	}
-
 	//produk
 	public function kardus()
 	{	
@@ -53,7 +51,6 @@ class User_model extends CI_Model
 	{
 		return $this->db->get('kategori_produk');
 	}
-
 	public function insert_produk($coba)
 	{
 		return $this->db->insert('produk',$coba);	
@@ -110,7 +107,6 @@ class User_model extends CI_Model
 		$this->db->where('id_customer',$enam);
 		$query=$this->db->delete('customer');
 	}
-
 	//kategori produk
 	public function muncul($perPage,$start)
 	{
@@ -141,7 +137,6 @@ class User_model extends CI_Model
  	{
 		return $this->db->get('kategori_produk')->num_rows();
 	}
-
 	//merk
 	public function menu()
 	{
@@ -167,13 +162,6 @@ class User_model extends CI_Model
 		$this->db->where('id_merk',$he);
 		$query=$this->db->delete('merk');
 	}
-	//detail merk
-	public function getmerk($id)
-	{
-		$this->db->where('id_merk',$id);
-   		$data = $this->db->get('merk');
-   		return $data->result();
- 	}
  	//order
  	public function order($perPage,$start)
 	{
@@ -214,5 +202,20 @@ class User_model extends CI_Model
 	public function id_cus()
 	{
 		return $this->db->get('customer');
+	}
+	//konfigurasi web
+	public function getkonfig()
+	{
+		return $this->db->get('konfigurasi_web')->result();
+	}
+	public function edit_konfig($id)
+	{
+		$data=$this->db->get_where('konfigurasi_web',array('id_web'=>$id));
+		return $data;
+	}
+	public function update_konfig($tb,$id)
+	{
+		$this->db->where('id_web',$id);
+		$this->db->update('konfigurasi_web',$tb);
 	}
 }

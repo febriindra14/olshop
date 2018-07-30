@@ -13,11 +13,29 @@ class Customer extends CI_Controller
 	{
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'semua' 	=>$this->customer_model->getutama(),
 			'produk' 	=>$this->customer_model->getkategori(),
 			'merk'		=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/utama',$data);
+	}
+	/*public function konfigurasi_web()
+	{
+		$data=array(
+			'config'	=>$this->customer_model->getweb());
+		$this->pajangan->kiriman('customer/view_customer',$data);
+	}*/
+	public function view_more()
+	{
+		$id=$this->session->userdata('id_customer');
+		$data=array(
+			'total' 	=>$this->customer_model->gethitung($id),
+			'more' 		=>$this->customer_model->getmore(),
+			'semua' 	=>$this->customer_model->getutama(),
+			'produk' 	=>$this->customer_model->getkategori(),
+			'merk'		=>$this->customer_model->getmerk());
+		$this->pajangan->kiriman('customer/view_more',$data);
 	}
 	//cari data
 	public function get_autocomplete(){
@@ -35,6 +53,7 @@ class Customer extends CI_Controller
 		$id=$this->session->userdata('id_customer');
 		$title=$this->input->get('title');
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'data'		=>$this->customer_model->get_search($title),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'produk' 	=>$this->customer_model->getkategori(),
@@ -46,6 +65,7 @@ class Customer extends CI_Controller
 		$toba=$this->session->userdata('id_customer');
 		$id=$this->uri->segment(3);
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($toba),
 			'view' 		=>$this->customer_model->getfashion($id),
 			'produk' 	=>$this->customer_model->getkategori(),
@@ -56,6 +76,7 @@ class Customer extends CI_Controller
 	{
 		$id = $this->uri->segment(3);
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'detail' 	=>$this->customer_model->getdetail($id)->row_array(),
 			'produk'	=>$this->customer_model->getkategori(),
 			'merk'		=>$this->customer_model->getmerk());
@@ -66,6 +87,7 @@ class Customer extends CI_Controller
 		$toba=$this->session->userdata('id_customer');
 		$id=$this->uri->segment(3);
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($toba),
 			'tampil'	=>$this->customer_model->getall($id),
 			'merk'		=>$this->customer_model->getmerk());
@@ -101,9 +123,10 @@ class Customer extends CI_Controller
 		//supaya berbeda barangnya dengan pembeli yang lainnya
 		$id=$this->session->userdata('id_customer');
 		$data =array(
-			'cart'  =>$this->customer_model->gerobak($id),
-			'total' =>$this->customer_model->gethitung($id),
-			'merk'	=>$this->customer_model->getmerk());
+			'config'	=>$this->customer_model->getweb()->row_array(),
+			'cart'  	=>$this->customer_model->gerobak($id),
+			'total' 	=>$this->customer_model->gethitung($id),
+			'merk'		=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/keranjang',$data);
 	}
 	public function tambah_customer()
@@ -126,6 +149,7 @@ class Customer extends CI_Controller
 	{
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'produk' 	=>$this->customer_model->getkategori(),
 			'merk'		=>$this->customer_model->getmerk());
@@ -139,6 +163,7 @@ class Customer extends CI_Controller
 		}
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'akun'		=>$this->customer_model->getakun($id),
 			'merk'		=>$this->customer_model->getmerk());
@@ -148,6 +173,7 @@ class Customer extends CI_Controller
 	{
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'merk'		=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/kontak',$data);
@@ -157,6 +183,7 @@ class Customer extends CI_Controller
 	{
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'list' 		=>$this->customer_model->getlist(),
 			'produk' 	=>$this->customer_model->getkategori(),
@@ -167,6 +194,7 @@ class Customer extends CI_Controller
 	{
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'grid' 		=>$this->customer_model->getgrid(),
 			'produk' 	=>$this->customer_model->getkategori(),
@@ -177,6 +205,7 @@ class Customer extends CI_Controller
 	{
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'tricol' 	=>$this->customer_model->gettricol(),
 			'merk'		=>$this->customer_model->getmerk());
@@ -186,6 +215,7 @@ class Customer extends CI_Controller
 	{
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'fourcol' 	=>$this->customer_model->getfourcol(),
 			'merk'		=>$this->customer_model->getmerk());
@@ -195,6 +225,7 @@ class Customer extends CI_Controller
 	{
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'produk' 	=>$this->customer_model->getkategori(),
 			'merk'		=>$this->customer_model->getmerk());
@@ -204,6 +235,7 @@ class Customer extends CI_Controller
 	{
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'bayar'				=>$this->customer_model->getbayar($id),
 			'total' 			=>$this->customer_model->gethitung($id),
 
@@ -251,7 +283,8 @@ class Customer extends CI_Controller
 			'total' 		=>$this->input->post('total'),
 			'tgl_order'		=>date('Y-m-d H:i:s'),
 			'pil_bayar'		=>$this->input->post('pil_bayar'),
-			'keterangan'	=>$f,			
+			'keterangan'	=>$f,
+			'config'	=>$this->customer_model->getweb()->row_array(),			
 			'merk'			=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/konfirmasi',$rava);
 	}
@@ -268,6 +301,7 @@ class Customer extends CI_Controller
 		$this->customer_model->getkonfirmasi($data,$id_order);
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'cart'  			=>$this->customer_model->gerobak($id),
 			'total' 			=>$this->customer_model->gethitung($id),
 			'merk'				=>$this->customer_model->getmerk());
@@ -282,6 +316,7 @@ class Customer extends CI_Controller
 		$id=$this->session->userdata('id_customer');
 		$f='belum bayar';
 		$data=array(
+			'config'	=>$this->customer_model->getweb()->row_array(),
 			'titip'			=>$this->customer_model->getkonfirm($id,$f)->result_array(),
 			'cek'			=>$this->customer_model->getcek($id)->result_array(),
 			'total' 		=>$this->customer_model->gethitung($id),
@@ -291,14 +326,16 @@ class Customer extends CI_Controller
 	public function rekonfirm()
 	{
 		$id=$this->session->userdata('id_customer');
+		$idorder=$this->uri->segment(3);
 		$g='belum bayar';
 		$data=array(
 			'nama'			=>$this->input->post('nama'),
-			'titip'			=>$this->customer_model->getkonfirm()->row_array(),
+			'beda'			=>$this->customer_model->getbeda($idorder)->row_array(),
 			'cek'			=>$this->customer_model->getcek($id)->row_array(),
 			'total' 		=>$this->customer_model->gethitung($id),
 			'keterangan'	=>$g,
 
+			'config'		=>$this->customer_model->getweb()->row_array(),
 			'merk'			=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/rekonfirmasi',$data);	
 	}
@@ -313,7 +350,8 @@ class Customer extends CI_Controller
 		$this->customer_model->getkonfirmasi($data,$id_order);
 		$id=$this->session->userdata('id_customer');
 		$data=array(
-			'merk'				=>$this->customer_model->getmerk());
+			'config'	=>$this->customer_model->getweb()->row_array(),
+			'merk'		=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/pemberitahuan',$data);
 	}
 }
