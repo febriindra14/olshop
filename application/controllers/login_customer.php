@@ -11,10 +11,11 @@ class Login_customer extends CI_Controller
 	}
 
 	//login
-	public function masuk()
+	public function masuk($error = NULL)
 	{	
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'jumlah' 	=>$this->customer_model->getulang($id),
 			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'merk'		=>$this->customer_model->getmerk());
@@ -31,7 +32,10 @@ class Login_customer extends CI_Controller
 			redirect(base_url('index.php/customer/keranjang'));
 		}else
 		{
-			echo "email atau password salah!";
+			 $this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'>
+                        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                        <strong>E-mail atau password salah !!!</strong></div>");
+			  redirect(base_url('index.php/login_customer/masuk'));
 		}
 	}
 	public function logout()

@@ -6,6 +6,11 @@ class Customer_model extends CI_Model
    		$data =$this->db->get('konfigurasi_web');
    		return $data;
 	}
+	public function gethal()
+	{
+		$data=$this->db->get('halaman');
+		return $data;
+	}
 	public function get_search($title){
 		$this->db->like('nama_produk', $title , 'both');
 		$this->db->order_by('nama_produk', 'ASC');
@@ -66,9 +71,23 @@ class Customer_model extends CI_Model
 		$this->db->where('password',$password);
 		return $this->db->get('customer')->row();
 	}
-	public function getcart($data_produk)
+	public function getcart($data)
 	{	
-		return $this->db->insert('cart',$data_produk);
+		return $this->db->insert('cart',$data);
+	}
+	public function getautoproduk($data,$id_produk)
+	{
+		return $this->db->where('id_produk',$id_produk)->update('cart',$data); 
+	}
+	public function getulang($id)
+	{
+		$this->db->join('customer','customer.id_customer=cart.id_customer');
+		$this->db->where('customer.id_customer',$id);
+		return $this->db->get('cart');
+	}
+	public function getubah($id,$data)
+	{
+		return $this->db->where('id_cart',$id)->update('cart',$data);
 	}
 	public function delete_cart($hapus)
 	{
@@ -113,10 +132,14 @@ class Customer_model extends CI_Model
 	//home
 	public function getutama()
 	{
-		$this->db->select('*');
-   		$this->db->from('produk');
-   		$data = $this->db->get();
-   		return $data->result();
+   		$this->db->limit(3);
+   		return $this->db->get('produk')->result();
+	}
+	public function gettengah()
+	{
+		$this->db->where('warna','emas');
+   		$this->db->limit(3);
+   		return $this->db->get('produk')->result();
 	}
 	public function getmore()
 	{
@@ -133,6 +156,12 @@ class Customer_model extends CI_Model
    		$data = $this->db->get();
    		return $data->result();
 	}
+	public function getside()
+	{
+		$this->db->where('bahan','emas');
+		$this->db->limit(3);
+   		return $this->db->get('produk')->result();
+	}
 	//grid
 	public function getgrid()
 	{
@@ -140,6 +169,12 @@ class Customer_model extends CI_Model
    		$this->db->from('produk');
    		$data = $this->db->get();
    		return $data->result();
+	}
+	public function getbar()
+	{
+		$this->db->where('warna','emas');
+		$this->db->limit(3);
+   		return $this->db->get('produk')->result();
 	}
 	//tricolom
 	public function gettricol()
@@ -164,6 +199,18 @@ class Customer_model extends CI_Model
    		$data = $this->db->get();
    		return $data->result();
 	}
+	public function getsamping()
+	{
+		$this->db->limit(3);
+		$this->db->where('bahan','emas');
+   		return $this->db->get('produk')->result();
+	}
+	public function getreg()
+	{
+		$this->db->limit(3);
+		$this->db->where('harga','400000');
+   		return $this->db->get('produk')->result();
+	}
 	//fashion
 	public function getfashion($id)
 	{
@@ -179,6 +226,12 @@ class Customer_model extends CI_Model
    		$this->db->where('id_produk',$id);
    		$data = $this->db->get('produk');
    		return $data;
+	}
+	public function getsebelah()
+	{
+		$this->db->limit(3);
+		$this->db->where('harga','400000');
+   		return $this->db->get('produk')->result();
 	}
 	public function getall($id)
 	{
@@ -205,15 +258,6 @@ class Customer_model extends CI_Model
 		$kirim=$this->db->get();
 		return $kirim->result();
 	}
-	/*public function getrelasi()
-	{
-		$this->db->select('*');
-		$this->db->from('order');
-		$this->db->join('customer','customer.id_customer=order.id_customer');
-		$this->db->where('customer.id_customer');
-		$data=$this->db->get();
-		return $data->result();
-	} */
 	public function getid($id)
 	{
 		return $this->db->insert('order',$id);

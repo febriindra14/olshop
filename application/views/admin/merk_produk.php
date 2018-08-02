@@ -8,12 +8,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <body>
 	<h2>Merk Produk</h2>
 	<button type="pas"><a style="text-decoration: none;" href="<?php echo base_url('index.php/utama/admin/form_merk')?>">Tambah</a></button>
-	<table width="800" border="1" cellpadding="0" cellspacing="0" style="margin-top: 10px">
+	<table class="table table-striped">
 	<tr>
-		<td align="center">Id Merk</td>
-		<td align="center">Nama Merk</td>
-		<td align="center">Merk</td>
-		<td align="center">Pengaturan</td>
+		<td>Id Merk</td>
+		<td>Nama Merk</td>
+		<td>Merk</td>
+		<td>Pengaturan</td>
 	</tr>
 	<tr>
 	<?php foreach ($belajar as $n) {?>

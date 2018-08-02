@@ -32,15 +32,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <body>
 	<h2>Order</h2>
 	<button type="pas"><a style="text-decoration: none;" href="<?php echo base_url('index.php/utama/admin/form_order')?>">Tambah</a></button>
-	<table width="800" border="1" cellpadding="0" cellspacing="0" style="margin-top: 10px">
+	<table class="table table-striped">
 	<tr>
-		<td align="center">Id order</td>
-		<td align="center">Id customer</td>
-		<td align="center">Nama</td>
-		<td align="center">Total bayar</td>
-		<td align="center">Tanggal order</td>
-		<td align="center">Keterangan</td>
-		<td align="center">Pengaturan</td>
+		<td>Id order</td>
+		<td>Id customer</td>
+		<td>Nama</td>
+		<td>Total bayar</td>
+		<td>Tanggal order</td>
+		<td>Keterangan</td>
+		<td>Pengaturan</td>
 	</tr>
 	<tr>
 	<?php foreach ($order as $b) {?>

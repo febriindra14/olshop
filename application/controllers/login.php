@@ -10,7 +10,7 @@ class login extends CI_Controller
 	} 
 	public function index()
 	{
-		$this->load->view('login_view');
+		$this->load->view('admin/login');
 	}
 	
 	public function view_admin()
@@ -19,7 +19,7 @@ class login extends CI_Controller
 	}	
 	public function daftar()
 	{
-		$this->load->view('daftar_login');
+		$this->load->view('admin/daftar');
 	}
 
 	 //user login

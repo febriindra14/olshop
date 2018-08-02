@@ -7,18 +7,21 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </head>
 <body>
 	<h2>Konfigurasi web</h2>
-	<table width="800" border="1" cellpadding="0" cellspacing="0" style="margin-top: 10px">
+	<table class="table table-striped">
 	<tr>
-		<td align="center">Nama website</td>
-		<td align="center">Email</td>
-		<td align="center">Telepon</td>
-		<td align="center">Pengaturan</td>
+		<td>Nama website</td>
+		<td>Email</td>
+		<td>Telepon</td>
+		<td>Deskripsi</td>
+		<td>Pengaturan</td>
 	</tr>
+		
 	<tr>
 		<?php foreach ($konfig as $key => $value) { ?>
 			<td><?php echo $value->nama_web ;?></td>
 			<td><?php echo $value->email_web ;?></td>
 			<td><?php echo $value->telp_web ;?></td>
+			<td><?php echo $value->deskripsi ;?></td>
 			<td>
 				<a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('index.php/utama/admin/ubah_konfig/'.$value->id_web)?>'>Edit</a>
 

@@ -32,11 +32,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <body>
 	<h2>Kategori Produk</h2>
 	<button type="pas"><a style="text-decoration: none;" href="<?php echo base_url('index.php/utama/admin/form_kaduk')?>">Tambah</a></button>
-	<table width="800" border="1" cellpadding="0" cellspacing="0" style="margin-top: 10px">
+	<table class="table table-striped">
 	<tr>
-		<td align="center">Id Kategori</td>
-		<td align="center">Nama Kategori</td>
-		<td align="center">Pengaturan</td>
+		<td>Id Kategori</td>
+		<td>Nama Kategori</td>
+		<td>Pengaturan</td>
 	</tr>
 	<tr>
 	<?php foreach ($kirim as $i) {?>

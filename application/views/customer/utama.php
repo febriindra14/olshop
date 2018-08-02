@@ -6,16 +6,15 @@
 		<div class="container">
 			<div class="alignR">
 				<div class="pull-left socialNw">
-					<a href="#"><span class="icon-twitter"></span></a>
-					<a href="#"><span class="icon-facebook"></span></a>
-					<a href="#"><span class="icon-youtube"></span></a>
-					<a href="#"><span class="icon-tumblr"></span></a>
+					<a href="http://<?php echo ''.$config['share1'];?>"><span class="icon-twitter"></span></a>
+					<a href="http://<?php echo ''.$config['share2'];?>"><span class="icon-facebook"></span></a>
+					<a href="http://<?php echo ''.$config['share3'];?>"><span class="icon-instagram"></span></a>
 				</div>
 				<a class="active" href="<?php echo base_url('index.php/customer');?>"> <span class="icon-home"></span> Home</a> 
 				<a href="<?php echo base_url('index.php/customer/akunku')?>"><span class="icon-user"></span> My Account</a> 
 				<a href="<?php echo base_url('index.php/customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
 				<a href="<?php echo base_url('index.php/customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
-				<a href="<?php echo base_url('index.php/customer/keranjang')?>"><span class="icon-shopping-cart"></span> Keranjang <span class="badge badge-warning"> Rp <?php echo number_format($total,0,",","."); ?> </span></a>
+				<a href="<?php echo base_url('index.php/customer/keranjang')?>"><span class="icon-shopping-cart"></span> <?php echo $jumlah->num_rows(); ?> items  <span class="badge badge-warning"> Rp <?php echo number_format($total,0,",","."); ?> </span></a>
 				<a href="<?php echo base_url('index.php/login_customer/logout')?>" >Logout</a>
 			</div>
 		</div>
@@ -50,35 +49,28 @@
 			<br>
 			<br>
 			<ul class="nav nav-list promowrapper">
-			<li>
-			  <div class="thumbnail">
-				<a class="zoomTool" href="#" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/fronted/assets/img/bootstrap-ecommerce-templates.png" alt="bootstrap ecommerce templates">
-				<div class="caption">
-				  <h4><a class="defaultBtn" href="#">VIEW</a> <span class="pull-right">$22.00</span></h4>
-				</div>
-			  </div>
-			</li>
+
+		<?php foreach ($sidebar as $c) { ?>	
 			<li style="border:0"> &nbsp;</li>
 			<li>
 			  <div class="thumbnail">
-				<a class="zoomTool" href="#" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/fronted/assets/img/shopping-cart-template.png" alt="shopping cart template">
+				<a class="zoomTool" href="<?php echo base_url('index.php/customer')?>"><span class="icon-search"></span> QUICK VIEW</a>
+				<img src="<?php echo base_url(). 'assets/fronted/assets/img/'.$c->foto?>" alt="">
+
+	<form action="<?php echo base_url('index.php/customer/tambah_cart')?>" method="post">
+	<input type="hidden" name="id_cart">
+	<input type="hidden" name="id_produk" value="<?php echo $c->id_produk ?>">
+	<input type="hidden" name="foto" value="<?php echo $c->foto ?>">
+	<input type="hidden" name="nama_produk" value="<?php echo $c->nama_produk ?>">
+	<input type="hidden" name="harga" value="<?php echo $c->harga ?>">
+			
 				<div class="caption">
-				  <h4><a class="defaultBtn" href="#">VIEW</a> <span class="pull-right">$22.00</span></h4>
+				  <h4><a class="defaultBtn" href="<?php echo base_url('index.php/customer/detail/').$c->id_produk?>">VIEW</a> <span class="pull-right">Rp. <?php echo number_format($c->harga,0,",","."); ?></span></h4>
 				</div>
+	</form>			
 			  </div>
 			</li>
-			<li style="border:0"> &nbsp;</li>
-			<li>
-			  <div class="thumbnail">
-				<a class="zoomTool" href="#" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/fronted/assets/img/bootstrap-template.png" alt="bootstrap template">
-				<div class="caption">
-				  <h4><a class="defaultBtn" href="#">VIEW</a> <span class="pull-right">$22.00</span></h4>
-				</div>
-			  </div>
-			</li>
+		<?php }?>		
 		  </ul>
 
 	</div>
@@ -241,26 +233,40 @@ New Products
 	Featured Products
 	-->
 	<div class="well well-small">
-		  <h3><a class="btn btn-mini pull-right" href="<?php echo base_url('index.php/customer/view_more')?>" title="View more">View More<span class="icon-plus"></span></a> Featured Products  </h3>
+		  <h3><a class="btn btn-mini pull-right" href="<?php echo base_url('index.php/customer/view_more')?>" title="View more">View More<span class="icon-plus"></span></a> Featured Products</h3>
 		  <hr class="soften"/>
 		  <div class="row-fluid">
 		  <ul class="thumbnails">
 
+	<?php foreach ($tengah as $c) { ?>
+
 			<li class="span4">
 			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<a  href="product_details.html"><img src="<?php echo base_url(). 'assets/fronted/assets/img/e.jpg'?>" alt=""></a>
+				<a class="zoomTool" href="<?php echo base_url('index.php/customer')?>"><span class="icon-search"></span> QUICK VIEW</a>
+				<a href="<?php echo base_url('index.php/customer/detail/').$c->id_produk?>"><img src="<?php echo base_url(). 'assets/fronted/assets/img/'.$c->foto?>" alt=""></a>
+
+	<form action="<?php echo base_url('index.php/customer/tambah_cart')?>" method="post">
+	<input type="hidden" name="id_cart">
+	<input type="hidden" name="id_produk" value="<?php echo $c->id_produk ?>">
+	<input type="hidden" name="foto" value="<?php echo $c->foto ?>">
+	<input type="hidden" name="nama_produk" value="<?php echo $c->nama_produk ?>">
+	<input type="hidden" name="harga" value="<?php echo $c->harga ?>">
+				
 				<div class="caption">
-				  <h5>Cincin berkelas</h5>
+				  <h5><?php echo $c->nama_produk?></h5>
 				  <h4>
-					  <a class="defaultBtn" href="product_details.html" title="Click to view"><span class="icon-zoom-in"></span></a>
-					  <a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
-					  <span class="pull-right">Rp 540.000</span>
+					  <a class="defaultBtn" href="<?php echo base_url('index.php/customer/detail/').$c->id_produk?>" title="Click to view"><span class="icon-zoom-in"></span></a>
+		<button type="submit" class="shopBtn"><span class="icon-plus"></span></button>
+					  <span class="pull-right">Rp. <?php echo number_format($c->harga,0,",","."); ?></span>
 				  </h4>
 				</div>
+	</form>			
 			  </div>
+
 			</li>
 
+	<?php } ?>
+			
 		  </ul>	
 		</div>
 	</div>

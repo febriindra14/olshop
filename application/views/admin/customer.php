@@ -8,19 +8,19 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <body>
 	<h2>Customer</h2>
 	<button type="pas"><a style="text-decoration: none;" href="<?php echo base_url('index.php/utama/admin/form')?>">Tambah</a></button>
-	<table width="800" border="1" cellpadding="0" cellspacing="0" style="margin-top: 10px">
+	<table table class="table table-striped">
 	<tr>
-		<td align="center">Id Customer</td>
-		<td align="center">Nama depan</td>
-		<td align="center">Nama belakang</td>
-		<td align="center">Email</td>
-		<td align="center">Password</td>
-		<td align="center">Tanggal lahir</td>
-		<td align="center">Nomor telepon</td>
-		<td align="center">Nama rekening</td>
-		<td align="center">Nomor rekening</td>
-		<td align="center">Alamat</td>
-		<td align="center">Pengaturan</td>
+		<td>Id Customer</td>
+		<td>Nama depan</td>
+		<td>Nama belakang</td>
+		<td>Email</td>
+		<td>Password</td>
+		<td>Tanggal lahir</td>
+		<td>Nomor telepon</td>
+		<td>Nama rekening</td>
+		<td>Nomor rekening</td>
+		<td>Alamat</td>
+		<td>Pengaturan</td>
 	</tr>
 	<tr>
 	<?php foreach ($isi as $h) {?>

@@ -79,14 +79,6 @@ class Admin extends CI_Controller
 		$c=$this->user_model->update($b,$a);
 		redirect(base_url('index.php/utama/admin/tampil'));
 	}
-	
-	
-	//halaman
-	public function halaman()
-	{	
-		$this->pajangan->kirim('admin/halaman');
-	}
-
 	// kategori produk
 	public function kategori_produk()
 	{
@@ -474,8 +466,34 @@ class Admin extends CI_Controller
 			'id_web'	=>$this->input->post('id_web'),
 			'nama_web'	=>$this->input->post('nama_web'),
 			'email_web'	=>$this->input->post('email_web'),
-			'telp_web'	=>$this->input->post('telp_web'));
+			'telp_web'	=>$this->input->post('telp_web'),
+			'deskripsi'	=>$this->input->post('deskripsi'),
+			'share1'	=>$this->input->post('share1'),
+			'share2'	=>$this->input->post('share2'),
+			'share3'	=>$this->input->post('share3'));
 		$aka=$this->user_model->update_konfig($data,$id);
 		redirect(base_url('index.php/utama/admin/konfigurasi_web'));
+	}
+	//halaman
+	public function halaman()
+	{	
+		$data['hal']=$this->user_model->gethal();
+		$this->pajangan->kirim('admin/halaman',$data);
+	}
+	public function ubah_hal()
+	{
+		$coba=$this->uri->segment(4);
+		$data['about']=$this->user_model->edit_hal($coba);
+		$this->pajangan->kirim('admin/edit_about',$data);
+	}
+	public function edit_hal()
+	{
+		$id=$this->input->post('id_hal');
+		$data=array(
+			'id_hal'	=>$this->input->post('id_hal'),
+			'judul'		=>$this->input->post('judul'),
+			'deskripsi'	=>$this->input->post('deskripsi'));
+		$m=$this->user_model->update_hal($data,$id);
+		redirect(base_url('index.php/utama/admin/halaman'));	
 	}
 }

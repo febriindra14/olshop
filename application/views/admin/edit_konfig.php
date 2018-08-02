@@ -4,7 +4,7 @@
   <title></title>
 </head>
 <body>
-  <h3>Edit Konfig</h3>
+  <h3>Setting konfig</h3>
   <?php foreach ($web->result() as $send ) {?>
     
      <section class="content">
@@ -40,6 +40,33 @@
                 </div>
             </div>
 
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Deskripsi</label>
+              <div class="col-sm-5">
+              <input type="text" class="form-control" name="deskripsi" value="<?php echo $send->deskripsi?>">
+            </div>
+          </div>
+
+           <div class="form-group">
+              <label class="col-sm-2 control-label">Twitter</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="share1" value="<?php echo $send->share1?>"> 
+                </div>
+            </div>
+
+             <div class="form-group">
+              <label class="col-sm-2 control-label">Facebook</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="share2" value="<?php echo $send->share2?>"> 
+                </div>
+            </div>
+
+             <div class="form-group">
+              <label class="col-sm-2 control-label">Instagram</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="share3" value="<?php echo $send->share3?>"> 
+                </div>
+            </div>
 
             <div class="box-footer">
               <div class="form-group">
@@ -48,7 +75,8 @@
                   <a href="<?php echo base_url('index.php/utama/admin/konfigurasi_web')?>" class="btn btn-default btn-reset">Batal</a>
                 </div>
               </div>
-            </div>  
+            </div> 
+             
             </form>
           </div>
         </div>

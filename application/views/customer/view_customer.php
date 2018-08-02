@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Bootstrap styles -->
     <link href="<?php echo base_url(); ?>assets/fronted/assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- autocomplete -->
-    <link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'?>">
+    <link rel="stylesheet" href="<?php echo base_url().'assets/search/css/jquery-ui.css'?>">
     <!-- Customize styles -->
     <link href="<?php echo base_url(); ?>assets/fronted/style.css" rel="stylesheet"/>
     <!-- font awesome styles -->
@@ -37,16 +37,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="container">
 			<div class="alignR">
 				<div class="pull-left socialNw">
-					<a href="http://www.twitter.com"><span class="icon-twitter"></span></a>
-					<a href="http://www.facebook.com"><span class="icon-facebook"></span></a>
-					<a href="http://www.youtube.com"><span class="icon-youtube"></span></a>
-					<a href="http://www.tumblr.com"><span class="icon-tumblr"></span></a>
+					<a href="http://<?php echo ''.$config['share1'];?>"><span class="icon-twitter"></span></a>
+					<a href="http://<?php echo ''.$config['share2'];?>"><span class="icon-facebook"></span></a>
+					<a href="http://<?php echo ''.$config['share3'];?>"><span class="icon-instagram"></span></a>
 				</div>
 					<a class="active" href="<?php echo base_url('index.php/customer');?>"> <span class="icon-home"></span> Home</a> 
 				<a href="<?php echo base_url('index.php/customer/akunku')?>"><span class="icon-user"></span> My Account</a> 
 				<a href="<?php echo base_url('index.php/customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
 				<a href="<?php echo base_url('index.php/customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
-				<a href="<?php echo base_url('index.php/customer/keranjang')?>"><span class="icon-shopping-cart"></span> Keranjang <span class="badge badge-warning"> Rp </span></a>
+				<a href="<?php echo base_url('index.php/customer/keranjang')?>"><span class="icon-shopping-cart"></span> <?php echo $jumlah->num_rows(); ?> items <span class="badge badge-warning"> Rp </span></a>
 				<a href="<?php echo base_url('index.php/login_customer/logout')?>" >Logout</a>
 
 			</div>
@@ -174,7 +173,7 @@ Footer
 <a href="#">PERSONAL INFORMATION</a><br>
 <a href="#">ADDRESSES</a><br>
 <a href="#">DISCOUNT</a><br>
-<a href="#">ORDER HISTORY</a><br>
+<a href="<?php echo base_url('index.php/customer/history_order')?>">ORDER HISTORY</a><br>
  </div>
 <div class="span2">
 <h5>Iinformation</h5>
@@ -182,7 +181,7 @@ Footer
 <a href="#">SITEMAP</a><br>
 <a href="#">LEGAL NOTICE</a><br>
 <a href="#">TERMS AND CONDITIONS</a><br>
-<a href="#">ABOUT US</a><br>
+<a href="<?php echo base_url('index.php/customer/about')?>">ABOUT US</a><br>
  </div>
 <div class="span2">
 <h5>Our Offer</h5>
@@ -193,11 +192,8 @@ Footer
 <a href="#">SUPPLIERS</a> <br/>
  </div>
  <div class="span6">
-<h5>The standard chunk of Lorem</h5>
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for
- those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et 
- Malorum" by Cicero are also reproduced in their exact original form, 
-accompanied by English versions from the 1914 translation by H. Rackham.
+ 	<h4>Tc</h4>
+ 		<?php echo ''.$config['deskripsi'] ;?>
  </div>
  </div>
 </footer>
@@ -225,9 +221,9 @@ accompanied by English versions from the 1914 translation by H. Rackham.
     <script src="<?php echo base_url(); ?>assets/fronted/assets/js/shop.js"></script>
 
 <!-- cari data -->
-    <script src="<?php echo base_url().'assets/js/jquery-3.3.1.js'?>" type="text/javascript"></script>
-	<script src="<?php echo base_url().'assets/js/bootstrap.js'?>" type="text/javascript"></script>
-	<script src="<?php echo base_url().'assets/js/jquery-ui.js'?>" type="text/javascript"></script>
+    <script src="<?php echo base_url().'assets/search/js/jquery-3.3.1.js'?>" type="text/javascript"></script>
+	<script src="<?php echo base_url().'assets/search/js/bootstrap.js'?>" type="text/javascript"></script>
+	<script src="<?php echo base_url().'assets/search/js/jquery-ui.js'?>" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 

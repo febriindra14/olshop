@@ -8,7 +8,9 @@
 		
 		<form action="<?php echo base_url('index.php/customer/checkout')?>" method="post">
 			
-			<h3>Detail order</h3>
+			<h3>
+    			Detail Order<p class="pull-right"><?php echo $jumlah->num_rows(); ?> Barang</p>
+    		</h3>
 	<table class="table table-bordered table-condensed">
               <thead>
                 <tr>

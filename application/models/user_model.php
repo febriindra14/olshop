@@ -218,4 +218,19 @@ class User_model extends CI_Model
 		$this->db->where('id_web',$id);
 		$this->db->update('konfigurasi_web',$tb);
 	}
+	//halaman
+	public function gethal()
+	{
+		return $this->db->get('halaman')->result();
+	}
+	public function edit_hal($id)
+	{
+		$data=$this->db->get_where('halaman',array('id_hal'=>$id));
+		return $data;
+	}
+	public function update_hal($tb,$id)
+	{
+		$this->db->where('id_hal',$id);
+		$this->db->update('halaman',$tb);
+	}
 }

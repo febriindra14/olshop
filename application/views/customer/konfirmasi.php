@@ -1,5 +1,5 @@
 <div class="span12">
-    <div class="span6"> 
+    
     <ul class="breadcrumb">
     <li><a href="<?php echo base_url('index.php/customer')?>">Home</a> <span class="divider">/</span></li>
     <li class="active">Konfirmasi pembayaran</li>
@@ -51,5 +51,5 @@
          <button type="submit" class="shopBtn btn-large pull-right">Konfirmasi<span></span></button>
     </div>
  </form>
-    </div>
+  
 </div>   

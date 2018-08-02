@@ -32,14 +32,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 <body>
 	<h2>Produk</h2>
 	<button type="pas"><a style="text-decoration: none;" href="<?php echo base_url('index.php/utama/admin/form_produk')?>">Tambah</a></button>
-	<table width="800" border="1" cellpadding="0" cellspacing="0" style="margin-top: 10px">
+	<table class="table table-striped">
 	<tr>
-		<td align="center">Nama Produk</td>
-		<td align="center">Bahan</td>
-		<td align="center">Warna</td>
-		<td align="center">Harga</td>
-		<td align="center">Foto</td>
-		<td align="center">Pengaturan</td>
+		<td>Nama Produk</td>
+		<td>Bahan</td>
+		<td>Warna</td>
+		<td>Harga</td>
+		<td>Foto</td>
+		<td>Pengaturan</td>
 	</tr>
 	<tr>
 		<?php foreach ($produk->result_array() as $c) {?>

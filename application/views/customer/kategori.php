@@ -12,9 +12,7 @@
 		<li> <a class="totalInCart" href="<?php echo base_url('index.php/customer/keranjang')?> "><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;"> Rp <?php echo number_format($total,0,",","."); ?> </span></strong></a></li>
 
 	</ul>
-</div>
-
-			
+</div>		
 			  <div class="well well-small alert alert-warning cntr">
 				  <h2>50% Discount</h2>
 				  <p> 
@@ -27,35 +25,27 @@
 			<br>
 			<br>
 			<ul class="nav nav-list promowrapper">
-			<li>
-			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/fronted/assets/img/bootstrap-ecommerce-templates.png" alt="bootstrap ecommerce templates">
-				<div class="caption">
-				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-				</div>
-			  </div>
-			</li>
+	<?php foreach ($sidebar as $key => $value) { ?>	
 			<li style="border:0"> &nbsp;</li>
 			<li>
 			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/fronted/assets/img/shopping-cart-template.png" alt="shopping cart template">
+				<a class="zoomTool" href="<?php echo base_url('index.php/customer/detail')?>"><span class="icon-search"></span> QUICK VIEW</a>
+				<img src="<?php echo base_url(). 'assets/fronted/assets/img/'.$value->foto?>" alt="">
+
+	<form action="<?php echo base_url('index.php/customer/tambah_cart')?>" method="post">
+	<input type="hidden" name="id_cart">
+	<input type="hidden" name="id_produk" value="<?php echo $value->id_produk ?>">
+	<input type="hidden" name="foto" value="<?php echo $value->foto ?>">
+	<input type="hidden" name="nama_produk" value="<?php echo $value->nama_produk ?>">
+	<input type="hidden" name="harga" value="<?php echo $value->harga ?>">
+			
 				<div class="caption">
-				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
+				  <h4><a class="defaultBtn" href="<?php echo base_url('index.php/customer/detail/').$value->id_produk?>">VIEW</a> <span class="pull-right">Rp. <?php echo number_format($value->harga,0,",","."); ?></span></h4>
 				</div>
+	</form>			
 			  </div>
 			</li>
-			<li style="border:0"> &nbsp;</li>
-			<li>
-			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/fronted/assets/img/bootstrap-template.png" alt="bootstrap template">
-				<div class="caption">
-				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-				</div>
-			  </div>
-			</li>
+	<?php }?>		
 		  </ul>
 	</div>
 

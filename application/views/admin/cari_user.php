@@ -12,14 +12,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 		<input type="submit" name="cari_submit" value="Reset">
 	<?php echo form_close()?></center>
 
-	<table width="800" border="1" cellpadding="0" cellspacing="0" style="margin-top: 10px" id="tabel">	
+	<table class="table table-striped">	
 	<tr>
-		<td align="center">Id User</td>
-		<td align="center">Nama</td>
-		<td align="center">Username</td>
-		<td align="center">Email</td>
-		<td align="center">Password</td>
-		<td align="center">Pengaturan</td>
+		<td>Id User</td>
+		<td>Nama</td>
+		<td>Username</td>
+		<td>Email</td>
+		<td>Password</td>
+		<td>Pengaturan</td>
 	</tr>
 	<tr>
 		 <?php foreach ($coba as $e) {?>
