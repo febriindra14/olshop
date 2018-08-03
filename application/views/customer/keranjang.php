@@ -42,11 +42,11 @@
 	<table class="table table-bordered table-condensed">
               <thead>
                 <tr>
-                  <th>Produk</th>
-                  <th>Nama produk</th>
-                  <th>Harga</th>
-                  <th>Jumlah</th>
-                  <th>Total harga</th>
+                 <th>Product</th>
+                 <th>Description</th>
+                 <th>Unit price</th>
+                 <th>Qty </th>
+                 <th>Total</th>
 				</tr>
               </thead>
 
@@ -91,10 +91,10 @@
 	
 		<table class="table table-bordered">
 			<tbody>
-                <tr><td>Shipping</td></tr>
+                <tr><td>ESTIMATE YOUR SHIPPING & TAXES</td></tr>
                  <tr> 
 				 <td>
-					<form action="<?php echo base_url('index.php/customer/pembayaran')?>" method="post">
+					<form class="form-horizontal" action="<?php echo base_url('index.php/customer/pembayaran')?>" method="post">
 					  
 					  <div class="control-group">
 						<label class="span2 control-label">Negara :</label>
@@ -126,9 +126,7 @@
 
 					  <div class="control-group">
 						<label class="span2 control-label">Alamat lengkap :</label>
-						<div class="controls">
-						  <input type="text" name="alamat_lengkap" placeholder="alamat" required>
-						</div>
+						  <textarea type="text" name="alamat_lengkap" placeholder="alamat" required></textarea>
 					  </div>
 
 					  <div class="control-group">

@@ -55,11 +55,18 @@
 New Products
 -->
 	<div class="well well-small">
-	<h3>Our Products </h3>
+	<h3>
+		<?php if ($this->uri->segment(3)>9) {
+                   echo $kategori; }
+                   elseif ($this->uri->segment(3)==''){
+               			echo $cari; }?>
+  	</h3>
 		<div class="row-fluid">
 		  <ul class="thumbnails">
 
-		  	<?php foreach ($view as $b){ ?>
+		  	<?php 
+		  	if (!empty($view)) {
+		  	foreach ($view as $b){ ?>
 		  		
 			<li class="span4">
 			  <div class="thumbnail">
@@ -93,9 +100,11 @@ New Products
 			  </div>
 			</li>
 			
-			<?php }?>
-			
-		  
+			<?php }
+			} 	else {
+							echo "<h3 style='color: #666;'><center>Produk tidak ada</center></h3>"; 
+						}
+			?>
 			</ul>
 		</div>	
 

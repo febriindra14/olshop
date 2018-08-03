@@ -270,9 +270,7 @@ class Admin extends CI_Controller
           $this->user_model->insert_produk($data); 
           redirect(base_url('index.php/utama/admin/produk')); 
 	  }
-	 
-
-	  public function editproduk()
+	public function editproduk()
 	{
 		$c=$this->uri->segment(4);
 		$d['kiriman']=$this->user_model->ubah_produk($c);
@@ -404,42 +402,6 @@ class Admin extends CI_Controller
 		$this->pagination->initialize($config);
 		$data['order']=$this->user_model->order($config['per_page'],$id);
 		$this->pajangan->kirim('admin/order',$data);
-	}
-	public function form_order()
-	{
-		$data['id']=$this->user_model->id_cus()->result_array();
-		$this->pajangan->kirim('admin/tambah_order',$data);
-	}
-	public function tambah_order()
-	{
-		$simpan=array(
-			'id_order'		=>$this->input->post('id_order'),
-			'id_customer'	=>$this->input->post('id_customer'),
-			'nama'			=>$this->input->post('nama'),
-			'total_bayar'	=>$this->input->post('total_bayar'),
-			'tgl_order'		=>$this->input->post('tgl_order'),
-			'keterangan'	=>$this->input->post('keterangan'));
-		$this->user_model->insert_order($simpan);
-		redirect(base_url('index.php/utama/admin/order'));
-	}
-	public function ubah_order()
-	{
-		$data=$this->uri->segment(4);
-		$send['edit']=$this->user_model->kirim_order($data);
-		$this->pajangan->kirim('admin/edit_order',$send);
-	}
-	public function edit_order()
-	{
-		$id=$this->input->post('id_order');
-		$data=array(
-			'id_order'			=>$this->input->post('id_order'),
-			'id_customer'		=>$this->input->post('id_customer'),
-			'nama'				=>$this->input->post('nama'),
-			'total_bayar'		=>$this->input->post('total_bayar'),
-			'tgl_order'			=>$this->input->post('tgl_order'),
-			'keterangan'		=>$this->input->post('keterangan'));
-		$send=$this->user_model->update_order($data,$id);
-		redirect(base_url('index.php/utama/admin/order'));
 	}
 	public function hapus_order()
 	{

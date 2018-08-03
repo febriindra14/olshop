@@ -21,20 +21,23 @@
     </div>
 </div>
 <!-- -->
+ 
+<div class="row">
 
-<div class="span12">
-    <div class="span6"> 
-    <ul class="breadcrumb">
-    <li><a href="<?php echo base_url('index.php/customer')?>">Home</a> <span class="divider">/</span></li>
-    <li class="active">Konfirmasi pembayaran</li>
-    </ul>
+    <div class="span2"></div>
 
- <form action="<?php echo base_url('index.php/customer/selesai')?>" method="post">
+    <div class="span8">
+
+        <div class="well well-small">
+
+            <center><h3 class="alert alert-success">Konfrimasi pembayaran</h3></center>
+
+            <div class="row-fluid"> 
+                
+    <form action="<?php echo base_url('index.php/customer/selesai')?>" method="post">
     <div class="well well-small">
 
     	<input type="hidden" name="id_order" value="<?php echo $beda['id_order'];?>">
-
-    	<h3>Konfirmasi</h3>
         <table>  
     		<tr>
     			<td>Nama</td>
@@ -44,32 +47,35 @@
            	<tr>
     			<td>Kode order</td>
     			<td>:</td>
-    			<td><?php echo $beda['id_order'] ;?></td>
+    			<td><input type="text" value="<?php echo $beda['id_order'] ;?>" readonly></td>
     		</tr>        
     		<tr>
     			<td>Nominal</td>
     			<td>:</td>
-    			<td>Rp <?php echo number_format($beda['total_bayar'],0,",","."); ?></td>
+    			<td><input type="text" value="Rp <?php echo number_format($beda['total_bayar'],0,",","."); ?>" readonly></td>
     		</tr>
     		<tr>
     			<td>Tanggal/waktu bayar</td>
     			<td>:</td>
-    			<td><?php echo $beda['tgl_order'] ;?></td>
+    			<td><input type="text" value="<?php echo $beda['tgl_order'] ;?>" readonly></td>
     		</tr>                
             <tr>
                 <td>Bayar via</td>
                 <td>:</td>
-                <td><?php echo $cek['pil_bayar'] ;?></td>
+                <td><input type="text" value="<?php echo $cek['pil_bayar'] ;?>" readonly></td>
             </tr>	
     		<tr>
     			<td>Keterangan</td>
     			<td>:</td>
-    			<td><?php echo $keterangan;?></td>
+    			<td><input type="text" value="<?php echo $keterangan;?>" readonly></td>
     		</tr>
         </table>
-          <button type="submit" class="shopBtn btn-large pull-right">Konfirmasi<span></span></button>  
+        <br>
+         <center><button type="submit" class="shopBtn btn-large">Konfirmasi</button></center>
         
     </div>
- </form>
+    </form>
+            </div>
+        </div>
     </div>
-</div>   
+</div>    

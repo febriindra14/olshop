@@ -199,6 +199,17 @@ class Customer_model extends CI_Model
    		$data = $this->db->get();
    		return $data->result();
 	}
+	public function getkat($id) 
+	{ 
+		$this->db->join('merk','merk.id_merk=produk.id_merk')->join('kategori_produk','kategori_produk.id_kategori=produk.id_kategori');
+
+		if (!empty($id)) {
+			$this->db->where('kategori_produk.id_kategori',$id);
+			$this->db->or_where('merk.id_merk',$id);
+		}
+		
+		return $this->db->get('produk');
+	} 
 	public function getsamping()
 	{
 		$this->db->limit(3);

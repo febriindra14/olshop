@@ -49,35 +49,28 @@
 			<br>
 			<br>
 			<ul class="nav nav-list promowrapper">
-			<li>
-			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/fronted/assets/img/bootstrap-ecommerce-templates.png" alt="bootstrap ecommerce templates">
-				<div class="caption">
-				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-				</div>
-			  </div>
-			</li>
+			
+		<?php foreach ($sidebar as $c) { ?>	
 			<li style="border:0"> &nbsp;</li>
 			<li>
 			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/fronted/assets/img/shopping-cart-template.png" alt="shopping cart template">
+				<a class="zoomTool" href="<?php echo base_url('index.php/customer')?>"><span class="icon-search"></span> QUICK VIEW</a>
+				<img src="<?php echo base_url(). 'assets/fronted/assets/img/'.$c->foto?>" alt="">
+
+	<form action="<?php echo base_url('index.php/customer/tambah_cart')?>" method="post">
+	<input type="hidden" name="id_cart">
+	<input type="hidden" name="id_produk" value="<?php echo $c->id_produk ?>">
+	<input type="hidden" name="foto" value="<?php echo $c->foto ?>">
+	<input type="hidden" name="nama_produk" value="<?php echo $c->nama_produk ?>">
+	<input type="hidden" name="harga" value="<?php echo $c->harga ?>">
+			
 				<div class="caption">
-				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
+				  <h4><a class="defaultBtn" href="<?php echo base_url('index.php/customer/detail/').$c->id_produk?>">VIEW</a> <span class="pull-right">Rp. <?php echo number_format($c->harga,0,",","."); ?></span></h4>
 				</div>
+	</form>			
 			  </div>
 			</li>
-			<li style="border:0"> &nbsp;</li>
-			<li>
-			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/fronted/assets/img/bootstrap-template.png" alt="bootstrap template">
-				<div class="caption">
-				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-				</div>
-			  </div>
-			</li>
+		<?php }?>
 		  </ul>
 
 	</div>
@@ -88,11 +81,14 @@
 New Products
 -->
 	<div class="well well-small">
-	<h3>Pencarian produk</h3>
+	<h3><?php if ($this->uri->segment(3)=='') {
+                    	  echo $cari; }?></h3>
 		<div class="row-fluid">
 		  <ul class="thumbnails">
 
-<?php foreach($data as $row):?>
+<?php 
+if (!empty($data)) {
+foreach($data as $row):?>
 
 			<li class="span4" style="margin-left: 7px;">
 			  <div class="thumbnail">
@@ -121,7 +117,10 @@ New Products
 	</form>			
 			  </div>
 			</li>
-<?php endforeach;?>
+<?php endforeach; } else{
+							echo "<h3 style='color: #666;'><center>Produk tidak Ditemukan</center></h3>"; 
+						}
+		?>
 
 		  </ul>
 		</div>

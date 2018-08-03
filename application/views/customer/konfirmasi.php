@@ -1,12 +1,17 @@
-<div class="span12">
-    
-    <ul class="breadcrumb">
-    <li><a href="<?php echo base_url('index.php/customer')?>">Home</a> <span class="divider">/</span></li>
-    <li class="active">Konfirmasi pembayaran</li>
-    </ul>
+<div class="row">
 
- <form action="<?php echo base_url('index.php/customer/konfirmasi')?>" method="post">
-    <div class="well well-small">
+    <div class="span2"></div>
+
+    <div class="span8">
+
+        <div class="well well-small">
+
+            <center><h3 class="alert alert-success">Konfrimasi</h3></center>
+
+            <div class="row-fluid"> 
+  
+    <form action="<?php echo base_url('index.php/customer/konfirmasi')?>" method="post">
+        <div class="well well-small">
     <table>	
 
     	<input type="hidden" name="nama">
@@ -23,33 +28,35 @@
     		<tr>
     			<td>Kode order</td>
     			<td>:</td>
-    			<td><?php echo $id_order ;?></td>
+    			<td><input type="text" value="<?php echo $id_order ;?>" readonly></td>
     		</tr>
     		<tr>
     			<td>Nominal</td>
     			<td>:</td>
-    			<td>Rp <?php echo number_format($total,0,",","."); ?></td>
+    			<td><input type="text" value="Rp <?php echo number_format($total,0,",","."); ?>" readonly></td>
     		</tr>
 
     		<tr>
     			<td>Tanggal/waktu bayar</td>
     			<td>:</td>
-    			<td><?php echo $tgl_order ;?></td>
+    			<td><input type="text" value="<?php echo $tgl_order ;?>" readonly></td>
     		</tr>	
 	   		<tr>
     			<td>Bayar via</td>
     			<td>:</td>
-    			<td><?php echo $pil_bayar ;?></td>
+    			<td><input type="text" value="<?php echo $pil_bayar ;?>" readonly></td>
     		</tr>
 
     		<tr>
     			<td>Keterangan</td>
     			<td>:</td>
-    			<td><?php echo $keterangan ;?></td>
+    			<td><input type="text" value="<?php echo $keterangan ;?>" readonly></td>
     		</tr>		
     </table>
-         <button type="submit" class="shopBtn btn-large pull-right">Konfirmasi<span></span></button>
+         <center><button type="submit" class="shopBtn btn-large">Konfirmasi</button></center>
+        </div>
+    </form> 
+            </div>
+        </div>
     </div>
- </form>
-  
-</div>   
+</div>            

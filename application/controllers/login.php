@@ -21,7 +21,18 @@ class login extends CI_Controller
 	{
 		$this->load->view('admin/daftar');
 	}
-
+	//user_admin
+	public function tambah()
+	{
+		$save=array(
+			'id_user'		=>$this->input->post('id_user'),
+			'nama'			=>$this->input->post('nama'),
+			'username'		=>$this->input->post('username'),
+			'email'			=>$this->input->post('email'),
+			'password'		=>$this->input->post('password'));
+		$this->user_model->insert($save);
+		redirect(base_url('index.php/login'));
+	}
 	 //user login
 	public function login()
 	{
@@ -44,26 +55,3 @@ class login extends CI_Controller
 		redirect(base_url('login'));
 	}			
 }
-
-/*
-public function aksi_login()
-	{
-		$username=$this->input->post('username');
-		$password=$this->input->post('password');
-		$where=array
-		(
-			'username' =>$username,
-			'password' =>$password
-		);
-		$cek=$this->login_model->cek_login('user',$where)->num_rows();
-		if($cek>0)
-		{
-			$data_session=array('nama'=>$username);
-
-			$this->session->set_userdata($data_session);
-			redirect(base_url('index.php/utama/admin'));
-		}else
-		{
-			echo "username dan password salah!";
-		}
-	} */

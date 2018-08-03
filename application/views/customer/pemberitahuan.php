@@ -1,9 +1,24 @@
-<div class="span9">
-    <ul class="breadcrumb">
-		<li><a href="<?php echo base_url('index.php/customer')?>">Home</a> <span class="divider">/</span></li>
-		<li class="active">Selesai</li>
-    </ul>
-<div class="well well-small">
-	<h2>Konfirmasi Sukses</h2>
-</div>
+<div class="row">
+
+	<div class="span2"></div>
+
+	<div class="span8">
+
+		<div class="well well-small">
+
+			<div class="row-fluid">	
+
+				<center>
+					<h3 class="alert alert-success">Konfirmasi Sukses</h3>
+					<a href="<?php echo base_url('index.php/customer/list'); ?>" class="shopBtn btn-large"><span class="icon-shopping-cart"></span> Kembali Belanja</a>
+				</center>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="span2"></div>
+
 </div>

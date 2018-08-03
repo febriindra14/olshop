@@ -73,17 +73,17 @@
 	</div>
 <!-- body section -->	
 
-	<div class="span9">
+<div class="span9">
     <ul class="breadcrumb">
 		<li><a href="<?php echo base_url('index.php/customer')?> ">Home</a> <span class="divider">/</span></li>
 		<li class="active">Registration</li>
     </ul>
-    <form action="<?php echo base_url('index.php/customer/tambah_customer')?>" method="post">
-
+    
 	<h3> Registration</h3>	
 	<div class="well">
-	<form class="form-horizontal">
-		<h3></h3>
+	<form class="form-horizontal" action="<?php echo base_url('index.php/customer/tambah_customer')?>" method="post">
+
+		<h3>Your Personal Details</h3>
 
 		<input type="hidden" name="id_customer">
 
@@ -162,5 +162,4 @@
 
 	</form>
 </div>
-</form>
 </div>

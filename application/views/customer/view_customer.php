@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<a href="<?php echo base_url('index.php/customer/akunku')?>"><span class="icon-user"></span> My Account</a> 
 				<a href="<?php echo base_url('index.php/customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
 				<a href="<?php echo base_url('index.php/customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
-				<a href="<?php echo base_url('index.php/customer/keranjang')?>"><span class="icon-shopping-cart"></span> <?php echo $jumlah->num_rows(); ?> items <span class="badge badge-warning"> Rp </span></a>
+				<a href="<?php echo base_url('index.php/customer/keranjang')?>"><span class="icon-shopping-cart"></span> <?php echo $jumlah->num_rows(); ?> items <span class="badge badge-warning"> Rp <?php echo number_format($total,0,",","."); ?> </span></a>
 				<a href="<?php echo base_url('index.php/login_customer/logout')?>" >Logout</a>
 
 			</div>
@@ -221,8 +221,8 @@ Footer
     <script src="<?php echo base_url(); ?>assets/fronted/assets/js/shop.js"></script>
 
 <!-- cari data -->
-    <script src="<?php echo base_url().'assets/search/js/jquery-3.3.1.js'?>" type="text/javascript"></script>
-	<script src="<?php echo base_url().'assets/search/js/bootstrap.js'?>" type="text/javascript"></script>
+    <!--	<script src="<?php echo base_url().'assets/search/js/jquery-3.3.1.js'?>" type="text/javascript"></script>
+	<script src="<?php echo base_url().'assets/search/js/bootstrap.js'?>" type="text/javascript"></script> -->
 	<script src="<?php echo base_url().'assets/search/js/jquery-ui.js'?>" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){

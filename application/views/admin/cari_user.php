@@ -14,7 +14,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 
 	<table class="table table-striped">	
 	<tr>
-		<td>Id User</td>
 		<td>Nama</td>
 		<td>Username</td>
 		<td>Email</td>
@@ -22,8 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 		<td>Pengaturan</td>
 	</tr>
 	<tr>
-		 <?php foreach ($coba as $e) {?>
-		<td><?php echo $e['id_user'];?></td>
+		 <?php foreach ($coba as $e) { ?>
 		<td><?php echo $e['nama'];?></td>
 		<td><?php echo $e['username'];?></td>
 		<td><?php echo $e['email'];?></td>

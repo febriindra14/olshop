@@ -16,11 +16,8 @@ class Login_model extends CI_Model
 		$this->db->where('password',$password);
 		return $this->db->get('user')->row();
 	}
-}
-
-/*
-public function cek_login($table,$where)
+	public function insert($simpan)
 	{
-		return $this->db->get_where($table,$where);
+		return $this->db->insert('user',$simpan);
 	}
-	*/
+}

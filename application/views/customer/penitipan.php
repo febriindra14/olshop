@@ -26,37 +26,40 @@
 
     <ul class="breadcrumb">
     <li><a href="<?php echo base_url('index.php/customer')?>">Home</a> <span class="divider">/</span></li>
-    <li class="active">Penitipan</li>
+    <li class="active">Konfirmasi tertunda</li>
     </ul>
 
-    <div class="well well-small">
-   
-<?php foreach ($titip as $key => $row) { ?>
-    <table> 
-            <td><h3>Status</h3></td>
-            <td>:</td>
-            <td><?php echo $row['keterangan'];?></td>
+    <div class="well">
+   <h3>Penitipan</h3>
+  <?php 
+  if (!empty($titip)) {
+  $no = 1;
+  foreach ($titip as $key => $row) { ?>
+    <div class="row-fluid">  
+        <div class="span1">
+            <h2><strong> <?php echo $no; ?>. </strong></h2>
+        </div>
+        <div class="span7">
+            <h4>Order : <?php echo $row['tgl_order']; ?></h4>
+             <p>Kode Order   : <?php echo $row['id_order']; ?>
+             <br>Total Bayar : Rp. <?php echo number_format($row['total_bayar'],0,'.','.'); ?> </p>
+        </div>
 
-    		<tr>
-    			<td>Kode order</td>
-    			<td>:</td>
-    			<td><?php echo $row['id_order'] ;?></td>
-    		</tr>	
-	   		<tr>
-    			<td>Total</td>
-    			<td>:</td>
-                <td>Rp <?php echo number_format($row['total_bayar'],0,",",".");?></td>
-    		</tr>
-            <tr>
-                <td>Datetime</td>
-                <td>:</td>
-                <td><?php echo $row['tgl_order'] ;?></td>
-            </tr>
-            <br>
-    </table>
-              <a href="<?php echo base_url('index.php/customer/rekonfirm/').$row['id_order']?>" class="shopBtn btn-large pull-right">Konfirmasi<span></span></a>
- <?php }?>             
-       
-    </div>
+    	  <div class="span4 alignR">
+          <div class="form-horizontal qtyFrm">
+            <h3>Status : <?php echo $row['keterangan']; ?></h3>
+            <div class="btn-group">
+             <a href="<?php echo base_url('index.php/customer/rekonfirm/').$row['id_order']?>" class="shopBtn btn-large pull-right">Konfirmasi</a>
+            </div>
+          </div>
+        </div>
 
-</div>   
+    </div>    
+    
+    <?php 
+          $no++;  } 
+        } else {
+          echo "<h4 style='color: black;'><center> <-- Gak ada --> </center></h4>";
+          }  ?>            
+        </div>
+</div>     

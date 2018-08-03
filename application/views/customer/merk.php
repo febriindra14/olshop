@@ -25,14 +25,20 @@
 <div id="sidebar" class="span3">
 <div class="well well-small">
 		<ul class="nav nav-list">
-		<?php foreach ($merk as $key => $value) { ?>
+		<?php foreach ($produk as $key => $value) { ?>
 
-		<li><a href="<?php echo base_url('index.php/customer/merk/'.$value->id_merk);?>"><span class="icon-chevron-right"></span><?php echo $value->nama_merk ;?> </a></li>		
+		<li><a href="<?php echo base_url('index.php/customer/kategori/'.$value->id_kategori);?>"><span class="icon-chevron-right"></span><?php echo $value->nama_kategori ;?> </a></li>		
 
 		<?php } ?>
 
+		<!--<?php foreach ($merk as $key => $value) { ?>
+
+		<li><a href="<?php echo base_url('index.php/customer/merk/'.$value->id_merk);?>"><span class="icon-chevron-right"></span><?php echo $value->nama_merk ;?> </a></li>		
+
+		<?php } ?> -->
+
 		<li style="border:0"> &nbsp;</li>
-		<li> <a class="totalInCart" href="<?php echo base_url('index.php/customer/keranjang')?> "><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
+		<li> <a class="totalInCart" href="<?php echo base_url('index.php/customer/keranjang')?> "><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">Rp <?php echo number_format($total,0,",","."); ?></span></strong></a></li>
 	</ul>
 </div>
 
@@ -49,35 +55,27 @@
 			<br>
 			<br>
 			<ul class="nav nav-list promowrapper">
-			<li>
-			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/fronted/assets/img/bootstrap-ecommerce-templates.png" alt="bootstrap ecommerce templates">
-				<div class="caption">
-				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-				</div>
-			  </div>
-			</li>
+			<?php foreach ($sidebar as $key => $value) { ?>	
 			<li style="border:0"> &nbsp;</li>
 			<li>
 			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/fronted/assets/img/shopping-cart-template.png" alt="shopping cart template">
+				<a class="zoomTool" href="<?php echo base_url('index.php/customer/detail')?>"><span class="icon-search"></span> QUICK VIEW</a>
+				<img src="<?php echo base_url(). 'assets/fronted/assets/img/'.$value->foto?>" alt="">
+
+	<form action="<?php echo base_url('index.php/customer/tambah_cart')?>" method="post">
+	<input type="hidden" name="id_cart">
+	<input type="hidden" name="id_produk" value="<?php echo $value->id_produk ?>">
+	<input type="hidden" name="foto" value="<?php echo $value->foto ?>">
+	<input type="hidden" name="nama_produk" value="<?php echo $value->nama_produk ?>">
+	<input type="hidden" name="harga" value="<?php echo $value->harga ?>">
+			
 				<div class="caption">
-				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
+				  <h4><a class="defaultBtn" href="<?php echo base_url('index.php/customer/detail/').$value->id_produk?>">VIEW</a> <span class="pull-right">Rp. <?php echo number_format($value->harga,0,",","."); ?></span></h4>
 				</div>
+	</form>			
 			  </div>
 			</li>
-			<li style="border:0"> &nbsp;</li>
-			<li>
-			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<?php echo base_url()?>assets/fronted/assets/img/bootstrap-template.png" alt="bootstrap template">
-				<div class="caption">
-				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-				</div>
-			  </div>
-			</li>
+	<?php }?>		
 		  </ul>
 	</div>
 
@@ -87,11 +85,17 @@
 New Products
 -->
 	<div class="well well-small">
-	<h3>Our Products </h3>
+	<h3><?php if ($this->uri->segment(3)<100) {
+               echo $merek; }
+               elseif ($this->uri->segment(3)==''){
+               			echo $cari ;}?> </h3>
+
 		<div class="row-fluid">
 		  <ul class="thumbnails">
 
-		  	<?php foreach ($tampil as $b){ ?>
+		  	<?php
+		  	if (!empty($tampil)) {
+		  	 foreach ($tampil as $b){ ?>
 		  		
 			<li class="span4">
 			  <div class="thumbnail">
@@ -123,7 +127,11 @@ New Products
 			  </div>
 			</li>
 			
-			<?php }?>
+			<?php }
+				} 	else {
+							echo "<h3 style='color: #666;'><center>Produk tidak ada</center></h3>"; 
+						}
+				?>
 		  
 			</ul>
 		</div>

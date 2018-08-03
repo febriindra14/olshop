@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 <div class="login-box-body">
   <p class="login-box-msg"><i class="fa fa-user icon-title"></i> Silahkan Daftar</p>
 <br/>
-  <form action="<?php echo base_url('index.php/login')?>" method="POST">
+  <form action="<?php echo base_url('index.php/login/tambah')?>" method="POST">
 <div class="form-group has-feedback">
 <input type="text" class="form-control" name="nama" placeholder="nama" required />
 <span class="glyphicon glyphicon-user form-control-feedback"></span>

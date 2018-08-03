@@ -126,9 +126,7 @@
 				  <div class="control-group">
 					<label class="control-label"><span>Bahan</span></label>
 					<div class="controls">
-					  <select class="span11">
-						  <option><?php echo ''.$detail['bahan'] ?></option>
-						</select>
+						 <input type="text" class="span11" value="<?php echo ''.$detail['bahan']; ?>" readonly="readonly">
 					</div>
 				  </div>
 
@@ -152,11 +150,12 @@
               </li>
             </ul>
 
-            <div id="myTabContent" class="tab-content tabWrapper">
-            <div class="tab-pane fade active in" id="home">
+        <div id="myTabContent" class="tab-content tabWrapper">
+           <div class="tab-pane fade active in" id="home">
 			  <h4>Product Information</h4>
                 <table class="table table-striped">
 				<tbody>
+				<tr class="techSpecRow"><td class="techSpecTD1">Color:</td><td class="techSpecTD2"><?php echo ''.$detail['warna']; ?></td></tr>
 				<tr class="techSpecRow"><td class="techSpecTD1">id produk:</td><td class="techSpecTD2"><?php echo ''.$detail['id_produk'] ?></td></tr>
 				<tr class="techSpecRow"><td class="techSpecTD1">id kategori:</td><td class="techSpecTD2"><?php echo ''.$detail['id_kategori'] ?></td></tr>
 				<tr><td>id merk:</td><td><?php echo ''.$detail['id_merk'] ?></td></tr>
@@ -165,31 +164,33 @@
 				<p><?php echo ''.$detail['deskripsi'] ?></p>
 			</div>
 
-			<div class="tab-pane fade" id="profile">
-			
+		<div class="tab-pane fade" id="profile">
 			<div class="row-fluid">	  
 			<div class="span2">
-				 <a href=""><img class="img-thumbnail" src="<?php echo base_url(). 'assets/fronted/assets/img/'.$detail['foto'];?>"/></a>
+				<img src="assets/fronted/assets/img/d.jpg" alt="">
 			</div>
 			<div class="span6">
-				<h5><?php echo ''.$detail['nama_produk'];?></h5>
-				<p><?php echo ''.$detail['deskripsi'] ?></p>
+				<h5>Product Name </h5>
+				<p>
+				Nowadays the lingerie industry is one of the most successful business spheres.
+				We always stay in touch with the latest fashion tendencies - 
+				that is why our goods are so popular..
+				</p>
 			</div>
 			<div class="span4 alignR">
 			<form class="form-horizontal qtyFrm">
-			<h3> Rp. <?php echo number_format(''.$detail['harga'],0,",","."); ?> </h3>
+			<h3> $140.00</h3>
 			<label class="checkbox">
 				<input type="checkbox">  Adds product to compair
 			</label><br>
 			<div class="btn-group">
-
-			  <a href="<?php echo base_url('index.php/customer/detail/').$value->id_produk?>" class="shopBtn">VIEW</a>
+			  <a href="product_details.html" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
+			  <a href="product_details.html" class="shopBtn">VIEW</a>
 			 </div>
 				</form>
 			</div>
 			</div>
-	
-			</div>
+		</div>	
 
               <div class="tab-pane fade" id="cat1">
                 <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>

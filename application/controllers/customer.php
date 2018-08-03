@@ -52,11 +52,13 @@ class Customer extends CI_Controller
 		$id=$this->session->userdata('id_customer');
 		$title=$this->input->get('title');
 		$data=array(
+			'cari'  	=>'Hasil cari " '.$title.' "',
 			'jumlah' 	=>$this->customer_model->getulang($id),
 			'config'	=>$this->customer_model->getweb()->row_array(),
 			'data'		=>$this->customer_model->get_search($title),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'produk' 	=>$this->customer_model->getkategori(),
+			'sidebar'	=>$this->customer_model->getsamping(),
 			'merk'		=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/search_view',$data);
 	} 
@@ -64,7 +66,11 @@ class Customer extends CI_Controller
 	{
 		$toba=$this->session->userdata('id_customer');
 		$id=$this->uri->segment(3);
+		$kategori=$this->customer_model->getkat($id)->row_array();
+		$title=$this->input->get('title');
 		$data=array(
+			'cari'  	=>' " '.$title.' "',
+			'kategori' 	=>' '.$kategori['nama_kategori'],
 			'jumlah' 	=>$this->customer_model->getulang($toba),
 			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($toba),
@@ -73,6 +79,24 @@ class Customer extends CI_Controller
 			'sidebar'	=>$this->customer_model->getsebelah(),
 			'merk'		=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/kategori',$data);
+	}
+	public function merk()
+	{
+		$toba=$this->session->userdata('id_customer');
+		$id=$this->uri->segment(3);
+		$merk=$this->customer_model->getkat($id)->row_array();
+		$title=$this->input->get('title');
+		$data=array(
+			'cari'  	=>' " '.$title.' "',
+			'merek' 	=>' '.$merk['nama_merk'],
+			'jumlah' 	=>$this->customer_model->getulang($toba),
+			'config'	=>$this->customer_model->getweb()->row_array(),
+			'total' 	=>$this->customer_model->gethitung($toba),
+			'tampil'	=>$this->customer_model->getall($id),
+			'sidebar'	=>$this->customer_model->getsebelah(),
+			'produk' 	=>$this->customer_model->getkategori(),
+			'merk'		=>$this->customer_model->getmerk());
+		$this->pajangan->kiriman('customer/merk',$data);
 	}
 	public function detail()
 	{
@@ -88,18 +112,6 @@ class Customer extends CI_Controller
 			'merk'		=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/detail_kategori',$data);
 	}
-	public function merk()
-	{
-		$toba=$this->session->userdata('id_customer');
-		$id=$this->uri->segment(3);
-		$data=array(
-			'jumlah' 	=>$this->customer_model->getulang($toba),
-			'config'	=>$this->customer_model->getweb()->row_array(),
-			'total' 	=>$this->customer_model->gethitung($toba),
-			'tampil'	=>$this->customer_model->getall($id),
-			'merk'		=>$this->customer_model->getmerk());
-		$this->pajangan->kiriman('customer/merk',$data);
-	}
 	// add to cart
 	public function tambah_cart()
 	{	
@@ -112,17 +124,17 @@ class Customer extends CI_Controller
 			redirect(base_url('index.php/login_customer/masuk'));
 		}
 		else{
-			$id 	= $this->session->userdata('id_customer');
-			$id_produk = $this->input->post('id_produk');
-			$harga  = $this->input->post('harga');
-			$ambil   = $this->db->get_where('cart',array('id_produk' => $id_produk))->row_array();
+			$id 		= $this->session->userdata('id_customer');
+			$id_produk 	= $this->input->post('id_produk');
+			$harga 		= $this->input->post('harga');
+			$ambil   	= $this->db->get_where('cart',array('id_produk' => $id_produk))->row_array();
 			if ($id_produk==$ambil['id_produk']) {
 				$jumlah    = $ambil['jumlah']+1;
 				$data = array(
-						'id_produk' => $id_produk,
-						'harga'    => $harga,
-						'jumlah'   => $jumlah,
-						'total_harga'    => $jumlah*$harga);
+						'id_produk' 	=>$id_produk,
+						'harga'    		=>$harga,
+						'jumlah'   		=>$jumlah,
+						'total_harga'	=>$jumlah*$harga);
 
 				$this->customer_model->getautoproduk($data,$id_produk);
 				}else{
@@ -150,20 +162,34 @@ class Customer extends CI_Controller
                     </div>");
 			redirect(base_url('index.php/login_customer/masuk'));
 		}
-		else
-		{
-		$jumlah=$this->input->post('jumlah');
-		$harga=$this->input->post('harga');
-		$data=array(
-			'id_cart'		=>$this->input->post('id_cart'),
-			'id_customer'	=>$this->session->userdata('id_customer'),
-			'id_produk'		=>$this->input->post('id_produk'),
-			'foto'			=>$this->input->post('foto'),
-			'nama_produk'	=>$this->input->post('nama_produk'),
-			'harga'			=>$harga,
-			'jumlah'		=>$jumlah,
-			'total_harga'	=>$harga*$jumlah);
-		$this->customer_model->getcart($data);
+		else { 
+			$id 		= $this->session->userdata('id_customer');
+			$id_produk 	= $this->input->post('id_produk');
+			$harga  	= $this->input->post('harga');
+			$ambil   	= $this->db->get_where('cart',array('id_produk' => $id_produk))->row_array();
+			if ($id_produk==$ambil['id_produk']) {
+				$jumlah    = $ambil['jumlah']+1;
+				$data = array(
+						'id_produk' => $id_produk,
+						'harga'    => $harga,
+						'jumlah'   => $jumlah,
+						'total_harga'    => $jumlah*$harga);
+
+				$this->customer_model->getautoproduk($data,$id_produk);
+				}else{
+			$jumlah=$this->input->post('jumlah');
+			$harga=$this->input->post('harga');
+			$data=array(
+				'id_cart'		=>$this->input->post('id_cart'),
+				'id_customer'	=>$this->session->userdata('id_customer'),
+				'id_produk'		=>$this->input->post('id_produk'),
+				'foto'			=>$this->input->post('foto'),
+				'nama_produk'	=>$this->input->post('nama_produk'),
+				'harga'			=>$harga,
+				'jumlah'		=>$jumlah,
+				'total_harga'	=>$harga*$jumlah);
+			$this->customer_model->getcart($data);
+			}
 		redirect(base_url('index.php/customer/keranjang'));	
 		}
 	}
@@ -248,6 +274,9 @@ class Customer extends CI_Controller
 	}
 	public function register()
 	{
+		if($this->session->userdata('logged')==1) {
+			echo "<script>alert('Untuk registrasi silahkan anda logout terlebih dahulu');</script>";
+		}
 		$id=$this->session->userdata('id_customer');
 		$data=array(
 			'jumlah' 	=>$this->customer_model->getulang($id),
@@ -501,6 +530,7 @@ class Customer extends CI_Controller
 		$this->customer_model->getkonfirmasi($data,$id_order);
 		$id=$this->session->userdata('id_customer');
 		$data=array(
+			'total' 	=>$this->customer_model->gethitung($id),
 			'jumlah' 	=>$this->customer_model->getulang($id),
 			'config'	=>$this->customer_model->getweb()->row_array(),
 			'merk'		=>$this->customer_model->getmerk());
@@ -509,6 +539,13 @@ class Customer extends CI_Controller
 	public function history_order()
 	{
 		$id=$this->session->userdata('id_customer');
+		if ($this->session->userdata('logged')<>1) {
+			$this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'>
+                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                <strong>Silahkan login terlebih dahulu !!!</strong></div>");
+
+            redirect(base_url('index.php/login_customer/masuk'));
+        } else {
 		$b='bayar';
 		$data=array(
 			'jumlah' 		=>$this->customer_model->getulang($id),
@@ -517,5 +554,6 @@ class Customer extends CI_Controller
 			'total' 		=>$this->customer_model->gethitung($id),
 			'merk'			=>$this->customer_model->getmerk());		
 		$this->pajangan->kiriman('customer/history_order',$data);
+			}
 	}
 }

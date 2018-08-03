@@ -1,99 +1,80 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <h3>Edit Customer</h3>
-  <?php foreach ($konten ->result() as $j ) {?>
-    
-     <section class="content">
+<div class="row">
+
+    <div class="col-md-12">
+        <h2><strong>Edit Customer</strong></h2>   
+    </div>
+
+</div>
+<div class="row">
+
+    <div class="col-md-6">
+
+      <div class="panel-body">
+
         <div class="row">
-          <div class="col-md-12">
+
             <form action="<?php echo base_url('index.php/utama/admin/edit_cus')?>" method="POST">
+               <?php foreach ($konten ->result() as $j ) {?>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Id Customer</label>
-                <div class="col-sm-5">
+              <label>Id Customer</label>
                   <input type="text" class="form-control" name="id_customer" value="<?php echo $j->id_customer?>"> 
-                </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Nama depan</label>
-                <div class="col-sm-5">
+              <label>Nama depan</label>
                   <input type="text" class="form-control" name="nama_depan" value="<?php echo $j->nama_depan?>"> 
-                </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Nama belakang</label>
-                <div class="col-sm-5">
+              <label>Nama belakang</label>
                   <input type="text" class="form-control" name="nama_belakang" value="<?php echo $j->nama_belakang?>"> 
-                </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-5">
+              <label>Email</label>
                   <input type="text" class="form-control" name="email" value="<?php echo $j->email?>"> 
-                </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Password</label>
-                <div class="col-sm-5">
+              <label>Password</label>
                   <input type="password" class="form-control" name="password" value="<?php echo $j->password?>"> 
-                </div>
             </div>   
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Tanggal lahir</label>
-                <div class="col-sm-5">
+              <label>Tanggal lahir</label>
                   <input type="date" class="form-control" name="tgl_lahir"  value="<?php echo $j->tgl_lahir?>"> 
-                </div>
             </div>
 
-                 <div class="form-group">
-              <label class="col-sm-2 control-label">Nomor telepon</label>
-                <div class="col-sm-5">
+            <div class="form-group">
+              <label>Nomor telepon</label>
                   <input type="text" class="form-control" name="no_telp" value="<?php echo $j->no_telp?>"> 
-                </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Nama rekening</label>
-                <div class="col-sm-5">
+              <label>Nama rekening</label>
                   <input type="text" class="form-control" name="nama_rek" value="<?php echo $j->nama_rek?>"> 
-                </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Nomor rekening</label>
-                <div class="col-sm-5">
+              <label>Nomor rekening</label>
                   <input type="text" class="form-control" name="no_rek" value="<?php echo $j->no_rek?>"> 
-                </div>
             </div>   
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Alamat</label>
-                <div class="col-sm-5">
+              <label>Alamat</label>
                   <input type="text" class="form-control" name="alamat"  value="<?php echo $j->alamat?>"> 
-                </div>
             </div>
             
-            <div class="box-footer">
               <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <input style="background: #00BFFF;" type="submit" class="btn btn-primary btn-submit" value="Simpan">
+                  <input type="submit" class="btn btn-primary btn-submit" value="Simpan">
                   <a href="<?php echo base_url('index.php/utama/admin/customer')?>" class="btn btn-default btn-reset">Batal</a>
-                </div>
               </div>
-            </div>  
+
+      <?php }?>       
+
             </form>
-          </div>
-        </div>
-      </section>
-  <?php }?>    
-</body>
-</html>
+        </div>    
+      </div>
+    </div> 
+</div>     

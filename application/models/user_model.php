@@ -168,20 +168,6 @@ class User_model extends CI_Model
 		$data=$this->db->get('order',$perPage,$start);
 		return $data->result_array();
 	}
- 	public function insert_order($save)
- 	{
- 		return $this->db->insert('order',$save);
- 	}
- 	public function kirim_order($id)
-	{
-		$data=$this->db->get_where('order',array('id_order'=>$id));
-		return $data;
-	}
-	public function update_order($tb,$id)
-	{
-		$this->db->where('id_order',$id);
-		$this->db->update('order',$tb);
-	}
 	public function delete_order($id)
 	{
 		$this->db->where('id_order',$id);
@@ -198,10 +184,6 @@ class User_model extends CI_Model
 		$this->db->join('customer','customer.id_customer=order.id_customer');
 		$this->db->where('customer.id_customer');
 		return $this->db->get();
-	}
-	public function id_cus()
-	{
-		return $this->db->get('customer');
 	}
 	//konfigurasi web
 	public function getkonfig()

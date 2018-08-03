@@ -40,33 +40,33 @@
                 </div>
             </div>
 
+            <br><br><br><br>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Deskripsi</label>
-              <div class="col-sm-5">
-              <input type="text" class="form-control" name="deskripsi" value="<?php echo $send->deskripsi?>">
-            </div>
+            <label>Deskripsi</label>
+               <textarea name="deskripsi" class="form-control" required="" style="height: 100px; width: 500px;"><?php echo $send->deskripsi ;?></textarea>
           </div>
 
-           <div class="form-group">
-              <label class="col-sm-2 control-label">Twitter</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" name="share1" value="<?php echo $send->share1?>"> 
-                </div>
-            </div>
-
-             <div class="form-group">
-              <label class="col-sm-2 control-label">Facebook</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" name="share2" value="<?php echo $send->share2?>"> 
-                </div>
-            </div>
-
-             <div class="form-group">
-              <label class="col-sm-2 control-label">Instagram</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" name="share3" value="<?php echo $send->share3?>"> 
-                </div>
-            </div>
+          <div class="form-group">
+                    <label class="col-sm-2 control-label">Twitter</label>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
+                        <input type="text" class="form-control" name="share1" placeholder="Facebook" value="<?php echo $send->share1; ?>">
+                    </div>
+          </div>
+          <div class="form-group">          
+                    <label class="col-sm-2 control-label">Facebook</label>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
+                        <input type="text" class="form-control" name="share2" placeholder="Instagram" value="<?php echo $send->share2; ?>">
+                    </div>
+             </div>
+            <div class="form-group"> 
+            <label class="col-sm-2 control-label">Instagram</label>       
+                <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-instagram"></i></span>
+                        <input type="text" class="form-control" name="share3" placeholder="Twitter" value="<?php echo $send->share3; ?>">
+                 </div>
+          </div>
 
             <div class="box-footer">
               <div class="form-group">
