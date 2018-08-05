@@ -66,6 +66,7 @@
 				<div class="caption">
 				  <h4><a class="defaultBtn" href="<?php echo base_url('index.php/customer/detail/').$value->id_produk?>">VIEW</a> <span class="pull-right">Rp. <?php echo number_format($value->harga,0,",","."); ?></span></h4>
 				</div>
+	</form>			
 			  </div>
 			</li>
 	<?php }?>		

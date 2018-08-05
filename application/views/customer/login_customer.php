@@ -44,7 +44,7 @@
 		</div>
 		<div class="control-group">
 		<div class="controls">
-		<button type="submit" class="defaultBtn">Sign in</button> <a href="#">Forget password?</a>
+		<button type="submit" class="defaultBtn">Sign in</button> <a href="<?php echo base_url('index.php/login_customer/ganti')?>">Forget password?</a>
 		</div>
 		</div>
 

@@ -7,6 +7,7 @@ class login extends CI_Controller
 		parent:: __construct();
 		$this->load->library('pajangan');
 		$this->load->model('login_model');
+		$this->load->model('customer_model');
 	} 
 	public function index()
 	{
@@ -33,6 +34,7 @@ class login extends CI_Controller
 		$this->user_model->insert($save);
 		redirect(base_url('index.php/login'));
 	}
+	
 	 //user login
 	public function login()
 	{
@@ -48,7 +50,6 @@ class login extends CI_Controller
 			echo "username atau password salah!";
 		}
 	}
-
 	public function logout()
 	{
 		$this->session->sess_destroy('logged');

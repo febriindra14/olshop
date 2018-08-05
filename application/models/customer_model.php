@@ -27,6 +27,11 @@ class Customer_model extends CI_Model
 		$this->db->where('customer.id_customer',$id);
 		return $this->db->get('checkout');
 	}
+	//order
+	public function getid($id)
+	{
+		return $this->db->insert('order',$id);
+	}
 	public function getkonfirm($id=null,$f=null)
 	{
 		if(!empty($id)&&$this->db->where('keterangan',$f)){
@@ -75,9 +80,9 @@ class Customer_model extends CI_Model
 	{	
 		return $this->db->insert('cart',$data);
 	}
-	public function getautoproduk($data,$id_produk)
+	public function getautoproduk($data,$id_produk,$id)
 	{
-		return $this->db->where('id_produk',$id_produk)->update('cart',$data); 
+		return $this->db->where('id_produk',$id_produk)->where('id_customer',$id)->update('cart',$data); 
 	}
 	public function getulang($id)
 	{
@@ -143,18 +148,12 @@ class Customer_model extends CI_Model
 	}
 	public function getmore()
 	{
-		$this->db->select('*');
-   		$this->db->from('produk');
-   		$data = $this->db->get();
-   		return $data->result();
+   		return $this->db->get('produk')->result();
 	}
 	//list
 	public function getlist()
 	{
-		$this->db->select('*');
-   		$this->db->from('produk');
-   		$data = $this->db->get();
-   		return $data->result();
+		return $this->db->get('produk')->result();
 	}
 	public function getside()
 	{
@@ -165,10 +164,7 @@ class Customer_model extends CI_Model
 	//grid
 	public function getgrid()
 	{
-		$this->db->select('*');
-   		$this->db->from('produk');
-   		$data = $this->db->get();
-   		return $data->result();
+		return $this->db->get('produk')->result();
 	}
 	public function getbar()
 	{
@@ -176,28 +172,19 @@ class Customer_model extends CI_Model
 		$this->db->limit(3);
    		return $this->db->get('produk')->result();
 	}
-	//tricolom
+	//threcolom
 	public function gettricol()
 	{
-		$this->db->select('*');
-   		$this->db->from('produk');
-   		$data = $this->db->get();
-   		return $data->result();
+		return $this->db->get('produk')->result();
 	}
-	//4 colom
+	//fourcolom
 	public function getfourcol()
 	{
-		$this->db->select('*');
-   		$this->db->from('produk');
-   		$data = $this->db->get();
-   		return $data->result();
+		return $this->db->get('produk')->result();
 	}
 	public function getkategori()
 	{
-		$this->db->select('*');
-   		$this->db->from('kategori_produk');
-   		$data = $this->db->get();
-   		return $data->result();
+		return $this->db->get('kategori_produk')->result();
 	}
 	public function getkat($id) 
 	{ 
@@ -255,10 +242,7 @@ class Customer_model extends CI_Model
 	}
 	public function getmerk()
 	{		
-		$this->db->select('*');
-   		$this->db->from('merk');
-   		$data = $this->db->get();
-   		return $data->result();
+		return $this->db->get('merk')->result();
 	}
 	public function getorder()
 	{
@@ -268,9 +252,5 @@ class Customer_model extends CI_Model
 		$this->db->where('order.id_order');
 		$kirim=$this->db->get();
 		return $kirim->result();
-	}
-	public function getid($id)
-	{
-		return $this->db->insert('order',$id);
 	}
 }	

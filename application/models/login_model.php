@@ -20,4 +20,12 @@ class Login_model extends CI_Model
 	{
 		return $this->db->insert('user',$simpan);
 	}
+	public function check($email) 
+	{
+        $this->db->where('email', $email);
+        return $this->db->get('customer'); 
+    }
+    public function getforgot($simpan,$id) {
+        return $this->db->where('id_customer',$id)->update('customer',$simpan);
+    }
 }

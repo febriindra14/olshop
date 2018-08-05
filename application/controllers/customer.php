@@ -33,6 +33,7 @@ class Customer extends CI_Controller
 			'more' 		=>$this->customer_model->getmore(),
 			'semua' 	=>$this->customer_model->getutama(),
 			'produk' 	=>$this->customer_model->getkategori(),
+			'sidebar'	=>$this->customer_model->getbar(),
 			'merk'		=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/view_more',$data);
 	}
@@ -119,7 +120,7 @@ class Customer extends CI_Controller
 		{
 			$this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'>
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                        <strong>Silahkan login terlebih dahulu !!!</strong>
+                        <strong>Silahkan login dulu!</strong>
                     </div>");
 			redirect(base_url('index.php/login_customer/masuk'));
 		}
@@ -128,15 +129,15 @@ class Customer extends CI_Controller
 			$id_produk 	= $this->input->post('id_produk');
 			$harga 		= $this->input->post('harga');
 			$ambil   	= $this->db->get_where('cart',array('id_produk' => $id_produk))->row_array();
-			if ($id_produk==$ambil['id_produk']) {
+			if ($id_produk==$ambil['id_produk'] && $id == $ambil['id_customer']) {
 				$jumlah    = $ambil['jumlah']+1;
 				$data = array(
 						'id_produk' 	=>$id_produk,
+						'id_customer' 	=>$id,
 						'harga'    		=>$harga,
 						'jumlah'   		=>$jumlah,
 						'total_harga'	=>$jumlah*$harga);
-
-				$this->customer_model->getautoproduk($data,$id_produk);
+				$this->customer_model->getautoproduk($data,$id_produk,$id);
 				}else{
 					$data_produk=array(
 					'id_cart'		=>$this->input->post('id_cart'),
@@ -158,7 +159,7 @@ class Customer extends CI_Controller
 		{
 			$this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'>
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                        <strong>Silahkan login terlebih dahulu !!!</strong>
+                        <strong>Silahkan login dulu!</strong>
                     </div>");
 			redirect(base_url('index.php/login_customer/masuk'));
 		}
@@ -167,21 +168,22 @@ class Customer extends CI_Controller
 			$id_produk 	= $this->input->post('id_produk');
 			$harga  	= $this->input->post('harga');
 			$ambil   	= $this->db->get_where('cart',array('id_produk' => $id_produk))->row_array();
-			if ($id_produk==$ambil['id_produk']) {
+			if ($id_produk==$ambil['id_produk'] && $id == $ambil['id_customer']) {
 				$jumlah    = $ambil['jumlah']+1;
 				$data = array(
-						'id_produk' => $id_produk,
-						'harga'    => $harga,
-						'jumlah'   => $jumlah,
-						'total_harga'    => $jumlah*$harga);
+						'id_produk' 	=> $id_produk,
+						'id_customer' 	=> $id,
+						'harga'    		=> $harga,
+						'jumlah'   		=> $jumlah,
+						'total_harga'   => $jumlah*$harga);
 
-				$this->customer_model->getautoproduk($data,$id_produk);
+				$this->customer_model->getautoproduk($data,$id_produk,$id);
 				}else{
 			$jumlah=$this->input->post('jumlah');
 			$harga=$this->input->post('harga');
 			$data=array(
 				'id_cart'		=>$this->input->post('id_cart'),
-				'id_customer'	=>$this->session->userdata('id_customer'),
+				'id_customer'	=>$id,
 				'id_produk'		=>$this->input->post('id_produk'),
 				'foto'			=>$this->input->post('foto'),
 				'nama_produk'	=>$this->input->post('nama_produk'),
@@ -238,7 +240,7 @@ class Customer extends CI_Controller
 		{
 			$this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'>
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                        <strong>Silahkan login terlebih dahulu !!!</strong>
+                        <strong>Silahkan login dulu!</strong>
                     </div>");
 			redirect(base_url('index.php/login_customer/masuk'));
 		}
@@ -274,9 +276,9 @@ class Customer extends CI_Controller
 	}
 	public function register()
 	{
-		if($this->session->userdata('logged')==1) {
-			echo "<script>alert('Untuk registrasi silahkan anda logout terlebih dahulu');</script>";
-		}
+		/*if($this->session->userdata('logged')==1) {
+			echo "<script>alert('Untuk registrasi anda harus logout');</script>";
+		}*/
 		$id=$this->session->userdata('id_customer');
 		$data=array(
 			'jumlah' 	=>$this->customer_model->getulang($id),
@@ -293,7 +295,7 @@ class Customer extends CI_Controller
 		{
 			$this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'>
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                        <strong>Silahkan login terlebih dahulu !!!</strong>
+                        <strong>Silahkan login dulu!</strong>
                     </div>");
 			redirect(base_url('index.php/login_customer/masuk'));
 		}
@@ -396,7 +398,7 @@ class Customer extends CI_Controller
 		if ($this->customer_model->getulang($id)->num_rows()==0) {
 			$this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'>
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                        <strong>Silahkan isi keranjang anda sebelum memesan...</strong>
+                        <strong>Silahkan belanja dulu sebelum anda memesan!</strong>
                     </div>");
 
                 redirect(base_url('index.php/customer/keranjang'));
@@ -428,7 +430,6 @@ class Customer extends CI_Controller
 			'keterangan'	=>$f);
 		$this->customer_model->getid($coba);
 		$id_order =$this->db->insert_id();
-
 		$query=$this->db->where('id_customer',$id)->get('cart');
 			foreach ($query->result() as $key => $row) {
 		$data=array(
@@ -484,7 +485,7 @@ class Customer extends CI_Controller
 		{
 			$this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'>
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                        <strong>Silahkan login terlebih dahulu !!!</strong>
+                        <strong>Silahkan login dulu!</strong>
                     </div>");
 			redirect(base_url('index.php/login_customer/masuk'));
 		}
@@ -524,9 +525,9 @@ class Customer extends CI_Controller
 		$id_order=$this->input->post('id_order');
 		$g='bayar';
 		$data=array(
-			'id_order'			=>$this->input->post('id_order'),
-			'nama'				=>$this->input->post('nama'),
-			'keterangan'		=>$g);
+			'id_order'		=>$this->input->post('id_order'),
+			'nama'			=>$this->input->post('nama'),
+			'keterangan'	=>$g);
 		$this->customer_model->getkonfirmasi($data,$id_order);
 		$id=$this->session->userdata('id_customer');
 		$data=array(
@@ -542,7 +543,7 @@ class Customer extends CI_Controller
 		if ($this->session->userdata('logged')<>1) {
 			$this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'>
                 <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                <strong>Silahkan login terlebih dahulu !!!</strong></div>");
+                <strong>Silahkan login dulu!</strong></div>");
 
             redirect(base_url('index.php/login_customer/masuk'));
         } else {

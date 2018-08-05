@@ -237,6 +237,25 @@ Footer
             });
 
 		});
+		function cekpassword() 
+		{
+            	var password1 = document.forms['cek']['password1'].value;
+            	var password2 = document.forms['cek']['password2'].value;
+
+            	if (password2 != password1) {
+            		alert('Password tidak sama');
+            		return false;
+            	};
+
+            	if (password1 == '' || password2 == '') {
+            		alert('Password tidak boleh kosong');
+            		return false;
+            	};
+
+            	//if (password1 == password2){
+            	//	alert('Selamat password berhasil diubah');
+            	//}
+        }
 	</script>
    
 
