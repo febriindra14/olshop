@@ -10,7 +10,7 @@
 
 				<center>
 					<h3 class="alert alert-success">Konfirmasi Sukses</h3>
-					<a href="<?php echo base_url('index.php/customer/list'); ?>" class="shopBtn btn-large"><span class="icon-shopping-cart"></span> Kembali Belanja</a>
+					<a href="<?php echo base_url('customer/daftar'); ?>" class="shopBtn btn-large"><span class="icon-shopping-cart"></span> Kembali Belanja</a>
 				</center>
 
 			</div>

@@ -11,7 +11,7 @@ class Admin extends CI_Controller
 		//mendeteksi user sudah login atau belum
 		if(!$this->session->userdata('logged'))
 		{
-			redirect(base_url('index.php/login'));
+			redirect(base_url('login'));
 		}
 	}
 	//dashboard 
@@ -53,13 +53,13 @@ class Admin extends CI_Controller
 			'email'			=>$this->input->post('email'),
 			'password'		=>$this->input->post('password'));
 		$this->user_model->insert($save);
-		redirect(base_url('index.php/utama/admin/tampil'));
+		redirect(base_url('utama/admin/tampil'));
 	}
 	public function hapus()
 	{
 		$satu=$this->uri->segment(4);
 		$dua=$this->user_model->delete($satu);
-		redirect(base_url('index.php/utama/admin/tampil'));
+		redirect(base_url('utama/admin/tampil'));
 	}
 	public function tampil_edit()
 	{
@@ -77,13 +77,13 @@ class Admin extends CI_Controller
 			'email'			=>$this->input->post('email'),
 			'password'		=>$this->input->post('password'));
 		$c=$this->user_model->update($b,$a);
-		redirect(base_url('index.php/utama/admin/tampil'));
+		redirect(base_url('utama/admin/tampil'));
 	}
 	// kategori produk
 	public function kategori_produk()
 	{
 		$row=$this->user_model->getpro();
-		$config['base_url']=base_url().'index.php/utama/admin/kategori_produk';
+		$config['base_url']=base_url().'utama/admin/kategori_produk';
 		$config['total_rows']=$row;
 		$config['per_page']=4;
 		$config['first_link']='Pertama';
@@ -121,7 +121,7 @@ class Admin extends CI_Controller
 			'id_kategori'	=>$this->input->post('id_kategori'),
 			'nama_kategori'	=>$this->input->post('nama_kategori'));
 		$this->user_model->insert_kaduk($save);
-		redirect(base_url('index.php/utama/admin/kategori_produk'));
+		redirect(base_url('utama/admin/kategori_produk'));
 	}
 	public function form_kategori()
 	{
@@ -136,13 +136,13 @@ class Admin extends CI_Controller
 			'id_kategori'		=>$this->input->post('id_kategori'),
 			'nama_kategori'		=>$this->input->post('nama_kategori'));
 		$y=$this->user_model->update_kaduk($x,$z);
-		redirect(base_url('index.php/utama/admin/kategori_produk'));
+		redirect(base_url('utama/admin/kategori_produk'));
 	}
 	public function hapus_kaduk()
 	{
 		$w=$this->uri->segment(4);
 		$r=$this->user_model->delete_kaduk($w);
-		redirect(base_url('index.php/utama/admin/kategori_produk'));
+		redirect(base_url('utama/admin/kategori_produk'));
 	}
 
 	// Merk produk	
@@ -172,7 +172,7 @@ class Admin extends CI_Controller
 			'nama_merk'	=>$this->input->post('nama_merk'),
 			'gambar' 	=>$coba['file_name']);
 		$this->user_model->insert_merk($ve);
-		redirect(base_url('index.php/utama/admin/merk'));
+		redirect(base_url('utama/admin/merk'));
 	}
 	public function ganti_merk()
 	{
@@ -198,19 +198,19 @@ class Admin extends CI_Controller
 			'nama_merk'		=>$this->input->post('nama_merk'),
 			'gambar'		=>$coba['file_name']);
 		$q=$this->user_model->update_merk($v,$b);
-		redirect(base_url('index.php/utama/admin/merk'));
+		redirect(base_url('utama/admin/merk'));
 	}
 	public function hapus_merk()
 	{
 		$n=$this->uri->segment(4);
 		$m=$this->user_model->delete_merk($n);
-		redirect(base_url('index.php/utama/admin/merk'));
+		redirect(base_url('utama/admin/merk'));
 	}
 	//produk
 	public function produk()
 	{	
 		$row=$this->user_model->larik();
-		$config['base_url']=base_url().'index.php/utama/admin/produk';
+		$config['base_url']=base_url().'utama/admin/produk';
 		$config['total_rows']=$row;
 		$config['per_page']=2;
 		$config['first_link']='Pertama';
@@ -268,7 +268,7 @@ class Admin extends CI_Controller
        	   'harga' 			=>$this->input->post('harga'),
        	   'foto' 			=>$file['file_name']);
           $this->user_model->insert_produk($data); 
-          redirect(base_url('index.php/utama/admin/produk')); 
+          redirect(base_url('utama/admin/produk')); 
 	  }
 	public function editproduk()
 	{
@@ -301,13 +301,13 @@ class Admin extends CI_Controller
 			'harga'				=>$this->input->post('harga'),
 			'foto'				=>$file['file_name']);
 		$e=$this->user_model->update_produk($d,$c);
-		redirect(base_url('index.php/utama/admin/produk'));
+		redirect(base_url('utama/admin/produk'));
 	}
 	public function hapusproduk()
 	{
 		$empat=$this->uri->segment(3);
 		$lima=$this->user_model->delete_produk($empat);
-		redirect(base_url('index.php/utama/admin/produk'));
+		redirect(base_url('utama/admin/produk'));
 	}
 	//detail produk
 	 public function detailproduk()
@@ -340,7 +340,7 @@ class Admin extends CI_Controller
 			'no_rek'		=>$this->input->post('no_rek'),
 			'alamat'		=>$this->input->post('alamat'));
 		$this->user_model->insert_cus($simpan);
-		redirect(base_url('index.php/utama/admin/customer'));
+		redirect(base_url('utama/admin/customer'));
 	}
 	public function form_edit()
 	{
@@ -363,19 +363,19 @@ class Admin extends CI_Controller
 			'no_rek'		=>$this->input->post('no_rek'),
 			'alamat'		=>$this->input->post('alamat'));
 		$e=$this->user_model->update_cus($d,$c);
-		redirect(base_url('index.php/utama/admin/customer'));
+		redirect(base_url('utama/admin/customer'));
 	}
 	public function hapus_cus()
 	{
 		$empat=$this->uri->segment(4);
 		$lima=$this->user_model->delete_cus($empat);
-		redirect(base_url('index.php/utama/admin/customer'));
+		redirect(base_url('utama/admin/customer'));
 	}
 	//order
 	public function order()
 	{
 		$row=$this->user_model->getbaris();
-		$config['base_url']=base_url().'index.php/utama/admin/order';
+		$config['base_url']=base_url().'utama/admin/order';
 		$config['total_rows']=$row;
 		$config['per_page']=2;
 		$config['first_link']='Pertama';
@@ -407,7 +407,7 @@ class Admin extends CI_Controller
 	{
 		$id=$this->uri->segment(4);
 		$data=$this->user_model->delete_order($id);
-		redirect(base_url('index.php/utama/admin/order'));
+		redirect(base_url('utama/admin/order'));
 	}
 	//konfigurasi web
 	public function konfigurasi_web()
@@ -434,28 +434,66 @@ class Admin extends CI_Controller
 			'share2'	=>$this->input->post('share2'),
 			'share3'	=>$this->input->post('share3'));
 		$aka=$this->user_model->update_konfig($data,$id);
-		redirect(base_url('index.php/utama/admin/konfigurasi_web'));
+		redirect(base_url('utama/admin/konfigurasi_web'));
 	}
 	//halaman
 	public function halaman()
 	{	
-		$data['hal']=$this->user_model->gethal();
+		$data=array(
+			'hal'		=>$this->user_model->getabout(),
+			'halaman'	=>$this->user_model->gethalaman(),
+			'footer'	=>$this->user_model->getfooter());
 		$this->pajangan->kirim('admin/halaman',$data);
 	}
-	public function ubah_hal()
+	public function ubah_halaman()
 	{
-		$coba=$this->uri->segment(4);
-		$data['about']=$this->user_model->edit_hal($coba);
-		$this->pajangan->kirim('admin/edit_about',$data);
+		$tc=$this->uri->segment(4);
+		$data['data']=$this->user_model->edit_hal($tc);
+		$this->pajangan->kirim('admin/edit_halaman',$data);
 	}
-	public function edit_hal()
+	public function edit_halaman()
 	{
 		$id=$this->input->post('id_hal');
 		$data=array(
-			'id_hal'	=>$this->input->post('id_hal'),
+			'id_hal'		=>$this->input->post('id_hal'),
+			'menu'			=>$this->input->post('menu'),
+			'judul1'		=>$this->input->post('judul1'),
+			'judul2'		=>$this->input->post('judul2'),
+			'judul3'		=>$this->input->post('judul3'),
+			'judul4'		=>$this->input->post('judul4'),
+			'deskripsi_hal'	=>$this->input->post('deskripsi_hal'));
+		$hal=$this->user_model->updatehalaman($data,$id);
+		redirect(base_url('utama/admin/halaman'));
+	}
+	public function ubah_about()
+	{
+		$coba=$this->uri->segment(4);
+		$data['about']=$this->user_model->edit_about($coba);
+		$this->pajangan->kirim('admin/edit_about',$data);
+	}
+	public function edit_about()
+	{
+		$id=$this->input->post('id_about');
+		$data=array(
+			'id_about'	=>$this->input->post('id_about'),
 			'judul'		=>$this->input->post('judul'),
 			'deskripsi'	=>$this->input->post('deskripsi'));
-		$m=$this->user_model->update_hal($data,$id);
-		redirect(base_url('index.php/utama/admin/halaman'));	
+		$m=$this->user_model->update_about($data,$id);
+		redirect(base_url('utama/admin/halaman'));	
+	}
+	public function ubah_footer()
+	{
+		$id=$this->uri->segment(4);
+		$data['foot']=$this->user_model->edit_footer($id);
+		$this->pajangan->kirim('admin/edit_footer',$data);
+	}
+	public function edit_footer()
+	{
+		$id=$this->input->post('id_footer');
+		$data=array(
+			'isi1'	=>$this->input->post('isi1'),
+			'isi2'	=>$this->input->post('isi2'));
+		$tm=$this->user_model->update_footer($data,$id);
+		redirect(base_url('utama/admin/halaman'));
 	}
 }

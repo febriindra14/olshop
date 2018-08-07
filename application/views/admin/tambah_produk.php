@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-  <form action="<?php echo base_url('index.php/utama/admin/tambahproduk')?>" method="POST" enctype="multipart/form-data">
+  <form action="<?php echo base_url('utama/admin/tambahproduk')?>" method="POST" enctype="multipart/form-data">
    <div class="container">
      <h3><b>PRODUK BARU</b></h3>
  <div class="col-md-1">
@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       </div><br>
     </div>
         <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
-         <a href="<?php echo base_url('index.php/utama/admin/produk')?>" class="btn btn-default btn-reset">Batal</a>
+         <a href="<?php echo base_url('utama/admin/produk')?>" class="btn btn-default btn-reset">Batal</a>
  </div>
 </div>
 </form>

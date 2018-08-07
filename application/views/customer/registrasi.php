@@ -10,12 +10,12 @@
 					<a href="http://<?php echo ''.$config['share2'];?>"><span class="icon-facebook"></span></a>
 					<a href="http://<?php echo ''.$config['share3'];?>"><span class="icon-instagram"></span></a>
 				</div>
-				<a class="active" href="<?php echo base_url('index.php/customer');?>"> <span class="icon-home"></span> Home</a> 
-				<a href="<?php echo base_url('index.php/customer/akunku')?>"><span class="icon-user"></span> My Account</a> 
-				<a href="<?php echo base_url('index.php/customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
-				<a href="<?php echo base_url('index.php/customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
-				<a href="<?php echo base_url('index.php/customer/keranjang')?>"><span class="icon-shopping-cart"></span> <?php echo $jumlah->num_rows(); ?> items  <span class="badge badge-warning"> Rp <?php echo number_format($total,0,",","."); ?> </span></a>
-				<a href="<?php echo base_url('index.php/login_customer/logout')?>" >Logout</a>
+				<a class="active" href="<?php echo base_url('customer');?>"> <span class="icon-home"></span> Home</a> 
+				<a href="<?php echo base_url('customer/akunku')?>"><span class="icon-user"></span> My Account</a> 
+				<a href="<?php echo base_url('customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
+				<a href="<?php echo base_url('customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
+				<a href="<?php echo base_url('customer/keranjang')?>"><span class="icon-shopping-cart"></span> <?php echo $jumlah->num_rows(); ?> items <span class="badge badge-warning"> Rp <?php echo number_format($total,0,",","."); ?> </span></a>
+				<a href="<?php echo base_url('login_customer/logout')?>" >Logout</a>
 			</div>
 		</div>
 	</div>
@@ -29,12 +29,12 @@
 		
 		<?php foreach ($produk as $key => $value) { ?>
 
-		<li><a href="<?php echo base_url('index.php/customer/kategori/'.$value->id_kategori);?>"><span class="icon-chevron-right"></span><?php echo $value->nama_kategori ;?> </a></li>		
+		<li><a href="<?php echo base_url('customer/kategori/'.$value->id_kategori);?>"><span class="icon-chevron-right"></span><?php echo $value->nama_kategori ;?> </a></li>		
 
 		<?php } ?>
 
 		<li style="border:0"> &nbsp;</li>
-		<li> <a class="totalInCart" href="<?php echo base_url('index.php/customer/keranjang')?> "><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;"> Rp <?php echo number_format($total,0,",","."); ?> </span></strong></a></li>
+		<li> <a class="totalInCart" href="<?php echo base_url('customer/keranjang')?> "><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;"> Rp <?php echo number_format($total,0,",","."); ?> </span></strong></a></li>
 	</ul>
 </div>
   			<div class="well well-small alert alert-warning cntr">
@@ -53,10 +53,10 @@
 			<li style="border:0"> &nbsp;</li>
 			<li>
 			  <div class="thumbnail">
-				<a class="zoomTool" href="<?php echo base_url('index.php/customer/register')?>"><span class="icon-search"></span> QUICK VIEW</a>
+				<a class="zoomTool" href="<?php echo base_url('customer/register')?>"><span class="icon-search"></span> QUICK VIEW</a>
 				<img src="<?php echo base_url(). 'assets/fronted/assets/img/'.$value->foto?>" alt="">
 
-	<form action="<?php echo base_url('index.php/customer/tambah_cart')?>" method="post">
+	<form action="<?php echo base_url('customer/tambah_cart')?>" method="post">
 	<input type="hidden" name="id_cart">
 	<input type="hidden" name="id_produk" value="<?php echo $value->id_produk ?>">
 	<input type="hidden" name="foto" value="<?php echo $value->foto ?>">
@@ -64,7 +64,7 @@
 	<input type="hidden" name="harga" value="<?php echo $value->harga ?>">
 			
 				<div class="caption">
-				   <h4><a class="defaultBtn" href="<?php echo base_url('index.php/customer/detail/').$value->id_produk?>">VIEW</a> <span class="pull-right">Rp. <?php echo number_format($value->harga,0,",","."); ?></span></h4>
+				   <h4><a class="defaultBtn" href="<?php echo base_url('customer/detail/').$value->id_produk?>">VIEW</a> <span class="pull-right">Rp. <?php echo number_format($value->harga,0,",","."); ?></span></h4>
 				</div>
 	</form>			
 			  </div>
@@ -76,13 +76,13 @@
 
 <div class="span9">
     <ul class="breadcrumb">
-		<li><a href="<?php echo base_url('index.php/customer')?> ">Home</a> <span class="divider">/</span></li>
+		<li><a href="<?php echo base_url('customer')?> ">Home</a> <span class="divider">/</span></li>
 		<li class="active">Registration</li>
     </ul>
     
 	<h3> Registration</h3>	
 	<div class="well">
-	<form class="form-horizontal" action="<?php echo base_url('index.php/customer/tambah_customer')?>" method="post">
+	<form class="form-horizontal" action="<?php echo base_url('customer/tambah_customer')?>" method="post">
 
 		<h3>Your Personal Details</h3>
 
@@ -93,66 +93,62 @@
 			<div class="controls">
 			  <input type="text" name="nama_depan">
 			</div>
-		 </div>
+		</div>
 
-		 <div class="control-group">
+		<div class="control-group">
 			<label class="control-label">Name belakang</label>
 			<div class="controls">
 			  <input type="text" name="nama_belakang">
 			</div>
-		 </div>
-
-		<div class="control-group">
-		<label class="control-label">Email</label>
-		<div class="controls">
-		  <input type="text" name="email" placeholder="coba@gmail.com">
 		</div>
-	  </div>
 
 		<div class="control-group">
-		<label class="control-label">Password</label>
-		<div class="controls">
-		  <input type="password" name="password">
+			<label class="control-label">Email</label>
+			<div class="controls">
+		  	<input type="text" name="email" placeholder="coba@gmail.com">
+			</div>
 		</div>
-	  </div>
 
 		<div class="control-group">
-		<label class="control-label">Tanggal lahir</label>
-		<div class="controls">
+			<label class="control-label">Password</label>
+			<div class="controls">
+		  	<input type="password" name="password">
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label">Tanggal lahir</label>
+			<div class="controls">
 			<input type="date" name="tgl_lahir">
-		</div>
+			</div>
 	  	</div>
 
-
 		<div class="control-group">
-		<label class="control-label">Nomor telepon</label>
-		<div class="controls">
-			<input type="text" name="no_telp">
-		</div>
+			<label class="control-label">Nomor telepon</label>
+			<div class="controls">
+				<input type="text" name="no_telp">
+			</div>
 	  	</div>
 
-
 		<div class="control-group">
-		<label class="control-label">Nama rekening</label>
-		<div class="controls">
+			<label class="control-label">Nama rekening</label>
+			<div class="controls">
 			<input type="text" name="nama_rek">
-		</div>
+			</div>
 	  	</div>
 
-
 		<div class="control-group">
-		<label class="control-label">Nomor rekening</label>
-		<div class="controls">
+			<label class="control-label">Nomor rekening</label>
+			<div class="controls">
 			<input type="text" name="no_rek">
-		</div>
+			</div>
 	  	</div>
 
-
 		<div class="control-group">
-		<label class="control-label">Alamat</label>
-		<div class="controls">
+			<label class="control-label">Alamat</label>
+			<div class="controls">
 			<input type="text" name="alamat">
-		</div>
+			</div>
 	  	</div>
 
 	<div class="control-group">
@@ -162,5 +158,123 @@
 	</div>
 
 	</form>
-</div>
+	</div>
+
+	<div class="well">
+	<form class="form-horizontal" >
+		<h3>Your Billing Details</h3>
+		<div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div>
+		 <div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <textarea></textarea>
+			</div>
+		</div>
+	<div class="control-group">
+		<div class="controls">
+		 <input type="submit" name="submitAccount" value="Register" class="shopBtn exclusive">
+		</div>
+	</div>
+	</form>
+	</div>
+
+	<div class="well">
+	<form class="form-horizontal" >
+		<h3>Your Account Details</h3>
+		<div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div><div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div><div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div><div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div><div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div><div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div><div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div><div class="control-group">
+			<label class="control-label">Fiels label <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" placeholder=" Field name">
+			</div>
+		</div>
+	<div class="control-group">
+		<div class="controls">
+		 <input type="submit" name="submitAccount" value="Register" class="exclusive shopBtn">
+		</div>
+	</div>
+	</form>
+	</div>
+
 </div>

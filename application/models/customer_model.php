@@ -1,15 +1,23 @@
 <?php
 class Customer_model extends CI_Model
 {
+	/*public function gethalaman($hal)
+	{
+		$this->db->where('id_hal',$hal);
+		return $this->db->get('halaman');
+	}*/
+	/*public function getfooter($fot)
+	{
+		$this->db->where('id_footer',$fot);
+		return $this->db->get('footer');
+	}*/
 	public function getweb()
 	{
-   		$data =$this->db->get('konfigurasi_web');
-   		return $data;
+   		return $this->db->get('konfigurasi_web');
 	}
 	public function gethal()
 	{
-		$data=$this->db->get('halaman');
-		return $data;
+		return $this->db->get('about');
 	}
 	public function get_search($title){
 		$this->db->like('nama_produk', $title , 'both');

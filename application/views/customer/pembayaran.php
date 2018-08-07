@@ -1,12 +1,12 @@
 <div class="span12">
     <ul class="breadcrumb">
-		<li><a href="<?php echo base_url('index.php/customer')?> ">Home</a> <span class="divider">/</span></li>
+		<li><a href="<?php echo base_url('customer')?> ">Home</a> <span class="divider">/</span></li>
 		<li class="active">Pembayaran</li>
     </ul>
 
 	<div class="well">
 		
-		<form action="<?php echo base_url('index.php/customer/checkout')?>" method="post">
+		<form action="<?php echo base_url('customer/checkout')?>" method="post">
 			
 			<h3>
     			Detail Order<p class="pull-right"><?php echo $jumlah->num_rows(); ?> Barang</p>
@@ -100,7 +100,7 @@
 		</select>		
 		</div></center>
 		
-	<a href="<?php echo base_url('index.php/customer/keranjang')?>" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Back </a>
+	<a href="<?php echo base_url('customer/keranjang')?>" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Back </a>
 	<button type="submit" class="shopBtn btn-large pull-right">Check Out <span class="icon-arrow-right"></span></button>
 
 		</form>

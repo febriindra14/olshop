@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 		<td><?php echo $b['tgl_order'];?></td>
 		<td><?php echo $b['keterangan'];?></td>
 		<td>
-			<a data-toggle="tooltip" data-placement="top" title="Hapus" style='background: red; border:red;' class="btn btn-danger btn-sm" href="<?php echo base_url('index.php/utama/admin/hapus_order/').$b['id_order'] ?>">Hapus</a></td>
+			<a data-toggle="tooltip" data-placement="top" title="Hapus" style='background: red; border:red;' class="btn btn-danger btn-sm" href="<?php echo base_url('utama/admin/hapus_order/').$b['id_order'] ?>">Hapus</a></td>
 	</tr>
 	<?php }?>	
 	</table>

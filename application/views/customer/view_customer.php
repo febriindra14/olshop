@@ -27,6 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<!-- Favicons -->
     <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/fronted/assets/ico/favicon.ico">
+    
   </head>
 <body>
 <!-- 
@@ -41,12 +42,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<a href="http://<?php echo ''.$config['share2'];?>"><span class="icon-facebook"></span></a>
 					<a href="http://<?php echo ''.$config['share3'];?>"><span class="icon-instagram"></span></a>
 				</div>
-					<a class="active" href="<?php echo base_url('index.php/customer');?>"> <span class="icon-home"></span> Home</a> 
-				<a href="<?php echo base_url('index.php/customer/akunku')?>"><span class="icon-user"></span> My Account</a> 
-				<a href="<?php echo base_url('index.php/customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
-				<a href="<?php echo base_url('index.php/customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
-				<a href="<?php echo base_url('index.php/customer/keranjang')?>"><span class="icon-shopping-cart"></span> <?php echo $jumlah->num_rows(); ?> items <span class="badge badge-warning"> Rp <?php echo number_format($total,0,",","."); ?> </span></a>
-				<a href="<?php echo base_url('index.php/login_customer/logout')?>" >Logout</a>
+				
+				<a class="active" href="<?php echo base_url('customer');?>"> <span class="icon-home"></span> Home</a> 
+				<a href="<?php echo base_url('customer/akunku')?>"><span class="icon-user"></span> My Account</a> 
+				<a href="<?php echo base_url('customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
+				<a href="<?php echo base_url('customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
+				<a href="<?php echo base_url('customer/keranjang')?>"><span class="icon-shopping-cart"></span> <?php echo $jumlah->num_rows(); ?> items <span class="badge badge-warning"> Rp <?php echo number_format($total,0,",","."); ?> </span></a>
+				<a href="<?php echo base_url('login_customer/logout')?>" >Logout</a>
 
 			</div>
 		</div>
@@ -62,7 +64,7 @@ Lower Header Section
 <div class="row">
 	<div class="span4">
 	<h1>
-	<a class="logo" href="<?php echo base_url('index.php/customer')?> "><span>Twitter Bootstrap ecommerce template</span> 
+	<a class="logo" href="<?php echo base_url('customer')?> "><span>Twitter Bootstrap ecommerce template</span> 
 	<!-- <img src="<?php echo base_url(); ?>assets/fronted/assets/img/logo-bootstrap-shoping-cart.png" alt="bootstrap sexy shop"> --> 
 			
 			<p><?php echo ''.$config['nama_web'] ;?></p>
@@ -96,12 +98,12 @@ Navigation Bar Section
 		  </a>
 		  <div class="nav-collapse">
 			<ul class="nav">
-			  <li class="active"><a href="<?php echo base_url('index.php/customer');?>">Home</a></li>
-			  <li class=""><a href="<?php echo base_url('index.php/customer/list')?>">List View</a></li>
-			  <li class=""><a href="<?php echo base_url('index.php/customer/grid')?>">Grid View</a></li>
-			  <li class=""><a href="<?php echo base_url('index.php/customer/tigacol')?>">Three Column</a></li>
-			  <li class=""><a href="<?php echo base_url('index.php/customer/empatcol')?>">Four Column</a></li>
-			  <li class=""><a href="<?php echo base_url('index.php/customer/penitipan')?>">Rekonfirmasi</a></li>
+			  <li class="active"><a href="<?php echo base_url('customer');?>">Home</a></li>
+			  <li class=""><a href="<?php echo base_url('customer/daftar')?>">List View</a></li>
+			  <li class=""><a href="<?php echo base_url('customer/jaringan')?>">Grid View</a></li>
+			  <li class=""><a href="<?php echo base_url('customer/tigacol')?>">Three Column</a></li>
+			  <li class=""><a href="<?php echo base_url('customer/empatcol')?>">Four Column</a></li>
+			  <li class=""><a href="<?php echo base_url('customer/penitipan')?>">Rekonfirmasi</a></li>
 			</ul>
 
 		<form id="form_search" action="<?php echo site_url('customer/search');?>" class="navbar-search pull-left" method="GET">	
@@ -113,7 +115,7 @@ Navigation Bar Section
 		<a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span> Login <b class="caret"></b></a>
 				<div class="dropdown-menu">
 
-				<form class="form-horizontal loginFrm" action="<?php echo base_url('index.php/login_customer/login_cus')?>" method="post">
+				<form class="form-horizontal loginFrm" action="<?php echo base_url('login_customer/login_cus')?>" method="post">
 
 				  <div class="control-group">
 					<input type="text" name="email" class="span2" placeholder="Email">
@@ -155,7 +157,7 @@ Clients
 	<?php foreach ($merk as $key => $value) { ?>
 		
 	<div class="span2">
-		<a href="<?php echo base_url('index.php/customer/merk/'.$value->id_merk);?>"><img alt="" src="<?php echo base_url(); ?>assets/fronted/assets/img/<?php echo $value->gambar;?>"></a>
+		<a href="<?php echo base_url('customer/merk/'.$value->id_merk);?>"><img alt="" src="<?php echo base_url(); ?>assets/fronted/assets/img/<?php echo $value->gambar;?>"></a>
 	</div>
 	<?php } ?>
 	
@@ -169,11 +171,11 @@ Footer
 <div class="row-fluid">
 <div class="span2">
 <h5>Your Account</h5>
-<a href="<?php echo base_url('index.php/customer/akunku')?>">YOUR ACCOUNT</a><br>
+<a href="<?php echo base_url('customer/akunku')?>">YOUR ACCOUNT</a><br>
 <a href="#">PERSONAL INFORMATION</a><br>
 <a href="#">ADDRESSES</a><br>
 <a href="#">DISCOUNT</a><br>
-<a href="<?php echo base_url('index.php/customer/history_order')?>">ORDER HISTORY</a><br>
+<a href="<?php echo base_url('customer/history_order')?>">ORDER HISTORY</a><br>
  </div>
 <div class="span2">
 <h5>Iinformation</h5>
@@ -181,7 +183,7 @@ Footer
 <a href="#">SITEMAP</a><br>
 <a href="#">LEGAL NOTICE</a><br>
 <a href="#">TERMS AND CONDITIONS</a><br>
-<a href="<?php echo base_url('index.php/customer/about')?>">ABOUT US</a><br>
+<a href="<?php echo base_url('customer/about')?>">ABOUT US</a><br>
  </div>
 <div class="span2">
 <h5>Our Offer</h5>
@@ -235,7 +237,6 @@ Footer
                     $("#form_search").submit(); 
                 }
             });
-
 		});
 		function cekpassword() 
 		{
@@ -251,13 +252,11 @@ Footer
             		alert('Password tidak boleh kosong');
             		return false;
             	};
-
             	//if (password1 == password2){
             	//	alert('Selamat password berhasil diubah');
             	//}
         }
 	</script>
    
-
   </body>
 </html>

@@ -6,22 +6,34 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	<title></title>
 </head>
 <body>
-		<button type="button" class="btn btn-default">Home</button>
-		<button type="button" class="btn btn-default">My Account</button>
-		<button type="button" class="btn btn-default">Free register</button>
-		<button type="button" class="btn btn-default">Contact us</button>
-		<button type="button" class="btn btn-default">Keranjang</button>
-		<button type="button" class="btn btn-default">Logout</button>
-	<br><br>
-		<button type="button" class="btn btn-default">Home</button>
-		<button type="button" class="btn btn-default">List view</button>
-		<button type="button" class="btn btn-default">Grid view</button>
-		<button type="button" class="btn btn-default">Three column</button>
-		<button type="button" class="btn btn-default">Four column</button>
-		<button type="button" class="btn btn-default">Rekonfirmasi</button>
-		<button type="button" class="btn btn-default">Login</button>
-	<br><br><br>
-	<table class="table table-striped">
+	<h3>Halaman</h3>
+	<table class="table table-bordered">
+		<tr>
+			<td>Menu</td>
+			<td>judul1</td>
+			<td>judul2</td>
+			<td>judul3</td>
+			<td>judul4</td>
+			<td>deskripsi</td>
+			<td>aksi</td>
+		</tr>
+		<tr>
+			<?php foreach ($halaman as $key => $value) { ?>
+			<td><?php echo $value->menu;?></td>
+			<td><?php echo $value->judul1;?></td>
+			<td><?php echo $value->judul2;?></td>
+			<td><?php echo $value->judul3;?></td>
+			<td><?php echo $value->judul4;?></td>
+			<td><?php echo $value->deskripsi_hal;?></td>
+			<td>
+				<a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('utama/admin/ubah_halaman/'.$value->id_hal)?>'>Edit</a>
+				</td>
+		</tr>
+			<?php }?>
+	</table>
+			
+	<h4>About</h4>
+	<table class="table table-bordered">
 		<tr>
 			<td>Judul</td>
 			<td>Deskripsi</td>
@@ -32,7 +44,26 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 				<td><?php echo $value->judul ;?></td>
 				<td><?php echo $value->deskripsi ;?></td>
 				<td>
-				<a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('index.php/utama/admin/ubah_hal/'.$value->id_hal)?>'>Edit</a>
+				<a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('utama/admin/ubah_about/'.$value->id_about)?>'>Edit</a>
+				</td>
+		</tr>
+		
+			<?php }?>
+	</table>
+
+	<h4>Footer</h4>
+	<table class="table table-bordered">
+		<tr>
+			<td>Isi 1</td>
+			<td>Isi 2</td>
+			<td>Aksi</td>
+		</tr>
+		<tr>
+			<?php foreach ($footer as $key => $value) { ?>
+				<td><?php echo $value->isi1 ;?></td>
+				<td><?php echo $value->isi2 ;?></td>
+				<td>
+				<a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('utama/admin/ubah_footer/'.$value->id_footer)?>'>Edit</a>
 				</td>
 		</tr>
 		

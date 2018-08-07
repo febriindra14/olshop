@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
      </div>
   
    <br>
-    <a href="<?php echo base_url('index.php/utama/admin/produk')?>" class="btn btn-default btn-reset">Kembali</a>
+    <a href="<?php echo base_url('utama/admin/produk')?>" class="btn btn-default btn-reset">Kembali</a>
   </div> <!-- /container -->
 </body>
 </html>

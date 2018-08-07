@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 <div class="login-box-body">
   <p class="login-box-msg"><i class="fa fa-user icon-title"></i> Silahkan Login</p>
 <br/>
- <form action="<?php echo base_url('index.php/login/login');?>" method="post">
+ <form action="<?php echo base_url('login/login');?>" method="post">
 <div class="form-group has-feedback">
 <input type="text" class="form-control" name="username" placeholder="Username" required />
 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 </div>
 </form>
 <br>
-<p> Belum punya akun? <a href="<?php echo base_url('index.php/login/daftar')?>" >Daftar</a></p>
+<p> Belum punya akun? <a href="<?php echo base_url('login/daftar')?>" >Daftar</a></p>
 </div><!-- /.login-box-body -->
 </div><!-- /.login-box -->
 <!-- jQuery 2.1.3 -->

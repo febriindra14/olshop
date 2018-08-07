@@ -4,7 +4,7 @@
   <title></title>
 </head>
 <body>
-  <form action="<?php echo base_url('index.php/utama/admin/tambah_kaduk')?>" method="POST">
+  <form action="<?php echo base_url('utama/admin/tambah_kaduk')?>" method="POST">
       
       <div class="container">
       <h3><b>Tambah kateggori</b></h3>
@@ -23,7 +23,7 @@
           <div class="form-group">
             <div class="col-sm-offset-1 col-sm-10">
              <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
-              <a href="<?php echo base_url('index.php/utama/admin/kategori_produk')?>" class="btn btn-default btn-reset">Batal</a>
+              <a href="<?php echo base_url('utama/admin/kategori_produk')?>" class="btn btn-default btn-reset">Batal</a>
             </div>
           </div>
       </div>

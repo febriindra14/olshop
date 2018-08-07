@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2018 at 03:04 AM
+-- Generation Time: Aug 07, 2018 at 04:17 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `toko_online`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about`
+--
+
+CREATE TABLE `about` (
+  `id_about` int(5) NOT NULL,
+  `judul` varchar(15) NOT NULL,
+  `deskripsi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `about`
+--
+
+INSERT INTO `about` (`id_about`, `judul`, `deskripsi`) VALUES
+(2, 'About', 'Kami selalu siap melayani anda,dan jangan lupa untuk memberikan masukan kepada kita jika ada masalah ataupun keluh kesah dalam membeli barang di toko kami');
 
 -- --------------------------------------------------------
 
@@ -60,6 +79,13 @@ CREATE TABLE `checkout` (
   `alamat_lengkap` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `checkout`
+--
+
+INSERT INTO `checkout` (`id_checkout`, `id_order`, `id_customer`, `nama_produk`, `jumlah`, `total_harga`, `pil_bayar`, `negara`, `provinsi`, `kabupaten`, `kode_pos`, `alamat_lengkap`) VALUES
+(1, 1, 4, 'Cincin', 2, 800000, 'ATM', 'indonesia', 'jawa timur', 'semarang', 78345, 'jiugyhfgu');
+
 -- --------------------------------------------------------
 
 --
@@ -90,21 +116,55 @@ INSERT INTO `customer` (`id_customer`, `nama_depan`, `nama_belakang`, `email`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `footer`
+--
+
+CREATE TABLE `footer` (
+  `id_footer` int(11) NOT NULL,
+  `isi1` varchar(30) NOT NULL,
+  `isi2` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `footer`
+--
+
+INSERT INTO `footer` (`id_footer`, `isi1`, `isi2`) VALUES
+(1, 'Copyright © 2013', 'bootstrap ecommerce shopping template');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `halaman`
 --
 
 CREATE TABLE `halaman` (
-  `id_hal` int(5) NOT NULL,
-  `judul` varchar(15) NOT NULL,
-  `deskripsi` text NOT NULL
+  `id_hal` int(11) NOT NULL,
+  `menu` varchar(15) NOT NULL,
+  `judul1` varchar(25) NOT NULL,
+  `judul2` varchar(25) NOT NULL,
+  `judul3` varchar(20) NOT NULL,
+  `judul4` varchar(25) NOT NULL,
+  `deskripsi_hal` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `halaman`
 --
 
-INSERT INTO `halaman` (`id_hal`, `judul`, `deskripsi`) VALUES
-(2, 'About', 'Kami selalu siap melayani anda,dan jangan lupa untuk memberikan masukan kepada kita jika ada masalah ataupun keluh kesah dalam membeli barang di toko kami');
+INSERT INTO `halaman` (`id_hal`, `menu`, `judul1`, `judul2`, `judul3`, `judul4`, `deskripsi_hal`) VALUES
+(1, 'Home', 'New products', 'Featured products', 'popular products', 'best selling products', ''),
+(2, 'my account', '', '', '', '', ''),
+(3, 'free register', 'registration', 'your personal details', '', '', ''),
+(4, 'contact us', 'visit us', 'email us', '', '', 'Contact Details\r\n2601 Mission St.\r\nSan Francisco, CA 94110\r\n\r\ninfo@mysite.com\r\n?Tel 123-456-6780\r\nFax 123-456-5679\r\nweb:wwwmysitedomain.com'),
+(5, 'item(s)-', 'checkout', 'item are in the cart', 'total amount', '', ''),
+(6, 'logout', '', '', '', '', ''),
+(7, 'list view', '', '', '', '', ''),
+(8, 'grid view', 'our products', '', '', '', ''),
+(9, 'three column', 'Three Column Product view', '', '', '', ''),
+(10, 'four column', 'Four Column Product view', '', '', '', ''),
+(11, 'rekonfirmasi', 'penitipan', '', '', '', ''),
+(12, 'login', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -155,7 +215,33 @@ CREATE TABLE `konfigurasi_web` (
 --
 
 INSERT INTO `konfigurasi_web` (`id_web`, `nama_web`, `email_web`, `telp_web`, `deskripsi`, `share1`, `share2`, `share3`) VALUES
-(4, 'Shop Cart', 'shopcart@gmail.com', '085860078909', 'Kami siap melayani anda dengan sepenuh hati', 'www.twitter.com', 'www.facebook.com', 'www.instagram.com');
+(4, 'Shop Cart', 'shopcart@gmail.com', '085860078909', 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', 'www.twitter.com', 'www.facebook.com', 'www.instagram.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `konten`
+--
+
+CREATE TABLE `konten` (
+  `id` int(11) NOT NULL,
+  `title1` varchar(20) NOT NULL,
+  `title2` varchar(20) NOT NULL,
+  `title3` varchar(20) NOT NULL,
+  `title4` varchar(20) NOT NULL,
+  `title5` varchar(20) NOT NULL,
+  `title6` varchar(20) NOT NULL,
+  `title7` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `konten`
+--
+
+INSERT INTO `konten` (`id`, `title1`, `title2`, `title3`, `title4`, `title5`, `title6`, `title7`) VALUES
+(1, 'your account', 'your account', 'personal', 'information', 'addresses', 'discount', 'order history'),
+(2, 'information', 'contact', 'sitemap', 'legal notice', 'terms and', 'conditions', 'about us'),
+(3, 'our offer', 'new products', 'top sellers', 'specials', 'manufacturers', 'suppliers', 'manufactures');
 
 -- --------------------------------------------------------
 
@@ -195,6 +281,13 @@ CREATE TABLE `order` (
   `tgl_order` datetime NOT NULL,
   `keterangan` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`id_order`, `id_customer`, `nama`, `total_bayar`, `tgl_order`, `keterangan`) VALUES
+(1, 4, 'Ramadan', 800000, '2018-08-06 10:18:45', 'bayar');
 
 -- --------------------------------------------------------
 
@@ -254,6 +347,12 @@ INSERT INTO `user` (`id_user`, `nama`, `username`, `email`, `password`) VALUES
 --
 
 --
+-- Indexes for table `about`
+--
+ALTER TABLE `about`
+  ADD PRIMARY KEY (`id_about`);
+
+--
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
@@ -272,6 +371,12 @@ ALTER TABLE `customer`
   ADD PRIMARY KEY (`id_customer`);
 
 --
+-- Indexes for table `footer`
+--
+ALTER TABLE `footer`
+  ADD PRIMARY KEY (`id_footer`);
+
+--
 -- Indexes for table `halaman`
 --
 ALTER TABLE `halaman`
@@ -288,6 +393,12 @@ ALTER TABLE `kategori_produk`
 --
 ALTER TABLE `konfigurasi_web`
   ADD PRIMARY KEY (`id_web`);
+
+--
+-- Indexes for table `konten`
+--
+ALTER TABLE `konten`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `merk`
@@ -318,16 +429,22 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `about`
+--
+ALTER TABLE `about`
+  MODIFY `id_about` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_cart` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -336,10 +453,16 @@ ALTER TABLE `customer`
   MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `footer`
+--
+ALTER TABLE `footer`
+  MODIFY `id_footer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `halaman`
 --
 ALTER TABLE `halaman`
-  MODIFY `id_hal` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_hal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `kategori_produk`
@@ -354,6 +477,12 @@ ALTER TABLE `konfigurasi_web`
   MODIFY `id_web` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `konten`
+--
+ALTER TABLE `konten`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `merk`
 --
 ALTER TABLE `merk`
@@ -363,7 +492,7 @@ ALTER TABLE `merk`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `produk`

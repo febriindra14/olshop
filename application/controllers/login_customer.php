@@ -28,13 +28,13 @@ class Login_customer extends CI_Controller
 			$row=$this->customer_model->data_login($this->input->post('email'),($this->input->post('password')));
 			$data=array('logged' =>TRUE, 'email' =>$row->email ,'id_customer'=>$row->id_customer);
 			$this->session->set_userdata($data);
-			redirect(base_url('index.php/customer/keranjang'));
+			redirect(base_url('customer/keranjang'));
 		}else
 		{
 			 $this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'>
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                         <strong>E-mail atau password salah !!!</strong></div>");
-			  redirect(base_url('index.php/login_customer/masuk'));
+			  redirect(base_url('login_customer/masuk'));
 		}
 	}
 	public function ganti() 
@@ -71,7 +71,7 @@ class Login_customer extends CI_Controller
                 <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                 <strong>E-mail yang anda masukkan salah!</strong></div>");
 
-            redirect(base_url('index.php/login_customer/ganti'));
+            redirect(base_url('login_customer/ganti'));
         }
     }
     public function ubah_password() 
@@ -82,11 +82,11 @@ class Login_customer extends CI_Controller
                 'email'    		=> $this->input->post('email'),
                 'password' 		=> $this->input->post('password'));
         $this->login_model->getforgot($simpan,$id);
-        redirect(base_url('index.php/login_customer/masuk'));
+        redirect(base_url('login_customer/masuk'));
     }
 	public function logout()
 	{
 		$this->session->sess_destroy('logged');
-		redirect(base_url('index.php/customer'));
+		redirect(base_url('customer'));
 	}		
 }

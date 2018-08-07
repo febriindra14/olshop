@@ -28,7 +28,7 @@
 			<a href="https:\\<?php echo $value->share2; ?>" class="aa"><li class="fa fa-twitter fa-4x"></li></a>
 			<a href="https:\\<?php echo $value->share3; ?>" class="aa"><li class="fa fa-instagram fa-4x"></li></a>
 		</div><br><br>
-		<a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('index.php/utama/admin/ubah_konfig/'.$value->id_web)?>'>Edit</a>
+		<a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('utama/admin/ubah_konfig/'.$value->id_web)?>'>Edit</a>
 	</div>	
 </div>
 <div class="row">
@@ -36,7 +36,7 @@
 	<div class="col-md-12">
 		
 		<div class="panel-body">
-			<center><h3><strong>Deskripsi</strong></h3>
+			<center><h4><strong>Deskripsi</strong></h4>
 				<div class="well well-small">
 					<p><?php echo $value->deskripsi ;?></p>
 				</div>

@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Customer extends CI_Controller 
 {
 	function __construct()
@@ -12,10 +11,14 @@ class Customer extends CI_Controller
 	public function index()
 	{
 		$id=$this->session->userdata('id_customer');
+		//$hal=1;
+		//$fot=1; 
 		$data=array(
 			'jumlah' 	=>$this->customer_model->getulang($id),
-			'config'	=>$this->customer_model->getweb()->row_array(),
 			'total' 	=>$this->customer_model->gethitung($id),
+			'config'	=>$this->customer_model->getweb()->row_array(),
+			//'halaman'	=>$this->customer_model->gethalaman($hal)->row_array(),
+			//'footer'	=>$this->customer_model->getfooter($fot)->row_array(),
 			'semua' 	=>$this->customer_model->getutama(),
 			'tengah'	=>$this->customer_model->gettengah(),
 			'produk' 	=>$this->customer_model->getkategori(),
@@ -122,7 +125,7 @@ class Customer extends CI_Controller
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                         <strong>Silahkan login dulu!</strong>
                     </div>");
-			redirect(base_url('index.php/login_customer/masuk'));
+			redirect(base_url('login_customer/masuk'));
 		}
 		else{
 			$id 		= $this->session->userdata('id_customer');
@@ -150,7 +153,7 @@ class Customer extends CI_Controller
 					'total_harga'	=>1*$harga);
 				$this->customer_model->getcart($data_produk);
 				}			
-		redirect(base_url('index.php/customer/keranjang'));	
+		redirect(base_url('customer/keranjang'));	
 		}	
 	}
 	public function tambah_cart_detail()
@@ -161,7 +164,7 @@ class Customer extends CI_Controller
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                         <strong>Silahkan login dulu!</strong>
                     </div>");
-			redirect(base_url('index.php/login_customer/masuk'));
+			redirect(base_url('login_customer/masuk'));
 		}
 		else { 
 			$id 		= $this->session->userdata('id_customer');
@@ -192,7 +195,7 @@ class Customer extends CI_Controller
 				'total_harga'	=>$harga*$jumlah);
 			$this->customer_model->getcart($data);
 			}
-		redirect(base_url('index.php/customer/keranjang'));	
+		redirect(base_url('customer/keranjang'));	
 		}
 	}
 	public function increment()
@@ -209,7 +212,7 @@ class Customer extends CI_Controller
 			'total_harga'	=>$jumlah*$harga);
 			$this->customer_model->getubah($id,$data);	
 			}
-		redirect(base_url('index.php/customer/keranjang'));
+		redirect(base_url('customer/keranjang'));
 	}
 	public function decrement()
 	{
@@ -226,13 +229,13 @@ class Customer extends CI_Controller
 		
 			$this->customer_model->getubah($id,$data);	
 			}
-		redirect(base_url('index.php/customer/keranjang'));	
+		redirect(base_url('customer/keranjang'));	
 	}
 	public function hapus_cart()
 	{
 		$data=$this->uri->segment(3);
 		$hapus=$this->customer_model->delete_cart($data);
-		redirect(base_url('index.php/customer/keranjang'));
+		redirect(base_url('customer/keranjang'));
 	} 
 	public function keranjang()
 	{
@@ -242,7 +245,7 @@ class Customer extends CI_Controller
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                         <strong>Silahkan login dulu!</strong>
                     </div>");
-			redirect(base_url('index.php/login_customer/masuk'));
+			redirect(base_url('login_customer/masuk'));
 		}
 		else
 		{
@@ -272,7 +275,7 @@ class Customer extends CI_Controller
 			'alamat'		=>$this->input->post('alamat'),
 			'jumlah' 		=>$this->customer_model->getulang($id));
 		$this->customer_model->insert_customer($save);
-		redirect(base_url('index.php/customer/akunku'));
+		redirect(base_url('customer/akunku'));
 	}
 	public function register()
 	{
@@ -297,7 +300,7 @@ class Customer extends CI_Controller
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                         <strong>Silahkan login dulu!</strong>
                     </div>");
-			redirect(base_url('index.php/login_customer/masuk'));
+			redirect(base_url('login_customer/masuk'));
 		}
 		else
 		{
@@ -321,8 +324,7 @@ class Customer extends CI_Controller
 			'merk'		=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/kontak',$data);
 	}
-	
-	public function list()
+	public function daftar()
 	{
 		$id=$this->session->userdata('id_customer');
 		$data=array(
@@ -335,7 +337,7 @@ class Customer extends CI_Controller
 			'merk'		=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/list',$data);
 	}
-	public function grid()
+	public function jaringan()
 	{
 		$id=$this->session->userdata('id_customer');
 		$data=array(
@@ -401,7 +403,7 @@ class Customer extends CI_Controller
                         <strong>Silahkan belanja dulu sebelum anda memesan!</strong>
                     </div>");
 
-                redirect(base_url('index.php/customer/keranjang'));
+                redirect(base_url('customer/keranjang'));
 		} else {
 		$data=array(
 			'config'			=>$this->customer_model->getweb()->row_array(),
@@ -487,7 +489,7 @@ class Customer extends CI_Controller
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                         <strong>Silahkan login dulu!</strong>
                     </div>");
-			redirect(base_url('index.php/login_customer/masuk'));
+			redirect(base_url('login_customer/masuk'));
 		}
 		else
 		{	
@@ -545,7 +547,7 @@ class Customer extends CI_Controller
                 <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                 <strong>Silahkan login dulu!</strong></div>");
 
-            redirect(base_url('index.php/login_customer/masuk'));
+            redirect(base_url('login_customer/masuk'));
         } else {
 		$b='bayar';
 		$data=array(

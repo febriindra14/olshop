@@ -13,7 +13,7 @@
 
         <div class="row">
 
-            <form action="<?php echo base_url('index.php/utama/admin/edit_merk')?>" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo base_url('utama/admin/edit_merk')?>" method="POST" enctype="multipart/form-data">
             <?php foreach ($tau ->result() as $you ) {?>
 
             <div class="form-group">
@@ -33,7 +33,7 @@
             
             <div class="form-group">
               <input type="submit" class="btn btn-primary btn-submit" value="Simpan">
-                <a href="<?php echo base_url('index.php/utama/admin/merk')?>" class="btn btn-default btn-reset">Batal</a>
+                <a href="<?php echo base_url('utama/admin/merk')?>" class="btn btn-default btn-reset">Batal</a>
             </div>
               
             <?php }?>       

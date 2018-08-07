@@ -4,7 +4,7 @@
   <title></title>
 </head>
 <body>
-  <form action="<?php echo base_url('index.php/login')?>" method="POST">
+  <form action="<?php echo base_url('login')?>" method="POST">
     <h2>Daftar</h2>
     <section class="content">
       <div class="row">
@@ -44,7 +44,7 @@
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <input style="background: #00BFFF;" type="submit" class="btn btn-primary btn-submit" value="Simpan">
-              <a href="<?php echo base_url('index.php/login')?>" class="btn btn-default btn-reset">Batal</a>
+              <a href="<?php echo base_url('login')?>" class="btn btn-default btn-reset">Batal</a>
             </div>
           </div>
       </div>

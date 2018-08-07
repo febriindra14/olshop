@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class login extends CI_Controller
+class Login extends CI_Controller
 {
 	function __construct()
 	{
@@ -32,7 +32,7 @@ class login extends CI_Controller
 			'email'			=>$this->input->post('email'),
 			'password'		=>$this->input->post('password'));
 		$this->user_model->insert($save);
-		redirect(base_url('index.php/login'));
+		redirect(base_url('login'));
 	}
 	
 	 //user login
@@ -44,7 +44,7 @@ class login extends CI_Controller
 			$row=$this->login_model->data_login($this->input->post('username'),($this->input->post('password')));
 			$data=array('logged' =>TRUE, 'username' =>$row->username);
 			$this->session->set_userdata($data);
-			redirect(base_url('index.php/utama/admin'));
+			redirect(base_url('utama/admin'));
 		}else
 		{
 			echo "username atau password salah!";

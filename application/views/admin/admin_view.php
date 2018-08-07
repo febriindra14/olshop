@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;">&nbsp; <a href="<?php echo base_url('index.php/login/logout')?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;">&nbsp; <a href="<?php echo base_url('login/logout')?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -44,38 +44,38 @@ font-size: 16px;">&nbsp; <a href="<?php echo base_url('index.php/login/logout')?
 					</li>	
                     <li>
                         <a 
-                        href="<?php echo base_url('index.php/utama/admin')?>"><i class="fa fa-dashboard fa-2x"></i>Dashboard</a>
+                        href="<?php echo base_url('utama/admin')?>"><i class="fa fa-dashboard fa-2x"></i>Dashboard</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('index.php/utama/admin/tampil
+                        <a href="<?php echo base_url('utama/admin/tampil
                         ')?>"><i class="fa fa-user fa-2x"></i>User</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('index.php/utama/admin/halaman
+                        <a href="<?php echo base_url('utama/admin/halaman
                         ')?>"><i class="fa fa-bookmark fa-2x"></i>Halaman</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('index.php/utama/admin/kategori_produk
+                        <a href="<?php echo base_url('utama/admin/kategori_produk
                         ')?>"><i class="fa fa-align-justify fa-2x"></i>Kategori produk</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('index.php/utama/admin/merk
+                        <a href="<?php echo base_url('utama/admin/merk
                         ')?>"><i class="fa fa-qrcode fa-2x"></i>Merk produk</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('index.php/utama/admin/produk
+                        <a href="<?php echo base_url('utama/admin/produk
                         ')?>"><i class="fa fa-shopping-cart fa-2x"></i>Produk</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('index.php/utama/admin/customer
+                        <a href="<?php echo base_url('utama/admin/customer
                         ')?>"><i class="fa fa-user fa-2x"></i>Customer</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('index.php/utama/admin/order
+                        <a href="<?php echo base_url('utama/admin/order
                         ')?>"><i class="fa fa-thumbs-up fa-2x"></i>Order</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('index.php/utama/admin/konfigurasi_web
+                        <a href="<?php echo base_url('utama/admin/konfigurasi_web
                         ')?>"><i class="fa fa-edit fa-2x"></i>Konfigurasi web</a>
                     </li>
                 </ul>
