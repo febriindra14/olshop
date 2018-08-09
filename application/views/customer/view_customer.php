@@ -106,7 +106,7 @@ Navigation Bar Section
 			  <li class=""><a href="<?php echo base_url('customer/penitipan')?>">Rekonfirmasi</a></li>
 			</ul>
 
-		<form id="form_search" action="<?php echo site_url('customer/search');?>" class="navbar-search pull-left" method="GET">	
+		<form id="form_search" action="<?php echo base_url('customer/search');?>" class="navbar-search pull-left" method="GET">	
 			 <input type="text" name="title" placeholder="Search" class="search-query span2" id="title">
 			</form>
 

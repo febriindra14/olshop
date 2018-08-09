@@ -65,4 +65,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 </div>
              </div>
               </div>
+
+             <div class="col-md-3">           
+            <div class="panel panel-back noti-box">
+                <span class="icon-box bg-color-blue set-icon">
+                    <i class="fa fa-shopping-cart"></i>
+                </span>
+                <div class="text-box" >
+                    <p class="main-text">Order</p>
+                    <p class="text-muted"> <?php echo $order ?> </p>
+                    <a href="<?php echo base_url('utama/admin/order')?>">list</a>
+                </div>
+             </div>
+             </div>
+
 </div>

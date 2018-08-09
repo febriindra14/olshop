@@ -24,7 +24,8 @@ class Admin extends CI_Controller
 			'kategori_produk'	=>$this->db->get('kategori_produk')->num_rows(),
 			'merk'				=>$this->db->get('merk')->num_rows(),
 			'produk'			=>$this->db->get('produk')->num_rows(),
-			'customer'			=>$this->db->get('customer')->num_rows());
+			'customer'			=>$this->db->get('customer')->num_rows(),
+			'order'				=>$this->db->get('order')->num_rows());
 		$this->pajangan->kirim('admin/depan',$data);
 	}
 	// user
@@ -377,7 +378,7 @@ class Admin extends CI_Controller
 		$row=$this->user_model->getbaris();
 		$config['base_url']=base_url().'utama/admin/order';
 		$config['total_rows']=$row;
-		$config['per_page']=5;
+		$config['per_page']=10;
 		$config['first_link']='Pertama';
 		$config['last_link']='Terakhir'; 
 		$config['next_link']='Berikutnya';
