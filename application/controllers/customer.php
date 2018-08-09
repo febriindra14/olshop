@@ -219,6 +219,19 @@ class Customer extends CI_Controller
 		$id=$this->uri->segment(3);
 		$keranjang=$this->db->get_where('cart',array('id_cart'=>$id));
 		$jumlah=$this->input->post('qty')-1;
+		if($jumlah==0){
+			foreach ($keranjang->result() as $key => $value) {
+			$harga=$value->harga;
+		$data=array(
+			'id_cart'		=>$value->id_cart,
+			'harga'			=>$harga,
+			'jumlah'		=>1,
+			'total_harga'	=>1*$harga);
+		
+			$this->customer_model->getubah($id,$data);	
+			}
+			$this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button><strong>Gak boleh sampai 0 ke bawah</strong></div>");
+		}else{
 		foreach ($keranjang->result() as $key => $value) {
 			$harga=$value->harga;
 		$data=array(
@@ -229,6 +242,7 @@ class Customer extends CI_Controller
 		
 			$this->customer_model->getubah($id,$data);	
 			}
+		}
 		redirect(base_url('customer/keranjang'));	
 	}
 	public function hapus_cart()
@@ -463,6 +477,7 @@ class Customer extends CI_Controller
 	}
 	public function konfirmasi()
 	{
+		$id=$this->session->userdata('id_customer');
 		$id_order=$this->input->post('id_order');
 		$g='bayar';
 		$data=array(
