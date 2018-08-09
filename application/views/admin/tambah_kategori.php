@@ -7,7 +7,7 @@
   <form action="<?php echo base_url('utama/admin/tambah_kaduk')?>" method="POST">
       
       <div class="container">
-      <h3><b>Tambah kateggori</b></h3>
+      <h3><b>Tambah kategori</b></h3>
       <div class="col-md-1"></div>
 
  <div class="jumbotron col-md-4">

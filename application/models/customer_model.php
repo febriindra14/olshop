@@ -1,16 +1,6 @@
 <?php
 class Customer_model extends CI_Model
 {
-	/*public function gethalaman($hal)
-	{
-		$this->db->where('id_hal',$hal);
-		return $this->db->get('halaman');
-	}*/
-	/*public function getfooter($fot)
-	{
-		$this->db->where('id_footer',$fot);
-		return $this->db->get('footer');
-	}*/
 	public function getweb()
 	{
    		return $this->db->get('konfigurasi_web');
@@ -261,4 +251,14 @@ class Customer_model extends CI_Model
 		$kirim=$this->db->get();
 		return $kirim->result();
 	}
+	/*public function gethalaman($hal)
+	{
+		$this->db->where('id_hal',$hal);
+		return $this->db->get('halaman');
+	}*/
+	/*public function getfooter($fot)
+	{
+		$this->db->where('id_footer',$fot);
+		return $this->db->get('footer');
+	}*/
 }	

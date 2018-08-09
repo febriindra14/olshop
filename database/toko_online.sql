@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2018 at 04:17 AM
+-- Generation Time: Aug 08, 2018 at 10:57 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -48,9 +48,9 @@ INSERT INTO `about` (`id_about`, `judul`, `deskripsi`) VALUES
 --
 
 CREATE TABLE `cart` (
-  `id_cart` int(10) NOT NULL,
-  `id_customer` int(10) NOT NULL,
-  `id_produk` int(10) NOT NULL,
+  `id_cart` int(5) NOT NULL,
+  `id_customer` int(5) NOT NULL,
+  `id_produk` int(5) NOT NULL,
   `foto` varchar(30) NOT NULL,
   `nama_produk` varchar(20) NOT NULL,
   `harga` int(10) NOT NULL,
@@ -84,7 +84,12 @@ CREATE TABLE `checkout` (
 --
 
 INSERT INTO `checkout` (`id_checkout`, `id_order`, `id_customer`, `nama_produk`, `jumlah`, `total_harga`, `pil_bayar`, `negara`, `provinsi`, `kabupaten`, `kode_pos`, `alamat_lengkap`) VALUES
-(1, 1, 4, 'Cincin', 2, 800000, 'ATM', 'indonesia', 'jawa timur', 'semarang', 78345, 'jiugyhfgu');
+(1, 1, 4, 'Cincin', 2, 800000, 'ATM', 'indonesia', 'jawa timur', 'semarang', 78345, 'jiugyhfgu'),
+(2, 2, 4, 'gelang', 2, 40000, 'ATM', 'indonesia', 'jawa tengah', 'jombang', 55761, 'aku indonesia'),
+(3, 3, 4, 'gelang', 1, 20000, 'BRI', 'indonesia', 'malaka', 'bantul', 99087, 'jakarta'),
+(4, 4, 4, 'Cincin', 2, 800000, 'BNI', 'indonesia', 'jawa timur', 'semarang', 55761, 'jl moyudan'),
+(5, 5, 3, 'jam tangan', 2, 1980000, 'Mandiri', 'indonesia', 'jawa tengah', 'jombang', 99087, 'Jl sunda kecil no 12 Depok'),
+(6, 6, 4, 'jam tangan', 2, 1980000, 'Danamon', 'indonesia', 'jawa timur', 'semarang', 78345, 'Jl kalibawang no 23 sleman');
 
 -- --------------------------------------------------------
 
@@ -93,7 +98,7 @@ INSERT INTO `checkout` (`id_checkout`, `id_order`, `id_customer`, `nama_produk`,
 --
 
 CREATE TABLE `customer` (
-  `id_customer` int(11) NOT NULL,
+  `id_customer` int(5) NOT NULL,
   `nama_depan` varchar(10) NOT NULL,
   `nama_belakang` varchar(15) NOT NULL,
   `email` varchar(20) NOT NULL,
@@ -120,8 +125,8 @@ INSERT INTO `customer` (`id_customer`, `nama_depan`, `nama_belakang`, `email`, `
 --
 
 CREATE TABLE `footer` (
-  `id_footer` int(11) NOT NULL,
-  `isi1` varchar(30) NOT NULL,
+  `id_footer` int(5) NOT NULL,
+  `isi1` varchar(25) NOT NULL,
   `isi2` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -139,7 +144,7 @@ INSERT INTO `footer` (`id_footer`, `isi1`, `isi2`) VALUES
 --
 
 CREATE TABLE `halaman` (
-  `id_hal` int(11) NOT NULL,
+  `id_hal` int(5) NOT NULL,
   `menu` varchar(15) NOT NULL,
   `judul1` varchar(25) NOT NULL,
   `judul2` varchar(25) NOT NULL,
@@ -201,7 +206,7 @@ INSERT INTO `kategori_produk` (`id_kategori`, `nama_kategori`) VALUES
 
 CREATE TABLE `konfigurasi_web` (
   `id_web` int(5) NOT NULL,
-  `nama_web` varchar(20) NOT NULL,
+  `nama_web` varchar(15) NOT NULL,
   `email_web` varchar(25) NOT NULL,
   `telp_web` varchar(12) NOT NULL,
   `deskripsi` text NOT NULL,
@@ -287,7 +292,12 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`id_order`, `id_customer`, `nama`, `total_bayar`, `tgl_order`, `keterangan`) VALUES
-(1, 4, 'Ramadan', 800000, '2018-08-06 10:18:45', 'bayar');
+(1, 4, 'Ramadan', 800000, '2018-08-06 10:18:45', 'bayar'),
+(2, 4, 'Prasetyo ', 40000, '2018-08-07 06:10:02', 'bayar'),
+(3, 4, 'rava prasetyo', 20000, '2018-08-07 10:18:15', 'bayar'),
+(4, 4, 'Rava kusnaidi', 800000, '2018-08-08 06:08:48', 'bayar'),
+(5, 3, 'ramadan', 1980000, '2018-08-08 10:21:37', 'bayar'),
+(6, 4, 'Prasetyo ', 1980000, '2018-08-08 10:23:27', 'bayar');
 
 -- --------------------------------------------------------
 
@@ -297,8 +307,8 @@ INSERT INTO `order` (`id_order`, `id_customer`, `nama`, `total_bayar`, `tgl_orde
 
 CREATE TABLE `produk` (
   `id_produk` int(11) NOT NULL,
-  `id_kategori` varchar(15) NOT NULL,
-  `id_merk` varchar(15) NOT NULL,
+  `id_kategori` varchar(5) NOT NULL,
+  `id_merk` varchar(5) NOT NULL,
   `nama_produk` varchar(20) NOT NULL,
   `bahan` varchar(20) NOT NULL,
   `warna` varchar(10) NOT NULL,
@@ -329,9 +339,9 @@ INSERT INTO `produk` (`id_produk`, `id_kategori`, `id_merk`, `nama_produk`, `bah
 CREATE TABLE `user` (
   `id_user` int(5) NOT NULL,
   `nama` varchar(20) NOT NULL,
-  `username` varchar(20) NOT NULL,
+  `username` varchar(15) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -339,7 +349,6 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `username`, `email`, `password`) VALUES
-(1, 'rava kusnaidi', 'rava ', 'rava@gmail.com', 'rava1234'),
 (4, 'admin', 'admin', 'admin@gmail.com', 'admin');
 
 --
@@ -438,31 +447,31 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cart` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_customer` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `footer`
 --
 ALTER TABLE `footer`
-  MODIFY `id_footer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_footer` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `halaman`
 --
 ALTER TABLE `halaman`
-  MODIFY `id_hal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_hal` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `kategori_produk`
@@ -492,7 +501,7 @@ ALTER TABLE `merk`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `produk`

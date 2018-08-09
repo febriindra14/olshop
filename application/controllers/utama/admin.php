@@ -377,7 +377,7 @@ class Admin extends CI_Controller
 		$row=$this->user_model->getbaris();
 		$config['base_url']=base_url().'utama/admin/order';
 		$config['total_rows']=$row;
-		$config['per_page']=2;
+		$config['per_page']=5;
 		$config['first_link']='Pertama';
 		$config['last_link']='Terakhir'; 
 		$config['next_link']='Berikutnya';

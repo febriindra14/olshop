@@ -118,7 +118,7 @@ class Customer extends CI_Controller
 	}
 	// add to cart
 	public function tambah_cart()
-	{	
+	{
 		if($this->session->userdata('logged')<>1)
 		{
 			$this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'>
@@ -131,8 +131,8 @@ class Customer extends CI_Controller
 			$id 		= $this->session->userdata('id_customer');
 			$id_produk 	= $this->input->post('id_produk');
 			$harga 		= $this->input->post('harga');
-			$ambil   	= $this->db->get_where('cart',array('id_produk' => $id_produk))->row_array();
-			if ($id_produk==$ambil['id_produk'] && $id == $ambil['id_customer']) {
+			$ambil   	= $this->db->where('id_produk',$id_produk)->where('id_customer',$id)->get('cart')->row_array();
+			if (count($ambil['id_produk'])==1) {
 				$jumlah    = $ambil['jumlah']+1;
 				$data = array(
 						'id_produk' 	=>$id_produk,
@@ -155,7 +155,7 @@ class Customer extends CI_Controller
 				}			
 		redirect(base_url('customer/keranjang'));	
 		}	
-	}
+	} 
 	public function tambah_cart_detail()
 	{
 		if($this->session->userdata('logged')<>1)
@@ -170,8 +170,8 @@ class Customer extends CI_Controller
 			$id 		= $this->session->userdata('id_customer');
 			$id_produk 	= $this->input->post('id_produk');
 			$harga  	= $this->input->post('harga');
-			$ambil   	= $this->db->get_where('cart',array('id_produk' => $id_produk))->row_array();
-			if ($id_produk==$ambil['id_produk'] && $id == $ambil['id_customer']) {
+			$ambil   	= $this->db->where('id_produk',$id_produk)->where('id_customer',$id)->get('cart')->row_array();
+			if (count($ambil['id_produk'])==1) {
 				$jumlah    = $ambil['jumlah']+1;
 				$data = array(
 						'id_produk' 	=> $id_produk,

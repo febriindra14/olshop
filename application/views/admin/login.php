@@ -1,54 +1,81 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');?>
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="UTF-8">
-<title>Login | Admin</title>
-<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-    <!-- Bootstrap 3.3.2 (warna bawah)--> 
-<link href="<?php echo base_url(); ?>assets/login/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Font Awesome Icons -->
-<link href="<?php echo base_url(); ?>assets/login/plugins/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Theme style -->
-<link href="<?php echo base_url(); ?>assets/login/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-    <!-- iCheck -->
-<link href="<?php echo base_url(); ?>assets/login/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
-    <!-- Custom CSS ( warna atas)-->
-<link href="<?php echo base_url(); ?>assets/login/css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="<?php echo base_url(); ?>assets/backend/assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="<?php echo base_url(); ?>assets/backend/assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="<?php echo base_url(); ?>assets/backend/assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='<?php echo base_url(); ?> http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
 </head>
-<body class="login-page bg-login">
-<div class="login-box">
+<body>
+    <div class="container">
+        <div class="row text-center ">
+            <div class="col-md-12">
+                <br /><br />
+              
+                 <br />
+            </div>
+        </div>
+         <div class="row ">
+               
+                  <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                        <strong>   Enter Details To Login </strong>  
+                            </div>
+                            <div class="panel-body">
 
-<div class="login-box-body">
-  <p class="login-box-msg"><i class="fa fa-user icon-title"></i> Silahkan Login</p>
-<br/>
- <form action="<?php echo base_url('login/login');?>" method="post">
-<div class="form-group has-feedback">
-<input type="text" class="form-control" name="username" placeholder="Username" required />
-<span class="glyphicon glyphicon-user form-control-feedback"></span>
-</div>
-<div class="form-group has-feedback">
-<input type="password" class="form-control" name="password" placeholder="Password" required />
-<span class="glyphicon glyphicon-lock form-control-feedback"></span>
-</div>
-<br/>
-<div class="row">
-<div class="col-xs-12">
-<input type="submit" class="btn btn-primary btn-lg btn-block btn-flat" name="login" value="Login" />
-</div><!-- /.col -->
-</div>
-</form>
-<br>
-<p> Belum punya akun? <a href="<?php echo base_url('login/daftar')?>" >Daftar</a></p>
-</div><!-- /.login-box-body -->
-</div><!-- /.login-box -->
-<!-- jQuery 2.1.3 -->
-<script src="<?php echo base_url(); ?>assets/login/plugins/jQuery/jQuery-2.1.3.min.js"></script>
-<!-- Bootstrap 3.3.2 JS -->
-<script src="<?php echo base_url(); ?>assets/login/js/bootstrap.min.js" type="text/javascript"></script>
+                                <form role="form" action="<?php echo base_url('login/login');?>" method="post">
+                                       <br />
+                                    <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
+                                            <input type="text" name="username" class="form-control" placeholder="Your Username " />
+                                        </div>
+                                    <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                            <input type="password" name="password" class="form-control"  placeholder="Your Password" />
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="checkbox-inline">
+                               	       <input type="checkbox" /> Remember me </label>
+         					              <span class="pull-right">
+                                               <a href="#" >Forget password ? </a> 
+                                            </span>
+                                        </div>
+                                     
+                                    <input type="submit" class="btn btn-primary btn-lg btn-block btn-flat" name="login" value="Login" />
+                                </form>
+                                    <hr />
+                                  <p> Belum punya akun? <a href="<?php echo base_url('login/daftar')?>" >Daftar</a></p>
+                               
+                            </div>
+                           
+                        </div>
+                    </div>
+                
+                
+        </div>
+    </div>
+
+
+     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="<?php echo base_url(); ?> assets/backend/assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="<?php echo base_url(); ?> assets/backend/assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="<?php echo base_url(); ?> assets/backend/assets/js/jquery.metisMenu.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="<?php echo base_url(); ?> assets/backend/assets/js/custom.js"></script>
+   
 </body>
 </html>
