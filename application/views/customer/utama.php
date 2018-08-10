@@ -1,27 +1,3 @@
-<!-- 
-	Upper Header Section 
-
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="topNav">
-		<div class="container">
-			<div class="alignR">
-				<div class="pull-left socialNw">
-					<a href="http://<?php echo ''.$config['share1'];?>"><span class="icon-twitter"></span></a>
-					<a href="http://<?php echo ''.$config['share2'];?>"><span class="icon-facebook"></span></a>
-					<a href="http://<?php echo ''.$config['share3'];?>"><span class="icon-instagram"></span></a>
-				</div>
-				<a <?php if($move==''){echo'class="active"';}?> href="<?php echo base_url('customer');?>"> <span class="icon-home"></span> Home</a> 
-				<a <?php if($move=='akunku'){echo'class="active"';}?> href="<?php echo base_url('customer/akunku')?>"><span class="icon-user"></span> My Account</a> 
-				<a <?php if($move=='register'){echo'class="active"';}?> href="<?php echo base_url('customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
-				<a <?php if($move=='kontak'){echo'class="active"';}?> href="<?php echo base_url('customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
-				<a <?php if($move=='keranjang'){echo'class="active"';}?> href="<?php echo base_url('customer/keranjang')?>"><span class="icon-shopping-cart"></span> <?php echo $jumlah->num_rows(); ?> items <span class="badge badge-warning"> Rp <?php echo number_format($total,0,",","."); ?> </span></a>
-				<a <?php if($move=='logout'){echo'class="active"';}?> href="<?php echo base_url('login_customer/logout')?>" >Logout</a>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- -->
-
 <div id="sidebar" class="span3">
 <div class="well well-small">
 	<ul class="nav nav-list">
