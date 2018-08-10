@@ -42,7 +42,7 @@
     		<tr>
     			<td>Nama</td>
     			<td>:</td>
-    			<td><input type="text" name="nama" required></td>
+    			<td><input type="text" name="nama_lengkap" required></td>
     		</tr>             
            	<tr>
     			<td>Kode order</td>

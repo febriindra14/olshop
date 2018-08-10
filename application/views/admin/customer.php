@@ -10,8 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	<button type="pas"><a style="text-decoration: none;" href="<?php echo base_url('utama/admin/form')?>">Tambah</a></button>
 	<table table class="table table-striped">
 	<tr>
-		<td>Nama depan</td>
-		<td>Nama belakang</td>
+		<td>Nama</td>
 		<td>Email</td>
 		<td>Password</td>
 		<td>Alamat</td>
@@ -19,8 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	</tr>
 	<tr>
 	<?php foreach ($isi as $h) {?>
-		<td><?php echo $h['nama_depan'];?></td>
-		<td><?php echo $h['nama_belakang'];?></td>
+		<td><?php echo $h['nama_lengkap'];?></td>
 		<td><?php echo $h['email'];?></td>
 		<td><?php echo $h['password'];?></td>
 		<td><?php echo $h['alamat'];?></td>

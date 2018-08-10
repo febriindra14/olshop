@@ -16,19 +16,11 @@
             <form action="<?php echo base_url('utama/admin/edit_cus')?>" method="POST">
                <?php foreach ($konten ->result() as $j ) {?>
 
-            <div class="form-group">
-              <label>Id Customer</label>
-                  <input type="text" class="form-control" name="id_customer" value="<?php echo $j->id_customer?>"> 
-            </div>
+            <input type="hidden" name="id_customer" value="<?php echo $j->id_customer?>"> 
 
             <div class="form-group">
-              <label>Nama depan</label>
-                  <input type="text" class="form-control" name="nama_depan" value="<?php echo $j->nama_depan?>"> 
-            </div>
-
-            <div class="form-group">
-              <label>Nama belakang</label>
-                  <input type="text" class="form-control" name="nama_belakang" value="<?php echo $j->nama_belakang?>"> 
+              <label>Nama </label>
+                  <input type="text" class="form-control" name="nama_lengkap" value="<?php echo $j->nama_lengkap?>"> 
             </div>
 
             <div class="form-group">

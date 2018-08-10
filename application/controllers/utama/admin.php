@@ -331,8 +331,7 @@ class Admin extends CI_Controller
 	{
 		$simpan=array(
 			'id_customer'	=>$this->input->post('id_customer'),
-			'nama_depan'	=>$this->input->post('nama_depan'),
-			'nama_belakang'	=>$this->input->post('nama_belakang'),
+			'nama_lengkap'	=>$this->input->post('nama_lengkap'),
 			'email'			=>$this->input->post('email'),
 			'password'		=>$this->input->post('password'),
 			'tgl_lahir'		=>$this->input->post('tgl_lahir'),
@@ -354,8 +353,7 @@ class Admin extends CI_Controller
 		$c=$this->input->post('id_customer');
 		$d=array(
 			'id_customer'	=>$this->input->post('id_customer'),
-			'nama_depan'	=>$this->input->post('nama_depan'),
-			'nama_belakang'	=>$this->input->post('nama_belakang'),
+			'nama_lengkap'	=>$this->input->post('nama_lengkap'),
 			'email'			=>$this->input->post('email'),
 			'password'		=>$this->input->post('password'),
 			'tgl_lahir'		=>$this->input->post('tgl_lahir'),

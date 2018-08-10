@@ -15,13 +15,8 @@
       <input type="hidden" name="id_customer" class="form-control">
  
     <div class="form-group">
-      <label>Nama depan :</label>
-      <input type="text" name="nama_depan" class="form-control" required>
-    </div>
-
-    <div class="form-group">
-      <label>Name belakang :</label>
-      <input type="text" name="nama_belakang" class="form-control" required>
+      <label>Nama  :</label>
+      <input type="text" name="nama_lengkap" class="form-control" required>
     </div>
 
      <div class="form-group">
@@ -68,6 +63,7 @@
             </div>
           </div>
       </div>
+      
        </div>
     </div>
               

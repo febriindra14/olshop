@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	<?php foreach ($order as $b) {?>
 		<td><?php echo $b['id_order'];?></td>
 		<td><?php echo $b['id_customer'];?></td>
-		<td><?php echo $b['nama'];?></td>
+		<td><?php echo $b['nama_lengkap'];?></td>
 		<td><?php echo $b['total_bayar'];?></td>
 		<td><?php echo $b['tgl_order'];?></td>
 		<td><?php echo $b['keterangan'];?></td>

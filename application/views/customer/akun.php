@@ -32,15 +32,10 @@
 		<form class="form-horizontal">
 		<?php foreach ($akun as $key => $a) { ?>
 	<table>
-		<tr>
-    		<td>Firstname</td>
-    		<td>:</td>
-    		<td><input type="text" value="<?php echo $a->nama_depan ?>" readonly></td>
-    	</tr>
     	<tr>
-    		<td>Lastname</td>
+    		<td>Nama</td>
     		<td>:</td>
-    		<td><input type="text" value="<?php echo $a->nama_belakang ?>" readonly></td>
+    		<td><input type="text" value="<?php echo $a->nama_lengkap ?>" readonly></td>
     	</tr>
     	<tr>
     		<td>Email</td>

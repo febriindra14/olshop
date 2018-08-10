@@ -89,16 +89,9 @@
 		<input type="hidden" name="id_customer">
 
 		<div class="control-group">
-			<label class="control-label">Name depan</label>
+			<label class="control-label">Nama</label>
 			<div class="controls">
-			  <input type="text" name="nama_depan">
-			</div>
-		</div>
-
-		<div class="control-group">
-			<label class="control-label">Name belakang</label>
-			<div class="controls">
-			  <input type="text" name="nama_belakang">
+			  <input type="text" name="nama_lengkap">
 			</div>
 		</div>
 

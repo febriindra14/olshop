@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2018 at 10:57 AM
+-- Generation Time: Aug 10, 2018 at 05:43 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -79,18 +79,6 @@ CREATE TABLE `checkout` (
   `alamat_lengkap` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `checkout`
---
-
-INSERT INTO `checkout` (`id_checkout`, `id_order`, `id_customer`, `nama_produk`, `jumlah`, `total_harga`, `pil_bayar`, `negara`, `provinsi`, `kabupaten`, `kode_pos`, `alamat_lengkap`) VALUES
-(1, 1, 4, 'Cincin', 2, 800000, 'ATM', 'indonesia', 'jawa timur', 'semarang', 78345, 'jiugyhfgu'),
-(2, 2, 4, 'gelang', 2, 40000, 'ATM', 'indonesia', 'jawa tengah', 'jombang', 55761, 'aku indonesia'),
-(3, 3, 4, 'gelang', 1, 20000, 'BRI', 'indonesia', 'malaka', 'bantul', 99087, 'jakarta'),
-(4, 4, 4, 'Cincin', 2, 800000, 'BNI', 'indonesia', 'jawa timur', 'semarang', 55761, 'jl moyudan'),
-(5, 5, 3, 'jam tangan', 2, 1980000, 'Mandiri', 'indonesia', 'jawa tengah', 'jombang', 99087, 'Jl sunda kecil no 12 Depok'),
-(6, 6, 4, 'jam tangan', 2, 1980000, 'Danamon', 'indonesia', 'jawa timur', 'semarang', 78345, 'Jl kalibawang no 23 sleman');
-
 -- --------------------------------------------------------
 
 --
@@ -99,8 +87,7 @@ INSERT INTO `checkout` (`id_checkout`, `id_order`, `id_customer`, `nama_produk`,
 
 CREATE TABLE `customer` (
   `id_customer` int(5) NOT NULL,
-  `nama_depan` varchar(10) NOT NULL,
-  `nama_belakang` varchar(15) NOT NULL,
+  `nama_lengkap` varchar(25) NOT NULL,
   `email` varchar(20) NOT NULL,
   `password` varchar(8) NOT NULL,
   `tgl_lahir` date NOT NULL,
@@ -114,9 +101,9 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id_customer`, `nama_depan`, `nama_belakang`, `email`, `password`, `tgl_lahir`, `no_telp`, `nama_rek`, `no_rek`, `alamat`) VALUES
-(3, 'yoga', 'maruf', 'ramadan@gmail.com', 'ramadan', '1999-07-01', '089989234861', 'yogamaruf', '2740284756478', 'kasongan bangunjiwo kasihan bantul'),
-(4, 'rava', 'prasetyo', 'prasetyo@gmail.com', 'prasetyo', '1999-07-01', '089989234861', 'prasetyo rava', '239475864993', 'Jl bugisan no 12 yk');
+INSERT INTO `customer` (`id_customer`, `nama_lengkap`, `email`, `password`, `tgl_lahir`, `no_telp`, `nama_rek`, `no_rek`, `alamat`) VALUES
+(6, 'Rava prasetyo', 'prasetyo@gmail.com', 'prasetyo', '1989-07-29', '089989234861', 'prasetyorava', '123426859493', 'Jl karanglo kotagede yk'),
+(7, 'yoga maruf ramadan', 'ramadan@gmail.com', 'ramadan', '2000-07-29', '086980123876', 'yoga ramadan', '2740284756478', 'kasongan bangunjiwo kasihan bantul');
 
 -- --------------------------------------------------------
 
@@ -281,23 +268,11 @@ INSERT INTO `merk` (`id_merk`, `nama_merk`, `gambar`) VALUES
 CREATE TABLE `order` (
   `id_order` int(5) NOT NULL,
   `id_customer` int(5) NOT NULL,
-  `nama` varchar(25) NOT NULL,
+  `nama_lengkap` varchar(25) NOT NULL,
   `total_bayar` int(5) NOT NULL,
   `tgl_order` datetime NOT NULL,
   `keterangan` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `order`
---
-
-INSERT INTO `order` (`id_order`, `id_customer`, `nama`, `total_bayar`, `tgl_order`, `keterangan`) VALUES
-(1, 4, 'Ramadan', 800000, '2018-08-06 10:18:45', 'bayar'),
-(2, 4, 'Prasetyo ', 40000, '2018-08-07 06:10:02', 'bayar'),
-(3, 4, 'rava prasetyo', 20000, '2018-08-07 10:18:15', 'bayar'),
-(4, 4, 'Rava kusnaidi', 800000, '2018-08-08 06:08:48', 'bayar'),
-(5, 3, 'ramadan', 1980000, '2018-08-08 10:21:37', 'bayar'),
-(6, 4, 'Prasetyo ', 1980000, '2018-08-08 10:23:27', 'bayar');
 
 -- --------------------------------------------------------
 
@@ -447,19 +422,19 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_cart` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_customer` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `footer`
@@ -501,7 +476,7 @@ ALTER TABLE `merk`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `produk`

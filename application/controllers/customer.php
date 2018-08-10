@@ -278,17 +278,17 @@ class Customer extends CI_Controller
 	{
 		$save=array(
 			'id_customer'	=>$this->input->post('id_customer'),
-			'nama_depan'	=>$this->input->post('nama_depan'),
-			'nama_belakang'	=>$this->input->post('nama_belakang'),
+			'nama_lengkap'	=>$this->input->post('nama_lengkap'),
 			'email'			=>$this->input->post('email'),
 			'password'		=>$this->input->post('password'),
 			'tgl_lahir'		=>$this->input->post('tgl_lahir'),
 			'no_telp'		=>$this->input->post('no_telp'),
 			'nama_rek'		=>$this->input->post('nama_rek'),
 			'no_rek'		=>$this->input->post('no_rek'),
-			'alamat'		=>$this->input->post('alamat'),
-			'jumlah' 		=>$this->customer_model->getulang($id));
+			'alamat'		=>$this->input->post('alamat'));
 		$this->customer_model->insert_customer($save);
+		$data=array(
+			'jumlah' 		=>$this->customer_model->getulang($id));
 		redirect(base_url('customer/akunku'));
 	}
 	public function register()
@@ -464,6 +464,7 @@ class Customer extends CI_Controller
 		$this->customer_model->getcheckout($data);
 		$this->customer_model->delete_item($id);
 		}
+		$id=$this->session->userdata('id_customer');
 		$rava=array(
 			'id_order'		=>$id_order,
 			'total' 		=>$this->input->post('total'),
@@ -482,7 +483,7 @@ class Customer extends CI_Controller
 		$g='bayar';
 		$data=array(
 			'id_order'			=>$this->input->post('id_order'),
-			'nama'				=>$this->input->post('nama'),
+			'nama_lengkap'		=>$this->input->post('nama_lengkap'),
 			'total_bayar'		=>$this->input->post('total'),
 			'tgl_order' 		=>$this->input->post('tgl_order'),
 			'keterangan'		=>$g);
@@ -526,7 +527,7 @@ class Customer extends CI_Controller
 		$idorder=$this->uri->segment(3);
 		$g='belum bayar';
 		$data=array(
-			'nama'			=>$this->input->post('nama'),
+			'nama_lengkap'	=>$this->input->post('nama_lengkap'),
 			'beda'			=>$this->customer_model->getbeda($idorder)->row_array(),
 			'cek'			=>$this->customer_model->getcek($id)->row_array(),
 			'total' 		=>$this->customer_model->gethitung($id),
@@ -543,7 +544,7 @@ class Customer extends CI_Controller
 		$g='bayar';
 		$data=array(
 			'id_order'		=>$this->input->post('id_order'),
-			'nama'			=>$this->input->post('nama'),
+			'nama_lengkap'	=>$this->input->post('nama_lengkap'),
 			'keterangan'	=>$g);
 		$this->customer_model->getkonfirmasi($data,$id_order);
 		$id=$this->session->userdata('id_customer');
