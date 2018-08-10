@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	<h2>Order</h2>
 	<table class="table table-striped">
 	<tr>
-		<td>Id order</td>
+		<td>Kode order</td>
 		<td>Id customer</td>
 		<td>Nama</td>
 		<td>Total bayar</td>

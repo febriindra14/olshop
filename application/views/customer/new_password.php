@@ -1,6 +1,6 @@
 <!-- 
 	Upper Header Section 
--->
+
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="topNav">
 		<div class="container">

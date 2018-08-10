@@ -30,6 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
   </head>
 <body>
+	<?php $move=$this->uri->segment(2);?>
 <!-- 
 	Upper Header Section 
 -->
@@ -43,12 +44,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<a href="http://<?php echo ''.$config['share3'];?>"><span class="icon-instagram"></span></a>
 				</div>
 				
-				<a class="active" href="<?php echo base_url('customer');?>"> <span class="icon-home"></span> Home</a> 
-				<a href="<?php echo base_url('customer/akunku')?>"><span class="icon-user"></span> My Account</a> 
-				<a href="<?php echo base_url('customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
-				<a href="<?php echo base_url('customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
-				<a href="<?php echo base_url('customer/keranjang')?>"><span class="icon-shopping-cart"></span> <?php echo $jumlah->num_rows(); ?> items <span class="badge badge-warning"> Rp <?php echo number_format($total,0,",","."); ?> </span></a>
-				<a href="<?php echo base_url('login_customer/logout')?>" >Logout</a>
+				<a <?php if($move==''){echo'class="active"';}?> href="<?php echo base_url('customer');?>"> <span class="icon-home"></span> Home</a> 
+				<a <?php if($move=='akunku'){echo'class="active"';}?> href="<?php echo base_url('customer/akunku')?>"><span class="icon-user"></span> My Account</a> 
+				<a <?php if($move=='register'){echo'class="active"';}?> href="<?php echo base_url('customer/register')?>"><span class="icon-edit"></span> Free Register </a> 
+				<a <?php if($move=='kontak'){echo'class="active"';}?> href="<?php echo base_url('customer/kontak')?>"><span class="icon-envelope"></span> Contact us</a>
+				<a <?php if($move=='keranjang'){echo'class="active"';}?> href="<?php echo base_url('customer/keranjang')?>"><span class="icon-shopping-cart"></span> <?php echo $jumlah->num_rows(); ?> items <span class="badge badge-warning"> Rp <?php echo number_format($total,0,",","."); ?> </span></a>
+				<a <?php if($move=='logout'){echo'class="active"';}?> href="<?php echo base_url('login_customer/logout')?>" >Logout</a>
 
 			</div>
 		</div>
@@ -98,12 +99,12 @@ Navigation Bar Section
 		  </a>
 		  <div class="nav-collapse">
 			<ul class="nav">
-			  <li class="active"><a href="<?php echo base_url('customer');?>">Home</a></li>
-			  <li class=""><a href="<?php echo base_url('customer/daftar')?>">List View</a></li>
-			  <li class=""><a href="<?php echo base_url('customer/jaringan')?>">Grid View</a></li>
-			  <li class=""><a href="<?php echo base_url('customer/tigacol')?>">Three Column</a></li>
-			  <li class=""><a href="<?php echo base_url('customer/empatcol')?>">Four Column</a></li>
-			  <li class=""><a href="<?php echo base_url('customer/penitipan')?>">Rekonfirmasi</a></li>
+			  <li <?php if($move==''){echo'class="active"';}?> > <a href="<?php echo base_url('customer');?>">Home</a></li>
+			  <li <?php if($move=='daftar'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/daftar')?>">List View</a></li>
+			  <li <?php if($move=='jaringan'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/jaringan')?>">Grid View</a></li>
+			  <li  <?php if($move=='tigacol'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/tigacol')?>">Three Column</a></li>
+			  <li  <?php if($move=='empatcol'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/empatcol')?>">Four Column</a></li>
+			  <li  <?php if($move=='penitipan'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/penitipan')?>">Rekonfirmasi</a></li>
 			</ul>
 
 		<form id="form_search" action="<?php echo base_url('customer/search');?>" class="navbar-search pull-left" method="GET">	
