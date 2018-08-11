@@ -36,46 +36,46 @@ float: right;
 font-size: 16px;">&nbsp; <a href="<?php echo base_url('login/logout')?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
+         <?php $pindah=$this->uri->segment(3);?>
+           
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
                     <img src="<?php echo base_url(); ?>assets/backend/assets/img/find_user.png" class="user-image img-responsive"/>
 					</li>	
-                    <li>
-                        <a 
-                        href="<?php echo base_url('utama/admin')?>"><i class="fa fa-dashboard fa-2x"></i>Dashboard</a>
+                    <li><a <?php if($pindah==''){echo'class="active"';}?> href="<?php echo base_url('utama/admin')?>"><i class="fa fa-dashboard fa-2x"></i>Dashboard</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('utama/admin/tampil
+                        <a <?php if($pindah=='user'||$pindah=='tampil'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/tampil
                         ')?>"><i class="fa fa-user fa-2x"></i>User</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('utama/admin/halaman
+                        <a <?php if($pindah=='halaman'||$pindah=='halaman'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/halaman
                         ')?>"><i class="fa fa-bookmark fa-2x"></i>Halaman</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('utama/admin/kategori_produk
+                        <a <?php if($pindah=='kategori'||$pindah=='kategori_produk'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/kategori_produk
                         ')?>"><i class="fa fa-align-justify fa-2x"></i>Kategori produk</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('utama/admin/merk
+                        <a <?php if($pindah=='merk'||$pindah=='merk'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/merk
                         ')?>"><i class="fa fa-qrcode fa-2x"></i>Merk produk</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('utama/admin/produk
+                        <a <?php if($pindah=='produk'||$pindah=='produk'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/produk
                         ')?>"><i class="fa fa-shopping-cart fa-2x"></i>Produk</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('utama/admin/customer
+                        <a <?php if($pindah=='customer'||$pindah=='customer'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/customer
                         ')?>"><i class="fa fa-user fa-2x"></i>Customer</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('utama/admin/order
+                        <a <?php if($pindah=='order'||$pindah=='order'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/order
                         ')?>"><i class="fa fa-thumbs-up fa-2x"></i>Order</a>
                     </li>
                      <li>
-                        <a href="<?php echo base_url('utama/admin/konfigurasi_web
+                        <a <?php if($pindah=='konfigurasi'||$pindah=='konfigurasi_web'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/konfigurasi_web
                         ')?>"><i class="fa fa-edit fa-2x"></i>Konfigurasi web</a>
                     </li>
                 </ul>

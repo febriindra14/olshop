@@ -31,29 +31,31 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </head>
 <body>
 	<h2>Order</h2>
-	<table class="table table-striped">
+	<table class="table table-bordered">
 	<tr>
-		<td>Kode order</td>
 		<td>Id customer</td>
 		<td>Nama</td>
-		<td>Total bayar</td>
-		<td>Tanggal order</td>
 		<td>Keterangan</td>
 		<td>Pengaturan</td>
 	</tr>
 	<tr>
 	<?php foreach ($order as $b) {?>
-		<td><?php echo $b['id_order'];?></td>
-		<td><?php echo $b['id_customer'];?></td>
-		<td><?php echo $b['nama_lengkap'];?></td>
-		<td><?php echo $b['total_bayar'];?></td>
-		<td><?php echo $b['tgl_order'];?></td>
-		<td><?php echo $b['keterangan'];?></td>
+		 <tr <?php if ($b['nama_lengkap'] == '') {
+         echo "style='color: blue;font-weight:bold;'"; } ?>>
+
+		<td style="font-weight: bold;"><?php echo $b['id_customer'];?></td>
+		<td style="font-weight: bold;"><?php echo $b['nama_lengkap'];?></td>
+		<td style="font-weight: bold;"><?php echo $b['keterangan'];?></td>
 		<td>
-			<a data-toggle="tooltip" data-placement="top" title="Hapus" style='background: red; border:red;' class="btn btn-danger btn-sm" href="<?php echo base_url('utama/admin/hapus_order/').$b['id_order'] ?>">Hapus</a></td>
+			<a href="<?php echo base_url('utama/admin/detailorder/').$b['id_customer'];?>" class="btn btn-info"><i class="fa fa-info"></i></a>
+
+			<a href="<?php echo base_url('utama/admin/hapus_order/').$b['id_order'] ?>" data-toggle="tooltip" data-placement="top" title="Hapus" class="btn btn-danger" onclick='return confirm("Yakin mau dihapus???");'><i class="fa fa-trash"></a></td></i>
 	</tr>
 	<?php }?>	
 	</table>
+	 <br>
+        <label style="border: 1px solid blue;background-color: blue;color:blue;width: 20px;height: 20px;">a</label> <label>Belum konfirmasi</label><br>
+        <label style="border: 1px solid black;background-color: black;color:black;width: 20px;height: 20px;">a</label> <label>Sudah konfirmasi</label> 
 	<br>
 	<?php echo $this->pagination->create_links() ?>	
 </body>

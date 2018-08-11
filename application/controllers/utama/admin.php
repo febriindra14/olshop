@@ -408,6 +408,14 @@ class Admin extends CI_Controller
 		$data=$this->user_model->delete_order($id);
 		redirect(base_url('utama/admin/order'));
 	}
+	public function detailorder() 
+	{ 
+		$id = $this->uri->segment(4);
+		$data = array(
+				'pembeli'  	=>$this->user_model->getdetail($id)->row_array(),
+				'detail'  	=>$this->user_model->getdetail($id));
+		$this->pajangan->kirim('admin/detail_order', $data);
+	}
 	//konfigurasi web
 	public function konfigurasi_web()
 	{

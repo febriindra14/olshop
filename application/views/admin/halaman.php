@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 			<td><?php echo $value->judul4;?></td>
 			<td><?php echo $value->deskripsi_hal;?></td>
 			<td>
-				<a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('utama/admin/ubah_halaman/'.$value->id_hal)?>'>Edit</a>
+				<a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('utama/admin/ubah_halaman/'.$value->id_hal)?>'><i class="fa fa-edit"></i></a>
 				</td>
 		</tr>
 			<?php }?>
@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 				<td><?php echo $value->judul ;?></td>
 				<td><?php echo $value->deskripsi ;?></td>
 				<td>
-				<a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('utama/admin/ubah_about/'.$value->id_about)?>'>Edit</a>
+				<a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('utama/admin/ubah_about/'.$value->id_about)?>'><i class="fa fa-edit"></i></a>
 				</td>
 		</tr>
 		
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 				<td><?php echo $value->isi1 ;?></td>
 				<td><?php echo $value->isi2 ;?></td>
 				<td>
-				<a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('utama/admin/ubah_footer/'.$value->id_footer)?>'>Edit</a>
+				<a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('utama/admin/ubah_footer/'.$value->id_footer)?>'><i class="fa fa-edit"></i></a>
 				</td>
 		</tr>
 		

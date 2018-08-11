@@ -31,8 +31,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </head>
 <body>
 	<h2>Kategori Produk</h2>
-	<button type="pas"><a style="text-decoration: none;" href="<?php echo base_url('utama/admin/form_kaduk')?>">Tambah</a></button>
-	<table class="table table-striped">
+	  <a href="<?php echo base_url('utama/admin/form_kaduk'); ?>" class="btn btn-success" style="margin-bottom: 15px;"><i class="fa fa-plus" style="margin-right: 5px;"></i>Tambah</a>
+	<table class="table table-bordered">
 	<tr>
 		<td>Id Kategori</td>
 		<td>Nama Kategori</td>
@@ -43,9 +43,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 		<td><?php echo $i['id_kategori'];?></td>
 		<td><?php echo $i['nama_kategori'];?></td>
 
-		<td><a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('utama/admin/form_kategori/').$i['id_kategori']?>'>Edit</a>
+		<td><a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('utama/admin/form_kategori/').$i['id_kategori']?>'><i class="fa fa-edit"></i></a>
 
-			<a data-toggle="tooltip" data-placement="top" title="Hapus" style='background: red; border:red;' class="btn btn-danger btn-sm" href="<?php echo base_url('utama/admin/hapus_kaduk/').$i['id_kategori'] ?>">Hapus</a></td>
+			<a href="<?php echo base_url('utama/admin/hapus_kaduk/').$i['id_kategori'] ?>" data-toggle="tooltip" data-placement="top" title="Hapus" class="btn btn-danger" onclick='return confirm("Yakin mau dihapus???");'><i class="fa fa-trash"></i></a></td>
 	</tr>		
 	<?php }?>		
 </table>

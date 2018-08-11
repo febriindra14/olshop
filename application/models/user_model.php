@@ -185,6 +185,17 @@ class User_model extends CI_Model
 		$this->db->where('customer.id_customer');
 		return $this->db->get();
 	}
+	public function getdetail($id)
+	{
+		$this->db->select('produk.nama_produk,produk.harga,customer.nama_lengkap,
+							checkout.jumlah,checkout.id_order,checkout.total_harga,order.total_bayar,order.tgl_order,order.keterangan');
+		$this->db->from('checkout');
+		$this->db->join('customer','customer.id_customer=checkout.id_customer')->join('produk','produk.nama_produk=checkout.nama_produk')->join('order','order.id_order=checkout.id_order');
+		$this->db->group_by('checkout.id_order');
+		$this->db->order_by('checkout.id_order','DESC');
+		$this->db->where('checkout.id_customer',$id);
+		return $this->db->get();
+	}
 	//konfigurasi web
 	public function getkonfig()
 	{

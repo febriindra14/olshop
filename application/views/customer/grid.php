@@ -29,7 +29,7 @@
 			<li style="border:0"> &nbsp;</li>
 			<li>
 			  <div class="thumbnail">
-				<a class="zoomTool" href="<?php echo base_url('customer/grid')?>"><span class="icon-search"></span> QUICK VIEW</a>
+				<a class="zoomTool" href="<?php echo base_url('customer/jaringan')?>"><span class="icon-search"></span> QUICK VIEW</a>
 				<img src="<?php echo base_url(). 'assets/fronted/assets/img/'.$value->foto?>" alt="">
 
 	<form action="<?php echo base_url('customer/tambah_cart')?>" method="post">

@@ -14,7 +14,7 @@
         <div class="well well-small">
     <table>	
 
-    	<input type="hidden" name="nama">
+    	<input type="hidden" name="nama_lengkap">
     	<input type="hidden" name="id_order" value="<?php echo $id_order?>">
     	<input type="hidden" name="total" value="<?php echo $total?>">
     	<input type="hidden" name="tgl_order" value="<?php echo $tgl_order?>">

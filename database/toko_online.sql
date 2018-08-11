@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2018 at 05:43 AM
+-- Generation Time: Aug 11, 2018 at 06:47 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -284,12 +284,12 @@ CREATE TABLE `produk` (
   `id_produk` int(11) NOT NULL,
   `id_kategori` varchar(5) NOT NULL,
   `id_merk` varchar(5) NOT NULL,
-  `nama_produk` varchar(20) NOT NULL,
+  `nama_produk` varchar(30) NOT NULL,
   `bahan` varchar(20) NOT NULL,
   `warna` varchar(10) NOT NULL,
   `deskripsi` text NOT NULL,
   `harga` int(15) NOT NULL,
-  `foto` varchar(20) NOT NULL
+  `foto` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -303,7 +303,8 @@ INSERT INTO `produk` (`id_produk`, `id_kategori`, `id_merk`, `nama_produk`, `bah
 (26, '13', '50', 'kalung', 'emas', 'keemasan', 'well ', 500000, 'shop-cart1.PNG'),
 (27, '14', '50', 'cincin nikah', 'emas', 'emas', 'mantab buat cincin nikah sob!', 400000, 'e1.jpg'),
 (28, '15', '50', 'Cincin HEYu jewelry', 'logam', 'emas', 'kondisi oke', 400000, 'g1.jpg'),
-(31, '18', '50', 'gelang', 'emas', 'emas', 'nyaman dipakai', 100000, 'b1.jpg');
+(31, '18', '50', 'gelang', 'emas', 'emas', 'nyaman dipakai', 100000, 'b1.jpg'),
+(32, '10', '52', 'Sepatu-olahraga-pria', 'kulit', 'hitam-puti', 'nyaman dipakai', 250000, 'sepatu.jpg');
 
 -- --------------------------------------------------------
 
@@ -422,13 +423,13 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_cart` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -476,13 +477,13 @@ ALTER TABLE `merk`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `user`
