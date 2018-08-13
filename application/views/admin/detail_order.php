@@ -46,8 +46,8 @@
                         </tbody>
                     </table>
                 <br>
-                <label style="border: 1px solid blue;background-color: blue;color:blue;width: 20px;height: 20px;">a</label> <label> belum bayar</label><br>
-                <label style="border: 1px solid black;background-color: black;color:black;width: 20px;height: 20px;">a</label> <label> bayar</label> 
+                <label style="border: 1px solid blue;background-color: blue;color:blue;width: 20px;height: 20px;">a</label> <label> Belum bayar</label><br>
+                <label style="border: 1px solid black;background-color: black;color:black;width: 20px;height: 20px;">a</label> <label>Sudah bayar</label> 
 
         <div class="panel-body">
            <a href="<?php echo base_url('utama/admin/order'); ?>" class="btn btn-default" style="margin-bottom: 15px; float: right;"><i class="fa fa-arrow-left" style="margin-right: 4px;"></i>Kembali</a>

@@ -230,7 +230,7 @@ class Customer extends CI_Controller
 		
 			$this->customer_model->getubah($id,$data);	
 			}
-			$this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button><strong>Gak boleh sampai 0 ke bawah</strong></div>");
+			$this->session->set_flashdata("error","<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button><strong>Jumlah tidak boleh di bawah 0</strong></div>");
 		}else{
 		foreach ($keranjang->result() as $key => $value) {
 			$harga=$value->harga;
@@ -289,13 +289,13 @@ class Customer extends CI_Controller
 		$this->customer_model->insert_customer($save);
 		$data=array(
 			'jumlah' 		=>$this->customer_model->getulang($id));
-		redirect(base_url('customer/akunku'));
+		redirect(base_url('customer'));
 	}
 	public function register()
 	{
-		/*if($this->session->userdata('logged')==1) {
+		if($this->session->userdata('logged')==1) {
 			echo "<script>alert('Untuk registrasi anda harus logout');</script>";
-		}*/
+		}
 		$id=$this->session->userdata('id_customer');
 		$data=array(
 			'jumlah' 	=>$this->customer_model->getulang($id),

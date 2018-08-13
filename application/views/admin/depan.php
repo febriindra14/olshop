@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <div class="text-box" >
                     <p class="main-text">User</p>
                     <p class="text-muted"> <?php echo $user ?> </p>
-                    <a href="<?php echo base_url('utama/admin/tampil')?>">Masuk</a>
+                    <a href="<?php echo base_url('utama/admin/tampil')?>">Lihat</a>
                 </div>
              </div>
              </div>
@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <div class="text-box" >
                     <p class="main-text">Kategori Produk</p>
                     <p class="text-muted"> <?php echo $kategori_produk ?></p>
-                     <a href="<?php echo base_url('utama/admin/form_kaduk')?>">Tambah</a>
+                     <a href="<?php echo base_url('utama/admin/kategori_produk')?>">Lihat</a>
                 </div>
              </div>
              </div>
@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <div class="text-box" >
                     <p class="main-text">Produk</p>
                     <p class="text-muted"> <?php echo $produk ?> </p>
-                    <a href="<?php echo base_url('utama/admin/produk')?>">Menuju</a>
+                    <a href="<?php echo base_url('utama/admin/produk')?>">Lihat</a>
                 </div>
              </div>
              </div>
@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <div class="text-box" >
                     <p class="main-text">Customer</p>
                     <p class="text-muted"> <?php echo $customer ?> </p>
-                    <a href="<?php echo base_url('utama/admin/customer')?>">Depan</a>
+                    <a href="<?php echo base_url('utama/admin/customer')?>">Lihat</a>
                 </div>
              </div>
               </div>
@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <div class="text-box" >
                     <p class="main-text">Order</p>
                     <p class="text-muted"> <?php echo $order ?> </p>
-                    <a href="<?php echo base_url('utama/admin/order')?>">list</a>
+                    <a href="<?php echo base_url('utama/admin/order')?>">Lihat</a>
                 </div>
              </div>
              </div>
