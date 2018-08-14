@@ -2,7 +2,21 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Login_model extends CI_Model
 {
-//user login
+	//customer login
+	public function login_customer($email,$password)
+	{
+		$this->db->where('email',$email);
+		$this->db->where('password',$password);
+		$query=$this->db->get('customer');
+		return $query->num_rows();
+	}
+	public function ambil_login($email,$password)
+	{
+		$this->db->where('email',$email);
+		$this->db->where('password',$password);
+		return $this->db->get('customer')->row();
+	}
+//admin login
 	public function login($username,$password)
 	{
 		$this->db->where('username',$username);

@@ -22,10 +22,10 @@ class Login_customer extends CI_Controller
 	}
 	public function login_cus()
 	{
-		$login=$this->customer_model->login_customer($this->input->post('email'),($this->input->post('password')));
+		$login=$this->login_model->login_customer($this->input->post('email'),($this->input->post('password')));
 		if($login==1)
 		{
-			$row=$this->customer_model->data_login($this->input->post('email'),($this->input->post('password')));
+			$row=$this->login_model->ambil_login($this->input->post('email'),($this->input->post('password')));
 			$data=array('logged' =>TRUE, 'email' =>$row->email ,'id_customer'=>$row->id_customer);
 			$this->session->set_userdata($data);
 			redirect(base_url('customer/keranjang'));

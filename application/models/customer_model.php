@@ -61,19 +61,6 @@ class Customer_model extends CI_Model
    		$data = $this->db->get();
    		return $data->result();
 	}
-	public function login_customer($email,$password)
-	{
-		$this->db->where('email',$email);
-		$this->db->where('password',$password);
-		$query=$this->db->get('customer');
-		return $query->num_rows();
-	}
-	public function data_login($email,$password)
-	{
-		$this->db->where('email',$email);
-		$this->db->where('password',$password);
-		return $this->db->get('customer')->row();
-	}
 	public function getcart($data)
 	{	
 		return $this->db->insert('cart',$data);
