@@ -212,20 +212,6 @@ class User_model extends CI_Model
 		$this->db->update('konfigurasi_web',$tb);
 	}
 	//halaman
-	public function getabout()
-	{
-		return $this->db->get('about')->result();
-	}
-	public function edit_about($id)
-	{
-		$data=$this->db->get_where('about',array('id_about'=>$id));
-		return $data;
-	}
-	public function update_about($tb,$id)
-	{
-		$this->db->where('id_about',$id);
-		$this->db->update('about',$tb);
-	}
 	public function gethalaman()
 	{
 		return $this->db->get('halaman')->result();
@@ -239,19 +225,5 @@ class User_model extends CI_Model
 	{
 		$this->db->where('id_hal',$id);
 		$this->db->update('halaman',$tb);
-	}
-	public function getfooter()
-	{
-		return $this->db->get('footer')->result();
-	}
-	public function edit_footer($id)
-	{
-		$data=$this->db->get_where('footer',array('id_footer'=>$id));
-		return $data;
-	}
-	public function update_footer($tb,$id)
-	{
-		$this->db->where('id_footer',$id);
-		$this->db->update('footer',$tb);
 	}
 }

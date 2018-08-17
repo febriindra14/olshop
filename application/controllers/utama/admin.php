@@ -447,9 +447,7 @@ class Admin extends CI_Controller
 	public function halaman()
 	{	
 		$data=array(
-			'hal'		=>$this->user_model->getabout(),
-			'halaman'	=>$this->user_model->gethalaman(),
-			'footer'	=>$this->user_model->getfooter());
+			'halaman'	=>$this->user_model->gethalaman());
 		$this->pajangan->kirim('admin/halaman',$data);
 	}
 	public function ubah_halaman()
@@ -470,37 +468,6 @@ class Admin extends CI_Controller
 			'judul4'		=>$this->input->post('judul4'),
 			'deskripsi_hal'	=>$this->input->post('deskripsi_hal'));
 		$hal=$this->user_model->updatehalaman($data,$id);
-		redirect(base_url('utama/admin/halaman'));
-	}
-	public function ubah_about()
-	{
-		$coba=$this->uri->segment(4);
-		$data['about']=$this->user_model->edit_about($coba);
-		$this->pajangan->kirim('admin/edit_about',$data);
-	}
-	public function edit_about()
-	{
-		$id=$this->input->post('id_about');
-		$data=array(
-			'id_about'	=>$this->input->post('id_about'),
-			'judul'		=>$this->input->post('judul'),
-			'deskripsi'	=>$this->input->post('deskripsi'));
-		$m=$this->user_model->update_about($data,$id);
-		redirect(base_url('utama/admin/halaman'));	
-	}
-	public function ubah_footer()
-	{
-		$id=$this->uri->segment(4);
-		$data['foot']=$this->user_model->edit_footer($id);
-		$this->pajangan->kirim('admin/edit_footer',$data);
-	}
-	public function edit_footer()
-	{
-		$id=$this->input->post('id_footer');
-		$data=array(
-			'isi1'	=>$this->input->post('isi1'),
-			'isi2'	=>$this->input->post('isi2'));
-		$tm=$this->user_model->update_footer($data,$id);
 		redirect(base_url('utama/admin/halaman'));
 	}
 }

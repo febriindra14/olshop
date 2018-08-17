@@ -11,14 +11,10 @@ class Customer extends CI_Controller
 	public function index()
 	{
 		$id=$this->session->userdata('id_customer');
-		//$hal=1;
-		//$fot=1; 
 		$data=array(
 			'jumlah' 	=>$this->customer_model->getulang($id),
 			'total' 	=>$this->customer_model->gethitung($id),
 			'config'	=>$this->customer_model->getweb()->row_array(),
-			//'halaman'	=>$this->customer_model->gethalaman($hal)->row_array(),
-			//'footer'	=>$this->customer_model->getfooter($fot)->row_array(),
 			'semua' 	=>$this->customer_model->getutama(),
 			'tengah'	=>$this->customer_model->gettengah(),
 			'produk' 	=>$this->customer_model->getkategori(),
@@ -397,17 +393,6 @@ class Customer extends CI_Controller
 			'merk'		=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/tentang',$data);
 	}
-	public function about()
-	{
-		$id=$this->session->userdata('id_customer');
-		$data=array(
-			'jumlah' 	=>$this->customer_model->getulang($id),
-			'hal'		=>$this->customer_model->gethal()->row_array(),
-			'config'	=>$this->customer_model->getweb()->row_array(),
-			'total' 	=>$this->customer_model->gethitung($id),
-			'merk'		=>$this->customer_model->getmerk());
-		$this->pajangan->kiriman('customer/about',$data);
-	}
 	public function pembayaran()
 	{
 		$id=$this->session->userdata('id_customer');
@@ -467,6 +452,7 @@ class Customer extends CI_Controller
 		$id=$this->session->userdata('id_customer');
 		$rava=array(
 			'id_order'		=>$id_order,
+			'nama'			=>$this->customer_model->getambil($id)->row_array(),
 			'total' 		=>$this->input->post('total'),
 			'tgl_order'		=>date('Y-m-d H:i:s'),
 			'pil_bayar'		=>$this->input->post('pil_bayar'),
@@ -527,9 +513,9 @@ class Customer extends CI_Controller
 		$idorder=$this->uri->segment(3);
 		$g='belum bayar';
 		$data=array(
-			'nama_lengkap'	=>$this->input->post('nama_lengkap'),
+			'nama'			=>$this->customer_model->getambil($id)->row_array(),
 			'beda'			=>$this->customer_model->getbeda($idorder)->row_array(),
-			'cek'			=>$this->customer_model->getcek($id)->row_array(),
+			'cek'			=>$this->customer_model->getcek($idorder)->row_array(),
 			'total' 		=>$this->customer_model->gethitung($id),
 			'keterangan'	=>$g,
 

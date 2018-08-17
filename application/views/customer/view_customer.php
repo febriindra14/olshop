@@ -184,7 +184,7 @@ Footer
 <a href="#">SITEMAP</a><br>
 <a href="#">LEGAL NOTICE</a><br>
 <a href="#">TERMS AND CONDITIONS</a><br>
-<a href="<?php echo base_url('customer/about')?>">ABOUT US</a><br>
+<a href="#">ABOUT US</a><br>
  </div>
 <div class="span2">
 <h5>Our Offer</h5>

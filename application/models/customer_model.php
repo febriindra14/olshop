@@ -5,10 +5,6 @@ class Customer_model extends CI_Model
 	{
    		return $this->db->get('konfigurasi_web');
 	}
-	public function gethal()
-	{
-		return $this->db->get('about');
-	}
 	public function get_search($title){
 		$this->db->like('nama_produk', $title , 'both');
 		$this->db->order_by('nama_produk', 'ASC');
@@ -18,12 +14,6 @@ class Customer_model extends CI_Model
 	public function getcheckout($data)
 	{
 		return $this->db->insert('checkout',$data);
-	}
-	public function getcek($id)
-	{
-		$this->db->join('customer','customer.id_customer=checkout.id_customer');
-		$this->db->where('customer.id_customer',$id);
-		return $this->db->get('checkout');
 	}
 	//order
 	public function getid($id)
@@ -47,6 +37,21 @@ class Customer_model extends CI_Model
 	public function getkonfirmasi($data,$id_order)
 	{
 		return $this->db->where('id_order',$id_order)->update('order',$data);
+	}
+	public function getambil($id)
+	{
+		$this->db->join('customer','customer.id_customer=order.id_customer');
+		$this->db->where('customer.id_customer',$id);
+		return $this->db->get('order');
+	}
+	public function getcek($idorder=null) 
+	{ 
+		$this->db->join('order','order.id_order=checkout.id_order');
+		if (!empty($kode)) {
+			$this->db->where('order.id_order',$idorder);
+		}
+
+		return $this->db->order_by('id_checkout','DESC')->get('checkout');
 	}
 	//customer
 	public function insert_customer($simpan)
@@ -238,14 +243,4 @@ class Customer_model extends CI_Model
 		$kirim=$this->db->get();
 		return $kirim->result();
 	}
-	/*public function gethalaman($hal)
-	{
-		$this->db->where('id_hal',$hal);
-		return $this->db->get('halaman');
-	}*/
-	/*public function getfooter($fot)
-	{
-		$this->db->where('id_footer',$fot);
-		return $this->db->get('footer');
-	}*/
 }	

@@ -14,11 +14,12 @@
     <div class="well well-small">
 
     	<input type="hidden" name="id_order" value="<?php echo $beda['id_order'];?>">
+        <input type="hidden" name="nama_lengkap" value="<?php echo $nama['nama_lengkap'];?>">
         <table>  
     		<tr>
     			<td>Nama</td>
     			<td>:</td>
-    			<td><input type="text" name="nama_lengkap" required></td>
+    			<td><input type="text" value="<?php echo $nama['nama_lengkap'];?>" readonly></td>
     		</tr>             
            	<tr>
     			<td>Kode order</td>
