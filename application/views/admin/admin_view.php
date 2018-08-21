@@ -52,15 +52,15 @@ font-size: 16px;">&nbsp; <a href="<?php echo base_url('login/logout')?>" class="
                     </li>
                      <li>
                         <a <?php if($pindah=='halaman'||$pindah=='halaman'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/halaman
-                        ')?>"><i class="fa fa-bookmark fa-2x"></i>Halaman</a>
+                        ')?>"><i class="fa fa-newspaper-o fa-2x"></i>Halaman</a>
                     </li>
                      <li>
                         <a <?php if($pindah=='kategori'||$pindah=='kategori_produk'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/kategori_produk
-                        ')?>"><i class="fa fa-align-justify fa-2x"></i>Kategori produk</a>
+                        ')?>"><i class="fa fa-tasks fa-2x"></i>Kategori produk</a>
                     </li>
                      <li>
                         <a <?php if($pindah=='merk'||$pindah=='merk'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/merk
-                        ')?>"><i class="fa fa-qrcode fa-2x"></i>Merk produk</a>
+                        ')?>"><i class="fa fa-list fa-2x"></i>Merk produk</a>
                     </li>
                      <li>
                         <a <?php if($pindah=='produk'||$pindah=='produk'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/produk
@@ -72,11 +72,11 @@ font-size: 16px;">&nbsp; <a href="<?php echo base_url('login/logout')?>" class="
                     </li>
                      <li>
                         <a <?php if($pindah=='order'||$pindah=='order'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/order
-                        ')?>"><i class="fa fa-thumbs-up fa-2x"></i>Order</a>
+                        ')?>"><i class="fa fa-line-chart fa-2x"></i>Order</a>
                     </li>
                      <li>
                         <a <?php if($pindah=='konfigurasi'||$pindah=='konfigurasi_web'){echo 'class="active-menu"';}?> href="<?php echo base_url('utama/admin/konfigurasi_web
-                        ')?>"><i class="fa fa-edit fa-2x"></i>Konfigurasi web</a>
+                        ')?>"><i class="fa fa-wrench fa-2x"></i>Konfigurasi web</a>
                     </li>
                 </ul>
                

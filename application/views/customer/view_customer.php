@@ -101,10 +101,10 @@ Navigation Bar Section
 			<ul class="nav">
 			  <li <?php if($move==''){echo'class="active"';}?> > <a href="<?php echo base_url('customer');?>">Home</a></li>
 			  <li <?php if($move=='daftar'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/daftar')?>">List View</a></li>
-			  <li <?php if($move=='jaringan'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/jaringan')?>">Grid View</a></li>
-			  <li  <?php if($move=='tigacol'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/tigacol')?>">Three Column</a></li>
-			  <li  <?php if($move=='empatcol'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/empatcol')?>">Four Column</a></li>
-			  <li  <?php if($move=='penitipan'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/penitipan')?>">Rekonfirmasi</a></li>
+			  <li <?php if($move=='jaringan'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/jaringan')?>">Product</a></li>
+			  <li  <?php if($move=='penitipan'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/penitipan')?>">Reconfirm</a></li>
+			  <li  <?php if($move=='history_order'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/history_order')?>">History Order</a></li>
+			  <li  <?php if($move=='tentang'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/about')?>">About</a></li>
 			</ul>
 
 		<form id="form_search" action="<?php echo base_url('customer/search');?>" class="navbar-search pull-left" method="GET">	
@@ -184,7 +184,7 @@ Footer
 <a href="#">SITEMAP</a><br>
 <a href="#">LEGAL NOTICE</a><br>
 <a href="#">TERMS AND CONDITIONS</a><br>
-<a href="#">ABOUT US</a><br>
+<a href="<?php echo base_url('customer/about')?>">ABOUT US</a><br>
  </div>
 <div class="span2">
 <h5>Our Offer</h5>
@@ -195,7 +195,6 @@ Footer
 <a href="#">SUPPLIERS</a> <br/>
  </div>
  <div class="span6">
- 	<h4>Tc</h4>
  		<?php echo ''.$config['deskripsi'] ;?>
  </div>
  </div>

@@ -22,6 +22,16 @@ class Customer extends CI_Controller
 			'merk'		=>$this->customer_model->getmerk());
 		$this->pajangan->kiriman('customer/utama',$data);
 	}
+	public function about()
+	{
+		$id=$this->session->userdata('id_customer');
+		$data=array(
+			'jumlah' 	=>$this->customer_model->getulang($id),
+			'config'	=>$this->customer_model->getweb()->row_array(),
+			'total' 	=>$this->customer_model->gethitung($id),
+			'merk'		=>$this->customer_model->getmerk());
+		$this->pajangan->kiriman('customer/about',$data);
+	}
 	public function view_more()
 	{
 		$id=$this->session->userdata('id_customer');
