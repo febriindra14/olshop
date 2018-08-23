@@ -100,8 +100,8 @@ Navigation Bar Section
 		  <div class="nav-collapse">
 			<ul class="nav">
 			  <li <?php if($move==''){echo'class="active"';}?> > <a href="<?php echo base_url('customer');?>">Home</a></li>
-			  <li <?php if($move=='daftar'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/daftar')?>">List View</a></li>
-			  <li <?php if($move=='jaringan'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/jaringan')?>">Product</a></li>
+			  <li <?php if($move=='daftar'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/daftar')?>">Watch products</a></li>
+			  <li <?php if($move=='jaringan'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/jaringan')?>">Ring products</a></li>
 			  <li  <?php if($move=='penitipan'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/penitipan')?>">Reconfirm</a></li>
 			  <li  <?php if($move=='history_order'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/history_order')?>">History Order</a></li>
 			  <li  <?php if($move=='tentang'){echo'class="active"';}?> > <a href="<?php echo base_url('customer/about')?>">About</a></li>

@@ -143,6 +143,7 @@ class Customer_model extends CI_Model
 	//list
 	public function getlist()
 	{
+		$this->db->where('bahan','stainless steel');
 		return $this->db->get('produk')->result();
 	}
 	public function getside()
@@ -154,6 +155,7 @@ class Customer_model extends CI_Model
 	//grid
 	public function getgrid()
 	{
+		$this->db->where('bahan','emas');
 		return $this->db->get('produk')->result();
 	}
 	public function getbar()

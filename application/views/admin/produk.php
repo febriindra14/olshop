@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 		<td><?php echo $c['foto'];?></td>
 		<td><a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px; background: #00BFFF; border:#00BFFF; width:50px;' class='btn btn-primary btn-sm' href='<?php echo base_url('utama/admin/editproduk/').$c['id_produk']?>'><i class="fa fa-edit"></i></a>
 
-			<a href="<?php echo base_url('index.php/utama/admin/hapusproduk/').$c['id_produk'] ?>"data-toggle="tooltip" data-placement="top" title="Hapus" class="btn btn-danger" onclick='return confirm("Yakin mau dihapus???");'><i class="fa fa-trash"></i></a>
+			<a href="<?php echo base_url('utama/admin/hapusproduk/').$c['id_produk'] ?> "data-toggle="tooltip" data-placement="top" title="Hapus" class="btn btn-danger" onclick='return confirm("Yakin mau dihapus?")'><i class="fa fa-trash"></i></a>
 
 			<a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-info" href="<?php echo base_url('utama/admin/detailproduk/'.$c['id_produk'])?>"><i class="fa fa-info"></i></a>	
 		</td>	

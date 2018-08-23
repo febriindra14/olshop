@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 21, 2018 at 09:18 AM
+-- Generation Time: Aug 23, 2018 at 08:05 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -237,11 +237,16 @@ INSERT INTO `produk` (`id_produk`, `id_kategori`, `id_merk`, `nama_produk`, `bah
 (21, '10', '50', 'jam tangan', 'stainless steel', 'emas', 'tahan karat dan elegan ', 990000, 'a1.jpg'),
 (23, '11', '51', 'gelang', 'karet', 'hitam', 'lentur', 20000, 'c1.jpg'),
 (25, '12', '50', 'Cincin', 'emas', 'abu abu', 'mantab jiwa', 400000, 'j1.jpg'),
-(26, '13', '50', 'kalung', 'emas', 'keemasan', 'well ', 500000, 'shop-cart1.PNG'),
-(27, '14', '50', 'cincin nikah', 'emas', 'emas', 'mantab buat cincin nikah sob!', 400000, 'e1.jpg'),
-(28, '15', '50', 'Cincin HEYu jewelry', 'logam', 'emas', 'kondisi oke', 400000, 'g1.jpg'),
-(31, '18', '50', 'gelang', 'emas', 'emas', 'nyaman dipakai', 100000, 'b1.jpg'),
-(32, '10', '52', 'Sepatu-olahraga-pria', 'kulit', 'hitam-puti', 'nyaman dipakai', 250000, 'sepatu.jpg');
+(26, '13', '50', 'kalung', 'perak', 'keemasan', 'well ', 500000, 'shop-cart1.PNG'),
+(27, '14', '50', 'Cincin nikah', 'emas', 'emas', 'mantab buat cincin nikah sob!', 400000, 'e1.jpg'),
+(28, '15', '50', 'Cincin HEYu jewelry', 'emas', 'emas', 'kondisi oke', 400000, 'g1.jpg'),
+(31, '18', '50', 'gelang emas', 'kuningan', 'emas', 'nyaman dipakai', 100000, 'b1.jpg'),
+(33, '12', '50', 'Cincin hijau', 'emas', 'kuning hij', 'nyaman dipakai dan berkualitas', 560000, 'bootstrap-ring1.png'),
+(34, '14', '50', 'Cincin tunangan', 'emas', 'emas abu-a', 'cocok buat kaum muda yang mau nikah', 1000000, 'd1.jpg'),
+(35, '14', '50', 'Cincin kawin spilla', 'emas', 'emas', 'berkualitas dan dijamin puas dengan hasil', 790000, 'h1.jpg'),
+(36, '10', '53', 'Swiss army 002 jam tangan pria', 'stainless steel', 'hitam emas', 'nyaman dipakai saat ke acara resmi', 600000, 'oke1.jpg'),
+(37, '10', '54', 'AQ-230-GOLD-CASIO-VINTAGE-WATC', 'stainless steel', 'emas', 'berkualitas dan dijamin puas dengan hasil', 780000, 'jam1.jpg'),
+(38, '10', '55', 'casio man combination aw-80v-5', 'stainless steel', 'pink', 'tahan air', 450000, 'satu1.PNG');
 
 -- --------------------------------------------------------
 
@@ -336,13 +341,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_cart` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_checkout` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -378,13 +383,13 @@ ALTER TABLE `merk`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_order` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `user`

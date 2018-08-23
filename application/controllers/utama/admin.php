@@ -213,7 +213,7 @@ class Admin extends CI_Controller
 		$row=$this->user_model->larik();
 		$config['base_url']=base_url().'utama/admin/produk';
 		$config['total_rows']=$row;
-		$config['per_page']=2;
+		$config['per_page']=5;
 		$config['first_link']='Pertama';
 		$config['last_link']='Terakhir'; 
 		$config['next_link']='Berikutnya';
@@ -306,7 +306,7 @@ class Admin extends CI_Controller
 	}
 	public function hapusproduk()
 	{
-		$empat=$this->uri->segment(3);
+		$empat=$this->uri->segment(4);
 		$lima=$this->user_model->delete_produk($empat);
 		redirect(base_url('utama/admin/produk'));
 	}

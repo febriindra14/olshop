@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <div class="form-group">
       <label>id kategori :</label>
       <select name="id_kategori" class="form-control">
-      <option value="0">Pilih id kat</option>
+      <option value="0">Pilih kategori</option>
       <?php foreach ($kat as $i) {?>
         <option value="<?php echo $i['id_kategori'];?>"><?php echo $i['nama_kategori'];?></option>
       <?php }?>
@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <div class="form-group">
       <label>id merk :</label>
     <select name="id_merk" class="form-control">
-      <option value="0">Pilih id merk</option>
+      <option value="0">Pilih merk</option>
       <?php foreach ($sama as $i) {?>
         <option value="<?php echo $i['id_merk'];?>"><?php echo $i['nama_merk'];?></option>
       <?php }?>

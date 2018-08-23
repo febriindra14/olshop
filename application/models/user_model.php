@@ -35,13 +35,12 @@ class User_model extends CI_Model
 		$this->db->update('user',$b);
 	}
 	//produk
-	public function kardus()
+	public function kardus($perPage,$start)
 	{	
-		$this->db->select('*');
-		$this->db->from('produk');
 		$this->db->join('kategori_produk','kategori_produk.id_kategori=produk.id_kategori');
 		$this->db->join('merk','merk.id_merk=produk.id_merk');
-		return $this->db->get();
+		$data=$this->db->get('produk',$perPage,$start);
+		return $data;
 	}
 	//relasi
 	public function relasi(){
